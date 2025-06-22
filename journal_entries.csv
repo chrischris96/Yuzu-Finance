@@ -1,0 +1,1001 @@
+entry_id,entry_date,account_name,account_code,debit,credit,description,entry_type
+1,2025-06-12,Loan Loss Expense,5100,3115.29,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+2,2025-06-12,Provision for Loan Losses,2600,,3115.29,Loan Loss Expense to Provision for Loan Losses,Provisioning
+3,2025-06-03,Credit Card Receivable,1320,5652.95,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+4,2025-06-03,Customer Loan Account,2200,,5652.95,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+5,2025-06-12,Loan Loss Expense,5100,2947.41,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+6,2025-06-12,Provision for Loan Losses,2600,,2947.41,Loan Loss Expense to Provision for Loan Losses,Provisioning
+7,2025-06-07,Customer Account,2100,2651.84,,Customer Account to Advisory Fee Income,FeeIncome
+8,2025-06-07,Advisory Fee Income,4200,,2651.84,Customer Account to Advisory Fee Income,FeeIncome
+9,2025-06-04,Cash on Hand,1010,1566.15,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+10,2025-06-04,Customer Deposit Account,2100,,1566.15,Cash on Hand to Customer Deposit Account,CustomerTransaction
+11,2025-06-01,Interest Receivable,1310,10601.75,,Interest Receivable to Interest Income,InterestAccrual
+12,2025-06-01,Interest Income,4100,,10601.75,Interest Receivable to Interest Income,InterestAccrual
+13,2025-06-11,Customer Account,2100,4777.92,,Customer Account to Advisory Fee Income,FeeIncome
+14,2025-06-11,Advisory Fee Income,4200,,4777.92,Customer Account to Advisory Fee Income,FeeIncome
+15,2025-06-04,Loan Loss Expense,5100,11353.89,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+16,2025-06-04,Provision for Loan Losses,2600,,11353.89,Loan Loss Expense to Provision for Loan Losses,Provisioning
+17,2025-06-13,Trading Securities,1400,12196.05,,Trading Securities to Settlement Payable,SecuritiesTrading
+18,2025-06-13,Settlement Payable,2400,,12196.05,Trading Securities to Settlement Payable,SecuritiesTrading
+19,2025-06-03,Cash on Hand,1010,15417.34,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+20,2025-06-03,Customer Deposit Account,2100,,15417.34,Cash on Hand to Customer Deposit Account,CustomerTransaction
+21,2025-06-05,Loan Loss Expense,5100,9029.67,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+22,2025-06-05,Provision for Loan Losses,2600,,9029.67,Loan Loss Expense to Provision for Loan Losses,Provisioning
+23,2025-06-13,Interest Receivable,1310,5090.96,,Interest Receivable to Interest Income,InterestAccrual
+24,2025-06-13,Interest Income,4100,,5090.96,Interest Receivable to Interest Income,InterestAccrual
+25,2025-06-07,Credit Card Receivable,1320,2942.0,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+26,2025-06-07,Customer Loan Account,2200,,2942.0,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+27,2025-06-06,Cash on Hand,1010,7820.61,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+28,2025-06-06,Customer Deposit Account,2100,,7820.61,Cash on Hand to Customer Deposit Account,CustomerTransaction
+29,2025-06-01,Customer Account,2100,6025.9,,Customer Account to Advisory Fee Income,FeeIncome
+30,2025-06-01,Advisory Fee Income,4200,,6025.9,Customer Account to Advisory Fee Income,FeeIncome
+31,2025-06-02,Loan Loss Expense,5100,9729.07,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+32,2025-06-02,Provision for Loan Losses,2600,,9729.07,Loan Loss Expense to Provision for Loan Losses,Provisioning
+33,2025-06-05,Trading Securities,1400,2497.2,,Trading Securities to Settlement Payable,SecuritiesTrading
+34,2025-06-05,Settlement Payable,2400,,2497.2,Trading Securities to Settlement Payable,SecuritiesTrading
+35,2025-06-14,Loan Loss Expense,5100,12751.88,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+36,2025-06-14,Provision for Loan Losses,2600,,12751.88,Loan Loss Expense to Provision for Loan Losses,Provisioning
+37,2025-06-12,Credit Card Receivable,1320,11969.69,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+38,2025-06-12,Customer Loan Account,2200,,11969.69,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+39,2025-06-04,Cash on Hand,1010,1870.66,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+40,2025-06-04,Customer Deposit Account,2100,,1870.66,Cash on Hand to Customer Deposit Account,CustomerTransaction
+41,2025-06-14,Credit Card Receivable,1320,19719.21,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+42,2025-06-14,Customer Loan Account,2200,,19719.21,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+43,2025-06-07,Interest Receivable,1310,17463.19,,Interest Receivable to Interest Income,InterestAccrual
+44,2025-06-07,Interest Income,4100,,17463.19,Interest Receivable to Interest Income,InterestAccrual
+45,2025-06-14,Credit Card Receivable,1320,9614.8,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+46,2025-06-14,Customer Loan Account,2200,,9614.8,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+47,2025-06-06,Credit Card Receivable,1320,4090.43,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+48,2025-06-06,Customer Loan Account,2200,,4090.43,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+49,2025-06-12,Interest Receivable,1310,13733.33,,Interest Receivable to Interest Income,InterestAccrual
+50,2025-06-12,Interest Income,4100,,13733.33,Interest Receivable to Interest Income,InterestAccrual
+51,2025-06-10,Loan Loss Expense,5100,13312.67,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+52,2025-06-10,Provision for Loan Losses,2600,,13312.67,Loan Loss Expense to Provision for Loan Losses,Provisioning
+53,2025-06-12,Loan Loss Expense,5100,4251.63,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+54,2025-06-12,Provision for Loan Losses,2600,,4251.63,Loan Loss Expense to Provision for Loan Losses,Provisioning
+55,2025-06-07,Interest Receivable,1310,4104.65,,Interest Receivable to Interest Income,InterestAccrual
+56,2025-06-07,Interest Income,4100,,4104.65,Interest Receivable to Interest Income,InterestAccrual
+57,2025-06-11,Credit Card Receivable,1320,19800.94,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+58,2025-06-11,Customer Loan Account,2200,,19800.94,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+59,2025-06-11,Loan Loss Expense,5100,11582.05,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+60,2025-06-11,Provision for Loan Losses,2600,,11582.05,Loan Loss Expense to Provision for Loan Losses,Provisioning
+61,2025-06-13,Credit Card Receivable,1320,17014.19,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+62,2025-06-13,Customer Loan Account,2200,,17014.19,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+63,2025-06-01,Cash on Hand,1010,5351.91,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+64,2025-06-01,Customer Deposit Account,2100,,5351.91,Cash on Hand to Customer Deposit Account,CustomerTransaction
+65,2025-06-02,Credit Card Receivable,1320,8622.13,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+66,2025-06-02,Customer Loan Account,2200,,8622.13,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+67,2025-06-10,Interest Receivable,1310,18349.59,,Interest Receivable to Interest Income,InterestAccrual
+68,2025-06-10,Interest Income,4100,,18349.59,Interest Receivable to Interest Income,InterestAccrual
+69,2025-06-11,Loan Loss Expense,5100,6978.88,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+70,2025-06-11,Provision for Loan Losses,2600,,6978.88,Loan Loss Expense to Provision for Loan Losses,Provisioning
+71,2025-06-15,Trading Securities,1400,8517.01,,Trading Securities to Settlement Payable,SecuritiesTrading
+72,2025-06-15,Settlement Payable,2400,,8517.01,Trading Securities to Settlement Payable,SecuritiesTrading
+73,2025-06-05,Loan Loss Expense,5100,9718.19,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+74,2025-06-05,Provision for Loan Losses,2600,,9718.19,Loan Loss Expense to Provision for Loan Losses,Provisioning
+75,2025-06-09,Interest Receivable,1310,5685.92,,Interest Receivable to Interest Income,InterestAccrual
+76,2025-06-09,Interest Income,4100,,5685.92,Interest Receivable to Interest Income,InterestAccrual
+77,2025-06-10,Customer Account,2100,5992.09,,Customer Account to Advisory Fee Income,FeeIncome
+78,2025-06-10,Advisory Fee Income,4200,,5992.09,Customer Account to Advisory Fee Income,FeeIncome
+79,2025-06-07,Trading Securities,1400,18058.63,,Trading Securities to Settlement Payable,SecuritiesTrading
+80,2025-06-07,Settlement Payable,2400,,18058.63,Trading Securities to Settlement Payable,SecuritiesTrading
+81,2025-06-03,Credit Card Receivable,1320,5167.09,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+82,2025-06-03,Customer Loan Account,2200,,5167.09,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+83,2025-06-13,Customer Account,2100,10376.8,,Customer Account to Advisory Fee Income,FeeIncome
+84,2025-06-13,Advisory Fee Income,4200,,10376.8,Customer Account to Advisory Fee Income,FeeIncome
+85,2025-06-03,Cash on Hand,1010,17360.96,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+86,2025-06-03,Customer Deposit Account,2100,,17360.96,Cash on Hand to Customer Deposit Account,CustomerTransaction
+87,2025-06-11,Loan Loss Expense,5100,4039.66,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+88,2025-06-11,Provision for Loan Losses,2600,,4039.66,Loan Loss Expense to Provision for Loan Losses,Provisioning
+89,2025-06-07,Trading Securities,1400,12331.77,,Trading Securities to Settlement Payable,SecuritiesTrading
+90,2025-06-07,Settlement Payable,2400,,12331.77,Trading Securities to Settlement Payable,SecuritiesTrading
+91,2025-06-08,Trading Securities,1400,12321.88,,Trading Securities to Settlement Payable,SecuritiesTrading
+92,2025-06-08,Settlement Payable,2400,,12321.88,Trading Securities to Settlement Payable,SecuritiesTrading
+93,2025-06-09,Customer Account,2100,5776.87,,Customer Account to Advisory Fee Income,FeeIncome
+94,2025-06-09,Advisory Fee Income,4200,,5776.87,Customer Account to Advisory Fee Income,FeeIncome
+95,2025-06-02,Cash on Hand,1010,13925.38,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+96,2025-06-02,Customer Deposit Account,2100,,13925.38,Cash on Hand to Customer Deposit Account,CustomerTransaction
+97,2025-06-13,Loan Loss Expense,5100,17810.98,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+98,2025-06-13,Provision for Loan Losses,2600,,17810.98,Loan Loss Expense to Provision for Loan Losses,Provisioning
+99,2025-06-06,Credit Card Receivable,1320,15603.38,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+100,2025-06-06,Customer Loan Account,2200,,15603.38,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+101,2025-06-03,Cash on Hand,1010,6576.5,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+102,2025-06-03,Customer Deposit Account,2100,,6576.5,Cash on Hand to Customer Deposit Account,CustomerTransaction
+103,2025-06-12,Trading Securities,1400,1061.66,,Trading Securities to Settlement Payable,SecuritiesTrading
+104,2025-06-12,Settlement Payable,2400,,1061.66,Trading Securities to Settlement Payable,SecuritiesTrading
+105,2025-06-09,Loan Loss Expense,5100,6004.39,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+106,2025-06-09,Provision for Loan Losses,2600,,6004.39,Loan Loss Expense to Provision for Loan Losses,Provisioning
+107,2025-06-02,Interest Receivable,1310,10645.95,,Interest Receivable to Interest Income,InterestAccrual
+108,2025-06-02,Interest Income,4100,,10645.95,Interest Receivable to Interest Income,InterestAccrual
+109,2025-06-11,Loan Loss Expense,5100,6670.45,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+110,2025-06-11,Provision for Loan Losses,2600,,6670.45,Loan Loss Expense to Provision for Loan Losses,Provisioning
+111,2025-06-03,Customer Account,2100,12570.43,,Customer Account to Advisory Fee Income,FeeIncome
+112,2025-06-03,Advisory Fee Income,4200,,12570.43,Customer Account to Advisory Fee Income,FeeIncome
+113,2025-06-09,Credit Card Receivable,1320,15487.71,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+114,2025-06-09,Customer Loan Account,2200,,15487.71,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+115,2025-06-10,Customer Account,2100,18451.38,,Customer Account to Advisory Fee Income,FeeIncome
+116,2025-06-10,Advisory Fee Income,4200,,18451.38,Customer Account to Advisory Fee Income,FeeIncome
+117,2025-06-02,Credit Card Receivable,1320,10283.51,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+118,2025-06-02,Customer Loan Account,2200,,10283.51,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+119,2025-06-14,Credit Card Receivable,1320,17695.72,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+120,2025-06-14,Customer Loan Account,2200,,17695.72,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+121,2025-06-04,Credit Card Receivable,1320,5549.59,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+122,2025-06-04,Customer Loan Account,2200,,5549.59,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+123,2025-06-02,Customer Account,2100,18992.04,,Customer Account to Advisory Fee Income,FeeIncome
+124,2025-06-02,Advisory Fee Income,4200,,18992.04,Customer Account to Advisory Fee Income,FeeIncome
+125,2025-06-02,Loan Loss Expense,5100,10233.82,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+126,2025-06-02,Provision for Loan Losses,2600,,10233.82,Loan Loss Expense to Provision for Loan Losses,Provisioning
+127,2025-06-03,Customer Account,2100,15550.85,,Customer Account to Advisory Fee Income,FeeIncome
+128,2025-06-03,Advisory Fee Income,4200,,15550.85,Customer Account to Advisory Fee Income,FeeIncome
+129,2025-06-09,Loan Loss Expense,5100,10030.37,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+130,2025-06-09,Provision for Loan Losses,2600,,10030.37,Loan Loss Expense to Provision for Loan Losses,Provisioning
+131,2025-06-14,Interest Receivable,1310,6036.08,,Interest Receivable to Interest Income,InterestAccrual
+132,2025-06-14,Interest Income,4100,,6036.08,Interest Receivable to Interest Income,InterestAccrual
+133,2025-06-04,Customer Account,2100,9039.62,,Customer Account to Advisory Fee Income,FeeIncome
+134,2025-06-04,Advisory Fee Income,4200,,9039.62,Customer Account to Advisory Fee Income,FeeIncome
+135,2025-06-12,Customer Account,2100,15350.04,,Customer Account to Advisory Fee Income,FeeIncome
+136,2025-06-12,Advisory Fee Income,4200,,15350.04,Customer Account to Advisory Fee Income,FeeIncome
+137,2025-06-07,Interest Receivable,1310,14546.03,,Interest Receivable to Interest Income,InterestAccrual
+138,2025-06-07,Interest Income,4100,,14546.03,Interest Receivable to Interest Income,InterestAccrual
+139,2025-06-08,Loan Loss Expense,5100,13347.68,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+140,2025-06-08,Provision for Loan Losses,2600,,13347.68,Loan Loss Expense to Provision for Loan Losses,Provisioning
+141,2025-06-04,Customer Account,2100,9578.24,,Customer Account to Advisory Fee Income,FeeIncome
+142,2025-06-04,Advisory Fee Income,4200,,9578.24,Customer Account to Advisory Fee Income,FeeIncome
+143,2025-06-01,Interest Receivable,1310,2216.49,,Interest Receivable to Interest Income,InterestAccrual
+144,2025-06-01,Interest Income,4100,,2216.49,Interest Receivable to Interest Income,InterestAccrual
+145,2025-06-10,Customer Account,2100,11524.51,,Customer Account to Advisory Fee Income,FeeIncome
+146,2025-06-10,Advisory Fee Income,4200,,11524.51,Customer Account to Advisory Fee Income,FeeIncome
+147,2025-06-12,Interest Receivable,1310,1136.63,,Interest Receivable to Interest Income,InterestAccrual
+148,2025-06-12,Interest Income,4100,,1136.63,Interest Receivable to Interest Income,InterestAccrual
+149,2025-06-02,Loan Loss Expense,5100,2118.6,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+150,2025-06-02,Provision for Loan Losses,2600,,2118.6,Loan Loss Expense to Provision for Loan Losses,Provisioning
+151,2025-06-02,Cash on Hand,1010,17333.07,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+152,2025-06-02,Customer Deposit Account,2100,,17333.07,Cash on Hand to Customer Deposit Account,CustomerTransaction
+153,2025-06-11,Customer Account,2100,5522.09,,Customer Account to Advisory Fee Income,FeeIncome
+154,2025-06-11,Advisory Fee Income,4200,,5522.09,Customer Account to Advisory Fee Income,FeeIncome
+155,2025-06-03,Trading Securities,1400,5070.5,,Trading Securities to Settlement Payable,SecuritiesTrading
+156,2025-06-03,Settlement Payable,2400,,5070.5,Trading Securities to Settlement Payable,SecuritiesTrading
+157,2025-06-10,Loan Loss Expense,5100,18774.77,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+158,2025-06-10,Provision for Loan Losses,2600,,18774.77,Loan Loss Expense to Provision for Loan Losses,Provisioning
+159,2025-06-13,Customer Account,2100,9980.75,,Customer Account to Advisory Fee Income,FeeIncome
+160,2025-06-13,Advisory Fee Income,4200,,9980.75,Customer Account to Advisory Fee Income,FeeIncome
+161,2025-06-04,Trading Securities,1400,16342.44,,Trading Securities to Settlement Payable,SecuritiesTrading
+162,2025-06-04,Settlement Payable,2400,,16342.44,Trading Securities to Settlement Payable,SecuritiesTrading
+163,2025-06-07,Cash on Hand,1010,2841.69,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+164,2025-06-07,Customer Deposit Account,2100,,2841.69,Cash on Hand to Customer Deposit Account,CustomerTransaction
+165,2025-06-08,Credit Card Receivable,1320,9047.99,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+166,2025-06-08,Customer Loan Account,2200,,9047.99,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+167,2025-06-11,Loan Loss Expense,5100,2029.25,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+168,2025-06-11,Provision for Loan Losses,2600,,2029.25,Loan Loss Expense to Provision for Loan Losses,Provisioning
+169,2025-06-07,Loan Loss Expense,5100,2869.94,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+170,2025-06-07,Provision for Loan Losses,2600,,2869.94,Loan Loss Expense to Provision for Loan Losses,Provisioning
+171,2025-06-14,Loan Loss Expense,5100,7446.75,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+172,2025-06-14,Provision for Loan Losses,2600,,7446.75,Loan Loss Expense to Provision for Loan Losses,Provisioning
+173,2025-06-04,Cash on Hand,1010,5724.47,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+174,2025-06-04,Customer Deposit Account,2100,,5724.47,Cash on Hand to Customer Deposit Account,CustomerTransaction
+175,2025-06-07,Customer Account,2100,9523.66,,Customer Account to Advisory Fee Income,FeeIncome
+176,2025-06-07,Advisory Fee Income,4200,,9523.66,Customer Account to Advisory Fee Income,FeeIncome
+177,2025-06-04,Interest Receivable,1310,6292.36,,Interest Receivable to Interest Income,InterestAccrual
+178,2025-06-04,Interest Income,4100,,6292.36,Interest Receivable to Interest Income,InterestAccrual
+179,2025-06-14,Cash on Hand,1010,9419.48,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+180,2025-06-14,Customer Deposit Account,2100,,9419.48,Cash on Hand to Customer Deposit Account,CustomerTransaction
+181,2025-06-11,Customer Account,2100,2860.27,,Customer Account to Advisory Fee Income,FeeIncome
+182,2025-06-11,Advisory Fee Income,4200,,2860.27,Customer Account to Advisory Fee Income,FeeIncome
+183,2025-06-02,Customer Account,2100,16884.52,,Customer Account to Advisory Fee Income,FeeIncome
+184,2025-06-02,Advisory Fee Income,4200,,16884.52,Customer Account to Advisory Fee Income,FeeIncome
+185,2025-06-08,Interest Receivable,1310,4159.91,,Interest Receivable to Interest Income,InterestAccrual
+186,2025-06-08,Interest Income,4100,,4159.91,Interest Receivable to Interest Income,InterestAccrual
+187,2025-06-07,Trading Securities,1400,5061.2,,Trading Securities to Settlement Payable,SecuritiesTrading
+188,2025-06-07,Settlement Payable,2400,,5061.2,Trading Securities to Settlement Payable,SecuritiesTrading
+189,2025-06-01,Cash on Hand,1010,4128.11,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+190,2025-06-01,Customer Deposit Account,2100,,4128.11,Cash on Hand to Customer Deposit Account,CustomerTransaction
+191,2025-06-13,Trading Securities,1400,6038.86,,Trading Securities to Settlement Payable,SecuritiesTrading
+192,2025-06-13,Settlement Payable,2400,,6038.86,Trading Securities to Settlement Payable,SecuritiesTrading
+193,2025-06-12,Trading Securities,1400,6419.74,,Trading Securities to Settlement Payable,SecuritiesTrading
+194,2025-06-12,Settlement Payable,2400,,6419.74,Trading Securities to Settlement Payable,SecuritiesTrading
+195,2025-06-09,Loan Loss Expense,5100,19913.03,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+196,2025-06-09,Provision for Loan Losses,2600,,19913.03,Loan Loss Expense to Provision for Loan Losses,Provisioning
+197,2025-06-03,Loan Loss Expense,5100,14649.76,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+198,2025-06-03,Provision for Loan Losses,2600,,14649.76,Loan Loss Expense to Provision for Loan Losses,Provisioning
+199,2025-06-01,Interest Receivable,1310,6637.45,,Interest Receivable to Interest Income,InterestAccrual
+200,2025-06-01,Interest Income,4100,,6637.45,Interest Receivable to Interest Income,InterestAccrual
+201,2025-06-01,Customer Account,2100,14979.01,,Customer Account to Advisory Fee Income,FeeIncome
+202,2025-06-01,Advisory Fee Income,4200,,14979.01,Customer Account to Advisory Fee Income,FeeIncome
+203,2025-06-01,Loan Loss Expense,5100,6958.49,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+204,2025-06-01,Provision for Loan Losses,2600,,6958.49,Loan Loss Expense to Provision for Loan Losses,Provisioning
+205,2025-06-15,Customer Account,2100,10058.98,,Customer Account to Advisory Fee Income,FeeIncome
+206,2025-06-15,Advisory Fee Income,4200,,10058.98,Customer Account to Advisory Fee Income,FeeIncome
+207,2025-06-09,Customer Account,2100,3991.22,,Customer Account to Advisory Fee Income,FeeIncome
+208,2025-06-09,Advisory Fee Income,4200,,3991.22,Customer Account to Advisory Fee Income,FeeIncome
+209,2025-06-02,Cash on Hand,1010,17175.51,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+210,2025-06-02,Customer Deposit Account,2100,,17175.51,Cash on Hand to Customer Deposit Account,CustomerTransaction
+211,2025-06-14,Customer Account,2100,2291.26,,Customer Account to Advisory Fee Income,FeeIncome
+212,2025-06-14,Advisory Fee Income,4200,,2291.26,Customer Account to Advisory Fee Income,FeeIncome
+213,2025-06-15,Interest Receivable,1310,8671.74,,Interest Receivable to Interest Income,InterestAccrual
+214,2025-06-15,Interest Income,4100,,8671.74,Interest Receivable to Interest Income,InterestAccrual
+215,2025-06-10,Customer Account,2100,5678.09,,Customer Account to Advisory Fee Income,FeeIncome
+216,2025-06-10,Advisory Fee Income,4200,,5678.09,Customer Account to Advisory Fee Income,FeeIncome
+217,2025-06-07,Cash on Hand,1010,12768.25,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+218,2025-06-07,Customer Deposit Account,2100,,12768.25,Cash on Hand to Customer Deposit Account,CustomerTransaction
+219,2025-06-09,Loan Loss Expense,5100,12089.77,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+220,2025-06-09,Provision for Loan Losses,2600,,12089.77,Loan Loss Expense to Provision for Loan Losses,Provisioning
+221,2025-06-04,Credit Card Receivable,1320,18759.42,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+222,2025-06-04,Customer Loan Account,2200,,18759.42,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+223,2025-06-04,Loan Loss Expense,5100,14607.64,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+224,2025-06-04,Provision for Loan Losses,2600,,14607.64,Loan Loss Expense to Provision for Loan Losses,Provisioning
+225,2025-06-11,Credit Card Receivable,1320,8519.93,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+226,2025-06-11,Customer Loan Account,2200,,8519.93,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+227,2025-06-06,Loan Loss Expense,5100,6699.94,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+228,2025-06-06,Provision for Loan Losses,2600,,6699.94,Loan Loss Expense to Provision for Loan Losses,Provisioning
+229,2025-06-10,Cash on Hand,1010,1176.99,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+230,2025-06-10,Customer Deposit Account,2100,,1176.99,Cash on Hand to Customer Deposit Account,CustomerTransaction
+231,2025-06-02,Customer Account,2100,19925.83,,Customer Account to Advisory Fee Income,FeeIncome
+232,2025-06-02,Advisory Fee Income,4200,,19925.83,Customer Account to Advisory Fee Income,FeeIncome
+233,2025-06-05,Customer Account,2100,5049.93,,Customer Account to Advisory Fee Income,FeeIncome
+234,2025-06-05,Advisory Fee Income,4200,,5049.93,Customer Account to Advisory Fee Income,FeeIncome
+235,2025-06-15,Interest Receivable,1310,18731.93,,Interest Receivable to Interest Income,InterestAccrual
+236,2025-06-15,Interest Income,4100,,18731.93,Interest Receivable to Interest Income,InterestAccrual
+237,2025-06-06,Cash on Hand,1010,17706.13,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+238,2025-06-06,Customer Deposit Account,2100,,17706.13,Cash on Hand to Customer Deposit Account,CustomerTransaction
+239,2025-06-14,Credit Card Receivable,1320,3997.19,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+240,2025-06-14,Customer Loan Account,2200,,3997.19,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+241,2025-06-10,Customer Account,2100,14367.26,,Customer Account to Advisory Fee Income,FeeIncome
+242,2025-06-10,Advisory Fee Income,4200,,14367.26,Customer Account to Advisory Fee Income,FeeIncome
+243,2025-06-11,Loan Loss Expense,5100,11049.87,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+244,2025-06-11,Provision for Loan Losses,2600,,11049.87,Loan Loss Expense to Provision for Loan Losses,Provisioning
+245,2025-06-11,Customer Account,2100,6688.2,,Customer Account to Advisory Fee Income,FeeIncome
+246,2025-06-11,Advisory Fee Income,4200,,6688.2,Customer Account to Advisory Fee Income,FeeIncome
+247,2025-06-03,Cash on Hand,1010,18839.67,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+248,2025-06-03,Customer Deposit Account,2100,,18839.67,Cash on Hand to Customer Deposit Account,CustomerTransaction
+249,2025-06-02,Credit Card Receivable,1320,3193.14,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+250,2025-06-02,Customer Loan Account,2200,,3193.14,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+251,2025-06-05,Loan Loss Expense,5100,11511.25,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+252,2025-06-05,Provision for Loan Losses,2600,,11511.25,Loan Loss Expense to Provision for Loan Losses,Provisioning
+253,2025-06-12,Credit Card Receivable,1320,12491.77,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+254,2025-06-12,Customer Loan Account,2200,,12491.77,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+255,2025-06-11,Credit Card Receivable,1320,4868.35,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+256,2025-06-11,Customer Loan Account,2200,,4868.35,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+257,2025-06-05,Credit Card Receivable,1320,10602.77,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+258,2025-06-05,Customer Loan Account,2200,,10602.77,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+259,2025-06-07,Cash on Hand,1010,2753.67,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+260,2025-06-07,Customer Deposit Account,2100,,2753.67,Cash on Hand to Customer Deposit Account,CustomerTransaction
+261,2025-06-06,Credit Card Receivable,1320,1837.65,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+262,2025-06-06,Customer Loan Account,2200,,1837.65,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+263,2025-06-05,Interest Receivable,1310,13105.15,,Interest Receivable to Interest Income,InterestAccrual
+264,2025-06-05,Interest Income,4100,,13105.15,Interest Receivable to Interest Income,InterestAccrual
+265,2025-06-09,Interest Receivable,1310,15083.39,,Interest Receivable to Interest Income,InterestAccrual
+266,2025-06-09,Interest Income,4100,,15083.39,Interest Receivable to Interest Income,InterestAccrual
+267,2025-06-01,Loan Loss Expense,5100,9126.05,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+268,2025-06-01,Provision for Loan Losses,2600,,9126.05,Loan Loss Expense to Provision for Loan Losses,Provisioning
+269,2025-06-15,Cash on Hand,1010,2429.63,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+270,2025-06-15,Customer Deposit Account,2100,,2429.63,Cash on Hand to Customer Deposit Account,CustomerTransaction
+271,2025-06-09,Loan Loss Expense,5100,18174.64,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+272,2025-06-09,Provision for Loan Losses,2600,,18174.64,Loan Loss Expense to Provision for Loan Losses,Provisioning
+273,2025-06-10,Cash on Hand,1010,16857.31,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+274,2025-06-10,Customer Deposit Account,2100,,16857.31,Cash on Hand to Customer Deposit Account,CustomerTransaction
+275,2025-06-03,Customer Account,2100,3813.78,,Customer Account to Advisory Fee Income,FeeIncome
+276,2025-06-03,Advisory Fee Income,4200,,3813.78,Customer Account to Advisory Fee Income,FeeIncome
+277,2025-06-15,Cash on Hand,1010,6856.91,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+278,2025-06-15,Customer Deposit Account,2100,,6856.91,Cash on Hand to Customer Deposit Account,CustomerTransaction
+279,2025-06-04,Cash on Hand,1010,18079.57,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+280,2025-06-04,Customer Deposit Account,2100,,18079.57,Cash on Hand to Customer Deposit Account,CustomerTransaction
+281,2025-06-02,Loan Loss Expense,5100,5741.07,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+282,2025-06-02,Provision for Loan Losses,2600,,5741.07,Loan Loss Expense to Provision for Loan Losses,Provisioning
+283,2025-06-15,Credit Card Receivable,1320,15822.21,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+284,2025-06-15,Customer Loan Account,2200,,15822.21,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+285,2025-06-12,Trading Securities,1400,19502.9,,Trading Securities to Settlement Payable,SecuritiesTrading
+286,2025-06-12,Settlement Payable,2400,,19502.9,Trading Securities to Settlement Payable,SecuritiesTrading
+287,2025-06-04,Interest Receivable,1310,18589.51,,Interest Receivable to Interest Income,InterestAccrual
+288,2025-06-04,Interest Income,4100,,18589.51,Interest Receivable to Interest Income,InterestAccrual
+289,2025-06-13,Interest Receivable,1310,19547.91,,Interest Receivable to Interest Income,InterestAccrual
+290,2025-06-13,Interest Income,4100,,19547.91,Interest Receivable to Interest Income,InterestAccrual
+291,2025-06-01,Interest Receivable,1310,17746.91,,Interest Receivable to Interest Income,InterestAccrual
+292,2025-06-01,Interest Income,4100,,17746.91,Interest Receivable to Interest Income,InterestAccrual
+293,2025-06-06,Interest Receivable,1310,14994.72,,Interest Receivable to Interest Income,InterestAccrual
+294,2025-06-06,Interest Income,4100,,14994.72,Interest Receivable to Interest Income,InterestAccrual
+295,2025-06-14,Trading Securities,1400,16242.47,,Trading Securities to Settlement Payable,SecuritiesTrading
+296,2025-06-14,Settlement Payable,2400,,16242.47,Trading Securities to Settlement Payable,SecuritiesTrading
+297,2025-06-05,Loan Loss Expense,5100,16404.24,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+298,2025-06-05,Provision for Loan Losses,2600,,16404.24,Loan Loss Expense to Provision for Loan Losses,Provisioning
+299,2025-06-02,Interest Receivable,1310,15960.12,,Interest Receivable to Interest Income,InterestAccrual
+300,2025-06-02,Interest Income,4100,,15960.12,Interest Receivable to Interest Income,InterestAccrual
+301,2025-06-14,Trading Securities,1400,17571.17,,Trading Securities to Settlement Payable,SecuritiesTrading
+302,2025-06-14,Settlement Payable,2400,,17571.17,Trading Securities to Settlement Payable,SecuritiesTrading
+303,2025-06-14,Trading Securities,1400,5226.24,,Trading Securities to Settlement Payable,SecuritiesTrading
+304,2025-06-14,Settlement Payable,2400,,5226.24,Trading Securities to Settlement Payable,SecuritiesTrading
+305,2025-06-14,Trading Securities,1400,7643.51,,Trading Securities to Settlement Payable,SecuritiesTrading
+306,2025-06-14,Settlement Payable,2400,,7643.51,Trading Securities to Settlement Payable,SecuritiesTrading
+307,2025-06-11,Interest Receivable,1310,5235.55,,Interest Receivable to Interest Income,InterestAccrual
+308,2025-06-11,Interest Income,4100,,5235.55,Interest Receivable to Interest Income,InterestAccrual
+309,2025-06-05,Interest Receivable,1310,8570.85,,Interest Receivable to Interest Income,InterestAccrual
+310,2025-06-05,Interest Income,4100,,8570.85,Interest Receivable to Interest Income,InterestAccrual
+311,2025-06-05,Cash on Hand,1010,19370.89,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+312,2025-06-05,Customer Deposit Account,2100,,19370.89,Cash on Hand to Customer Deposit Account,CustomerTransaction
+313,2025-06-07,Credit Card Receivable,1320,13188.15,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+314,2025-06-07,Customer Loan Account,2200,,13188.15,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+315,2025-06-09,Loan Loss Expense,5100,19641.84,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+316,2025-06-09,Provision for Loan Losses,2600,,19641.84,Loan Loss Expense to Provision for Loan Losses,Provisioning
+317,2025-06-02,Credit Card Receivable,1320,18845.51,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+318,2025-06-02,Customer Loan Account,2200,,18845.51,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+319,2025-06-05,Credit Card Receivable,1320,4392.79,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+320,2025-06-05,Customer Loan Account,2200,,4392.79,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+321,2025-06-07,Cash on Hand,1010,3059.65,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+322,2025-06-07,Customer Deposit Account,2100,,3059.65,Cash on Hand to Customer Deposit Account,CustomerTransaction
+323,2025-06-06,Credit Card Receivable,1320,14842.36,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+324,2025-06-06,Customer Loan Account,2200,,14842.36,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+325,2025-06-09,Trading Securities,1400,12517.97,,Trading Securities to Settlement Payable,SecuritiesTrading
+326,2025-06-09,Settlement Payable,2400,,12517.97,Trading Securities to Settlement Payable,SecuritiesTrading
+327,2025-06-10,Cash on Hand,1010,8318.71,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+328,2025-06-10,Customer Deposit Account,2100,,8318.71,Cash on Hand to Customer Deposit Account,CustomerTransaction
+329,2025-06-12,Interest Receivable,1310,5839.73,,Interest Receivable to Interest Income,InterestAccrual
+330,2025-06-12,Interest Income,4100,,5839.73,Interest Receivable to Interest Income,InterestAccrual
+331,2025-06-15,Trading Securities,1400,1032.13,,Trading Securities to Settlement Payable,SecuritiesTrading
+332,2025-06-15,Settlement Payable,2400,,1032.13,Trading Securities to Settlement Payable,SecuritiesTrading
+333,2025-06-12,Customer Account,2100,14050.29,,Customer Account to Advisory Fee Income,FeeIncome
+334,2025-06-12,Advisory Fee Income,4200,,14050.29,Customer Account to Advisory Fee Income,FeeIncome
+335,2025-06-06,Loan Loss Expense,5100,13741.94,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+336,2025-06-06,Provision for Loan Losses,2600,,13741.94,Loan Loss Expense to Provision for Loan Losses,Provisioning
+337,2025-06-11,Trading Securities,1400,2329.5,,Trading Securities to Settlement Payable,SecuritiesTrading
+338,2025-06-11,Settlement Payable,2400,,2329.5,Trading Securities to Settlement Payable,SecuritiesTrading
+339,2025-06-11,Credit Card Receivable,1320,12839.95,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+340,2025-06-11,Customer Loan Account,2200,,12839.95,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+341,2025-06-05,Cash on Hand,1010,14675.33,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+342,2025-06-05,Customer Deposit Account,2100,,14675.33,Cash on Hand to Customer Deposit Account,CustomerTransaction
+343,2025-06-07,Customer Account,2100,6876.41,,Customer Account to Advisory Fee Income,FeeIncome
+344,2025-06-07,Advisory Fee Income,4200,,6876.41,Customer Account to Advisory Fee Income,FeeIncome
+345,2025-06-05,Credit Card Receivable,1320,8645.61,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+346,2025-06-05,Customer Loan Account,2200,,8645.61,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+347,2025-06-07,Customer Account,2100,3418.47,,Customer Account to Advisory Fee Income,FeeIncome
+348,2025-06-07,Advisory Fee Income,4200,,3418.47,Customer Account to Advisory Fee Income,FeeIncome
+349,2025-06-11,Loan Loss Expense,5100,18866.91,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+350,2025-06-11,Provision for Loan Losses,2600,,18866.91,Loan Loss Expense to Provision for Loan Losses,Provisioning
+351,2025-06-10,Loan Loss Expense,5100,18153.31,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+352,2025-06-10,Provision for Loan Losses,2600,,18153.31,Loan Loss Expense to Provision for Loan Losses,Provisioning
+353,2025-06-09,Customer Account,2100,6718.05,,Customer Account to Advisory Fee Income,FeeIncome
+354,2025-06-09,Advisory Fee Income,4200,,6718.05,Customer Account to Advisory Fee Income,FeeIncome
+355,2025-06-04,Cash on Hand,1010,6773.62,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+356,2025-06-04,Customer Deposit Account,2100,,6773.62,Cash on Hand to Customer Deposit Account,CustomerTransaction
+357,2025-06-10,Trading Securities,1400,15929.42,,Trading Securities to Settlement Payable,SecuritiesTrading
+358,2025-06-10,Settlement Payable,2400,,15929.42,Trading Securities to Settlement Payable,SecuritiesTrading
+359,2025-06-08,Loan Loss Expense,5100,7122.74,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+360,2025-06-08,Provision for Loan Losses,2600,,7122.74,Loan Loss Expense to Provision for Loan Losses,Provisioning
+361,2025-06-09,Trading Securities,1400,13836.92,,Trading Securities to Settlement Payable,SecuritiesTrading
+362,2025-06-09,Settlement Payable,2400,,13836.92,Trading Securities to Settlement Payable,SecuritiesTrading
+363,2025-06-13,Trading Securities,1400,16080.97,,Trading Securities to Settlement Payable,SecuritiesTrading
+364,2025-06-13,Settlement Payable,2400,,16080.97,Trading Securities to Settlement Payable,SecuritiesTrading
+365,2025-06-02,Loan Loss Expense,5100,4224.14,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+366,2025-06-02,Provision for Loan Losses,2600,,4224.14,Loan Loss Expense to Provision for Loan Losses,Provisioning
+367,2025-06-11,Credit Card Receivable,1320,10793.59,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+368,2025-06-11,Customer Loan Account,2200,,10793.59,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+369,2025-06-14,Customer Account,2100,7368.58,,Customer Account to Advisory Fee Income,FeeIncome
+370,2025-06-14,Advisory Fee Income,4200,,7368.58,Customer Account to Advisory Fee Income,FeeIncome
+371,2025-06-04,Interest Receivable,1310,13783.12,,Interest Receivable to Interest Income,InterestAccrual
+372,2025-06-04,Interest Income,4100,,13783.12,Interest Receivable to Interest Income,InterestAccrual
+373,2025-06-01,Interest Receivable,1310,3799.73,,Interest Receivable to Interest Income,InterestAccrual
+374,2025-06-01,Interest Income,4100,,3799.73,Interest Receivable to Interest Income,InterestAccrual
+375,2025-06-10,Interest Receivable,1310,19694.78,,Interest Receivable to Interest Income,InterestAccrual
+376,2025-06-10,Interest Income,4100,,19694.78,Interest Receivable to Interest Income,InterestAccrual
+377,2025-06-15,Cash on Hand,1010,9652.91,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+378,2025-06-15,Customer Deposit Account,2100,,9652.91,Cash on Hand to Customer Deposit Account,CustomerTransaction
+379,2025-06-12,Loan Loss Expense,5100,11937.75,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+380,2025-06-12,Provision for Loan Losses,2600,,11937.75,Loan Loss Expense to Provision for Loan Losses,Provisioning
+381,2025-06-07,Loan Loss Expense,5100,8295.59,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+382,2025-06-07,Provision for Loan Losses,2600,,8295.59,Loan Loss Expense to Provision for Loan Losses,Provisioning
+383,2025-06-12,Interest Receivable,1310,3803.86,,Interest Receivable to Interest Income,InterestAccrual
+384,2025-06-12,Interest Income,4100,,3803.86,Interest Receivable to Interest Income,InterestAccrual
+385,2025-06-14,Cash on Hand,1010,17960.54,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+386,2025-06-14,Customer Deposit Account,2100,,17960.54,Cash on Hand to Customer Deposit Account,CustomerTransaction
+387,2025-06-04,Cash on Hand,1010,15789.99,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+388,2025-06-04,Customer Deposit Account,2100,,15789.99,Cash on Hand to Customer Deposit Account,CustomerTransaction
+389,2025-06-12,Interest Receivable,1310,16278.09,,Interest Receivable to Interest Income,InterestAccrual
+390,2025-06-12,Interest Income,4100,,16278.09,Interest Receivable to Interest Income,InterestAccrual
+391,2025-06-09,Customer Account,2100,9826.45,,Customer Account to Advisory Fee Income,FeeIncome
+392,2025-06-09,Advisory Fee Income,4200,,9826.45,Customer Account to Advisory Fee Income,FeeIncome
+393,2025-06-02,Interest Receivable,1310,18431.93,,Interest Receivable to Interest Income,InterestAccrual
+394,2025-06-02,Interest Income,4100,,18431.93,Interest Receivable to Interest Income,InterestAccrual
+395,2025-06-08,Trading Securities,1400,3533.44,,Trading Securities to Settlement Payable,SecuritiesTrading
+396,2025-06-08,Settlement Payable,2400,,3533.44,Trading Securities to Settlement Payable,SecuritiesTrading
+397,2025-06-09,Loan Loss Expense,5100,11091.51,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+398,2025-06-09,Provision for Loan Losses,2600,,11091.51,Loan Loss Expense to Provision for Loan Losses,Provisioning
+399,2025-06-13,Customer Account,2100,7028.66,,Customer Account to Advisory Fee Income,FeeIncome
+400,2025-06-13,Advisory Fee Income,4200,,7028.66,Customer Account to Advisory Fee Income,FeeIncome
+401,2025-06-12,Trading Securities,1400,12640.39,,Trading Securities to Settlement Payable,SecuritiesTrading
+402,2025-06-12,Settlement Payable,2400,,12640.39,Trading Securities to Settlement Payable,SecuritiesTrading
+403,2025-06-15,Customer Account,2100,9108.07,,Customer Account to Advisory Fee Income,FeeIncome
+404,2025-06-15,Advisory Fee Income,4200,,9108.07,Customer Account to Advisory Fee Income,FeeIncome
+405,2025-06-03,Customer Account,2100,9472.36,,Customer Account to Advisory Fee Income,FeeIncome
+406,2025-06-03,Advisory Fee Income,4200,,9472.36,Customer Account to Advisory Fee Income,FeeIncome
+407,2025-06-08,Loan Loss Expense,5100,17368.4,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+408,2025-06-08,Provision for Loan Losses,2600,,17368.4,Loan Loss Expense to Provision for Loan Losses,Provisioning
+409,2025-06-14,Credit Card Receivable,1320,15283.76,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+410,2025-06-14,Customer Loan Account,2200,,15283.76,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+411,2025-06-13,Loan Loss Expense,5100,6268.92,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+412,2025-06-13,Provision for Loan Losses,2600,,6268.92,Loan Loss Expense to Provision for Loan Losses,Provisioning
+413,2025-06-04,Customer Account,2100,10207.34,,Customer Account to Advisory Fee Income,FeeIncome
+414,2025-06-04,Advisory Fee Income,4200,,10207.34,Customer Account to Advisory Fee Income,FeeIncome
+415,2025-06-12,Credit Card Receivable,1320,9357.58,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+416,2025-06-12,Customer Loan Account,2200,,9357.58,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+417,2025-06-06,Credit Card Receivable,1320,5455.38,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+418,2025-06-06,Customer Loan Account,2200,,5455.38,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+419,2025-06-02,Credit Card Receivable,1320,17967.51,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+420,2025-06-02,Customer Loan Account,2200,,17967.51,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+421,2025-06-07,Interest Receivable,1310,3865.78,,Interest Receivable to Interest Income,InterestAccrual
+422,2025-06-07,Interest Income,4100,,3865.78,Interest Receivable to Interest Income,InterestAccrual
+423,2025-06-04,Loan Loss Expense,5100,3903.3,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+424,2025-06-04,Provision for Loan Losses,2600,,3903.3,Loan Loss Expense to Provision for Loan Losses,Provisioning
+425,2025-06-06,Cash on Hand,1010,8882.49,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+426,2025-06-06,Customer Deposit Account,2100,,8882.49,Cash on Hand to Customer Deposit Account,CustomerTransaction
+427,2025-06-01,Customer Account,2100,9852.56,,Customer Account to Advisory Fee Income,FeeIncome
+428,2025-06-01,Advisory Fee Income,4200,,9852.56,Customer Account to Advisory Fee Income,FeeIncome
+429,2025-06-07,Interest Receivable,1310,16824.93,,Interest Receivable to Interest Income,InterestAccrual
+430,2025-06-07,Interest Income,4100,,16824.93,Interest Receivable to Interest Income,InterestAccrual
+431,2025-06-01,Customer Account,2100,18975.18,,Customer Account to Advisory Fee Income,FeeIncome
+432,2025-06-01,Advisory Fee Income,4200,,18975.18,Customer Account to Advisory Fee Income,FeeIncome
+433,2025-06-01,Customer Account,2100,8227.24,,Customer Account to Advisory Fee Income,FeeIncome
+434,2025-06-01,Advisory Fee Income,4200,,8227.24,Customer Account to Advisory Fee Income,FeeIncome
+435,2025-06-07,Credit Card Receivable,1320,6673.64,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+436,2025-06-07,Customer Loan Account,2200,,6673.64,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+437,2025-06-12,Trading Securities,1400,11226.19,,Trading Securities to Settlement Payable,SecuritiesTrading
+438,2025-06-12,Settlement Payable,2400,,11226.19,Trading Securities to Settlement Payable,SecuritiesTrading
+439,2025-06-15,Customer Account,2100,16197.5,,Customer Account to Advisory Fee Income,FeeIncome
+440,2025-06-15,Advisory Fee Income,4200,,16197.5,Customer Account to Advisory Fee Income,FeeIncome
+441,2025-06-05,Interest Receivable,1310,10276.36,,Interest Receivable to Interest Income,InterestAccrual
+442,2025-06-05,Interest Income,4100,,10276.36,Interest Receivable to Interest Income,InterestAccrual
+443,2025-06-07,Trading Securities,1400,10227.2,,Trading Securities to Settlement Payable,SecuritiesTrading
+444,2025-06-07,Settlement Payable,2400,,10227.2,Trading Securities to Settlement Payable,SecuritiesTrading
+445,2025-06-13,Credit Card Receivable,1320,13708.6,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+446,2025-06-13,Customer Loan Account,2200,,13708.6,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+447,2025-06-14,Trading Securities,1400,14759.45,,Trading Securities to Settlement Payable,SecuritiesTrading
+448,2025-06-14,Settlement Payable,2400,,14759.45,Trading Securities to Settlement Payable,SecuritiesTrading
+449,2025-06-10,Trading Securities,1400,18471.29,,Trading Securities to Settlement Payable,SecuritiesTrading
+450,2025-06-10,Settlement Payable,2400,,18471.29,Trading Securities to Settlement Payable,SecuritiesTrading
+451,2025-06-07,Customer Account,2100,1512.36,,Customer Account to Advisory Fee Income,FeeIncome
+452,2025-06-07,Advisory Fee Income,4200,,1512.36,Customer Account to Advisory Fee Income,FeeIncome
+453,2025-06-01,Customer Account,2100,11723.45,,Customer Account to Advisory Fee Income,FeeIncome
+454,2025-06-01,Advisory Fee Income,4200,,11723.45,Customer Account to Advisory Fee Income,FeeIncome
+455,2025-06-03,Cash on Hand,1010,13212.24,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+456,2025-06-03,Customer Deposit Account,2100,,13212.24,Cash on Hand to Customer Deposit Account,CustomerTransaction
+457,2025-06-05,Trading Securities,1400,4452.85,,Trading Securities to Settlement Payable,SecuritiesTrading
+458,2025-06-05,Settlement Payable,2400,,4452.85,Trading Securities to Settlement Payable,SecuritiesTrading
+459,2025-06-08,Trading Securities,1400,7219.7,,Trading Securities to Settlement Payable,SecuritiesTrading
+460,2025-06-08,Settlement Payable,2400,,7219.7,Trading Securities to Settlement Payable,SecuritiesTrading
+461,2025-06-15,Credit Card Receivable,1320,7412.51,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+462,2025-06-15,Customer Loan Account,2200,,7412.51,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+463,2025-06-14,Trading Securities,1400,6286.88,,Trading Securities to Settlement Payable,SecuritiesTrading
+464,2025-06-14,Settlement Payable,2400,,6286.88,Trading Securities to Settlement Payable,SecuritiesTrading
+465,2025-06-02,Trading Securities,1400,5793.16,,Trading Securities to Settlement Payable,SecuritiesTrading
+466,2025-06-02,Settlement Payable,2400,,5793.16,Trading Securities to Settlement Payable,SecuritiesTrading
+467,2025-06-09,Trading Securities,1400,1368.28,,Trading Securities to Settlement Payable,SecuritiesTrading
+468,2025-06-09,Settlement Payable,2400,,1368.28,Trading Securities to Settlement Payable,SecuritiesTrading
+469,2025-06-06,Cash on Hand,1010,19998.25,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+470,2025-06-06,Customer Deposit Account,2100,,19998.25,Cash on Hand to Customer Deposit Account,CustomerTransaction
+471,2025-06-13,Interest Receivable,1310,13352.74,,Interest Receivable to Interest Income,InterestAccrual
+472,2025-06-13,Interest Income,4100,,13352.74,Interest Receivable to Interest Income,InterestAccrual
+473,2025-06-01,Loan Loss Expense,5100,1764.9,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+474,2025-06-01,Provision for Loan Losses,2600,,1764.9,Loan Loss Expense to Provision for Loan Losses,Provisioning
+475,2025-06-01,Interest Receivable,1310,4787.85,,Interest Receivable to Interest Income,InterestAccrual
+476,2025-06-01,Interest Income,4100,,4787.85,Interest Receivable to Interest Income,InterestAccrual
+477,2025-06-03,Customer Account,2100,3895.26,,Customer Account to Advisory Fee Income,FeeIncome
+478,2025-06-03,Advisory Fee Income,4200,,3895.26,Customer Account to Advisory Fee Income,FeeIncome
+479,2025-06-10,Trading Securities,1400,13719.72,,Trading Securities to Settlement Payable,SecuritiesTrading
+480,2025-06-10,Settlement Payable,2400,,13719.72,Trading Securities to Settlement Payable,SecuritiesTrading
+481,2025-06-05,Interest Receivable,1310,9835.65,,Interest Receivable to Interest Income,InterestAccrual
+482,2025-06-05,Interest Income,4100,,9835.65,Interest Receivable to Interest Income,InterestAccrual
+483,2025-06-10,Credit Card Receivable,1320,4187.99,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+484,2025-06-10,Customer Loan Account,2200,,4187.99,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+485,2025-06-13,Loan Loss Expense,5100,14648.79,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+486,2025-06-13,Provision for Loan Losses,2600,,14648.79,Loan Loss Expense to Provision for Loan Losses,Provisioning
+487,2025-06-02,Interest Receivable,1310,19329.69,,Interest Receivable to Interest Income,InterestAccrual
+488,2025-06-02,Interest Income,4100,,19329.69,Interest Receivable to Interest Income,InterestAccrual
+489,2025-06-05,Customer Account,2100,1487.89,,Customer Account to Advisory Fee Income,FeeIncome
+490,2025-06-05,Advisory Fee Income,4200,,1487.89,Customer Account to Advisory Fee Income,FeeIncome
+491,2025-06-07,Customer Account,2100,13869.6,,Customer Account to Advisory Fee Income,FeeIncome
+492,2025-06-07,Advisory Fee Income,4200,,13869.6,Customer Account to Advisory Fee Income,FeeIncome
+493,2025-06-04,Trading Securities,1400,18887.94,,Trading Securities to Settlement Payable,SecuritiesTrading
+494,2025-06-04,Settlement Payable,2400,,18887.94,Trading Securities to Settlement Payable,SecuritiesTrading
+495,2025-06-14,Cash on Hand,1010,12249.86,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+496,2025-06-14,Customer Deposit Account,2100,,12249.86,Cash on Hand to Customer Deposit Account,CustomerTransaction
+497,2025-06-12,Loan Loss Expense,5100,5614.14,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+498,2025-06-12,Provision for Loan Losses,2600,,5614.14,Loan Loss Expense to Provision for Loan Losses,Provisioning
+499,2025-06-10,Credit Card Receivable,1320,17155.57,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+500,2025-06-10,Customer Loan Account,2200,,17155.57,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+501,2025-06-10,Cash on Hand,1010,16128.32,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+502,2025-06-10,Customer Deposit Account,2100,,16128.32,Cash on Hand to Customer Deposit Account,CustomerTransaction
+503,2025-06-07,Cash on Hand,1010,7596.87,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+504,2025-06-07,Customer Deposit Account,2100,,7596.87,Cash on Hand to Customer Deposit Account,CustomerTransaction
+505,2025-06-09,Loan Loss Expense,5100,8040.85,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+506,2025-06-09,Provision for Loan Losses,2600,,8040.85,Loan Loss Expense to Provision for Loan Losses,Provisioning
+507,2025-06-14,Loan Loss Expense,5100,7483.39,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+508,2025-06-14,Provision for Loan Losses,2600,,7483.39,Loan Loss Expense to Provision for Loan Losses,Provisioning
+509,2025-06-02,Trading Securities,1400,16624.29,,Trading Securities to Settlement Payable,SecuritiesTrading
+510,2025-06-02,Settlement Payable,2400,,16624.29,Trading Securities to Settlement Payable,SecuritiesTrading
+511,2025-06-11,Trading Securities,1400,19254.96,,Trading Securities to Settlement Payable,SecuritiesTrading
+512,2025-06-11,Settlement Payable,2400,,19254.96,Trading Securities to Settlement Payable,SecuritiesTrading
+513,2025-06-07,Trading Securities,1400,14438.86,,Trading Securities to Settlement Payable,SecuritiesTrading
+514,2025-06-07,Settlement Payable,2400,,14438.86,Trading Securities to Settlement Payable,SecuritiesTrading
+515,2025-06-11,Interest Receivable,1310,14942.11,,Interest Receivable to Interest Income,InterestAccrual
+516,2025-06-11,Interest Income,4100,,14942.11,Interest Receivable to Interest Income,InterestAccrual
+517,2025-06-15,Credit Card Receivable,1320,12702.33,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+518,2025-06-15,Customer Loan Account,2200,,12702.33,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+519,2025-06-08,Customer Account,2100,15718.19,,Customer Account to Advisory Fee Income,FeeIncome
+520,2025-06-08,Advisory Fee Income,4200,,15718.19,Customer Account to Advisory Fee Income,FeeIncome
+521,2025-06-10,Trading Securities,1400,16688.96,,Trading Securities to Settlement Payable,SecuritiesTrading
+522,2025-06-10,Settlement Payable,2400,,16688.96,Trading Securities to Settlement Payable,SecuritiesTrading
+523,2025-06-04,Credit Card Receivable,1320,7123.79,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+524,2025-06-04,Customer Loan Account,2200,,7123.79,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+525,2025-06-08,Cash on Hand,1010,6299.64,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+526,2025-06-08,Customer Deposit Account,2100,,6299.64,Cash on Hand to Customer Deposit Account,CustomerTransaction
+527,2025-06-10,Interest Receivable,1310,15259.05,,Interest Receivable to Interest Income,InterestAccrual
+528,2025-06-10,Interest Income,4100,,15259.05,Interest Receivable to Interest Income,InterestAccrual
+529,2025-06-06,Customer Account,2100,13695.58,,Customer Account to Advisory Fee Income,FeeIncome
+530,2025-06-06,Advisory Fee Income,4200,,13695.58,Customer Account to Advisory Fee Income,FeeIncome
+531,2025-06-06,Cash on Hand,1010,10391.82,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+532,2025-06-06,Customer Deposit Account,2100,,10391.82,Cash on Hand to Customer Deposit Account,CustomerTransaction
+533,2025-06-06,Interest Receivable,1310,10263.45,,Interest Receivable to Interest Income,InterestAccrual
+534,2025-06-06,Interest Income,4100,,10263.45,Interest Receivable to Interest Income,InterestAccrual
+535,2025-06-15,Credit Card Receivable,1320,7466.44,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+536,2025-06-15,Customer Loan Account,2200,,7466.44,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+537,2025-06-05,Customer Account,2100,14322.49,,Customer Account to Advisory Fee Income,FeeIncome
+538,2025-06-05,Advisory Fee Income,4200,,14322.49,Customer Account to Advisory Fee Income,FeeIncome
+539,2025-06-04,Customer Account,2100,1192.87,,Customer Account to Advisory Fee Income,FeeIncome
+540,2025-06-04,Advisory Fee Income,4200,,1192.87,Customer Account to Advisory Fee Income,FeeIncome
+541,2025-06-07,Cash on Hand,1010,5585.76,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+542,2025-06-07,Customer Deposit Account,2100,,5585.76,Cash on Hand to Customer Deposit Account,CustomerTransaction
+543,2025-06-04,Trading Securities,1400,11548.35,,Trading Securities to Settlement Payable,SecuritiesTrading
+544,2025-06-04,Settlement Payable,2400,,11548.35,Trading Securities to Settlement Payable,SecuritiesTrading
+545,2025-06-12,Loan Loss Expense,5100,10045.77,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+546,2025-06-12,Provision for Loan Losses,2600,,10045.77,Loan Loss Expense to Provision for Loan Losses,Provisioning
+547,2025-06-01,Trading Securities,1400,9515.32,,Trading Securities to Settlement Payable,SecuritiesTrading
+548,2025-06-01,Settlement Payable,2400,,9515.32,Trading Securities to Settlement Payable,SecuritiesTrading
+549,2025-06-07,Cash on Hand,1010,6590.48,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+550,2025-06-07,Customer Deposit Account,2100,,6590.48,Cash on Hand to Customer Deposit Account,CustomerTransaction
+551,2025-06-11,Loan Loss Expense,5100,5622.8,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+552,2025-06-11,Provision for Loan Losses,2600,,5622.8,Loan Loss Expense to Provision for Loan Losses,Provisioning
+553,2025-06-09,Customer Account,2100,8011.39,,Customer Account to Advisory Fee Income,FeeIncome
+554,2025-06-09,Advisory Fee Income,4200,,8011.39,Customer Account to Advisory Fee Income,FeeIncome
+555,2025-06-12,Customer Account,2100,7531.39,,Customer Account to Advisory Fee Income,FeeIncome
+556,2025-06-12,Advisory Fee Income,4200,,7531.39,Customer Account to Advisory Fee Income,FeeIncome
+557,2025-06-12,Customer Account,2100,7285.03,,Customer Account to Advisory Fee Income,FeeIncome
+558,2025-06-12,Advisory Fee Income,4200,,7285.03,Customer Account to Advisory Fee Income,FeeIncome
+559,2025-06-05,Trading Securities,1400,6147.41,,Trading Securities to Settlement Payable,SecuritiesTrading
+560,2025-06-05,Settlement Payable,2400,,6147.41,Trading Securities to Settlement Payable,SecuritiesTrading
+561,2025-06-04,Interest Receivable,1310,3292.46,,Interest Receivable to Interest Income,InterestAccrual
+562,2025-06-04,Interest Income,4100,,3292.46,Interest Receivable to Interest Income,InterestAccrual
+563,2025-06-09,Credit Card Receivable,1320,3271.54,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+564,2025-06-09,Customer Loan Account,2200,,3271.54,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+565,2025-06-04,Loan Loss Expense,5100,4517.85,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+566,2025-06-04,Provision for Loan Losses,2600,,4517.85,Loan Loss Expense to Provision for Loan Losses,Provisioning
+567,2025-06-12,Loan Loss Expense,5100,10199.77,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+568,2025-06-12,Provision for Loan Losses,2600,,10199.77,Loan Loss Expense to Provision for Loan Losses,Provisioning
+569,2025-06-09,Customer Account,2100,19555.53,,Customer Account to Advisory Fee Income,FeeIncome
+570,2025-06-09,Advisory Fee Income,4200,,19555.53,Customer Account to Advisory Fee Income,FeeIncome
+571,2025-06-02,Customer Account,2100,6376.98,,Customer Account to Advisory Fee Income,FeeIncome
+572,2025-06-02,Advisory Fee Income,4200,,6376.98,Customer Account to Advisory Fee Income,FeeIncome
+573,2025-06-06,Interest Receivable,1310,6628.68,,Interest Receivable to Interest Income,InterestAccrual
+574,2025-06-06,Interest Income,4100,,6628.68,Interest Receivable to Interest Income,InterestAccrual
+575,2025-06-12,Interest Receivable,1310,6743.08,,Interest Receivable to Interest Income,InterestAccrual
+576,2025-06-12,Interest Income,4100,,6743.08,Interest Receivable to Interest Income,InterestAccrual
+577,2025-06-01,Customer Account,2100,3405.08,,Customer Account to Advisory Fee Income,FeeIncome
+578,2025-06-01,Advisory Fee Income,4200,,3405.08,Customer Account to Advisory Fee Income,FeeIncome
+579,2025-06-12,Cash on Hand,1010,11513.82,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+580,2025-06-12,Customer Deposit Account,2100,,11513.82,Cash on Hand to Customer Deposit Account,CustomerTransaction
+581,2025-06-13,Interest Receivable,1310,13119.52,,Interest Receivable to Interest Income,InterestAccrual
+582,2025-06-13,Interest Income,4100,,13119.52,Interest Receivable to Interest Income,InterestAccrual
+583,2025-06-01,Trading Securities,1400,2949.17,,Trading Securities to Settlement Payable,SecuritiesTrading
+584,2025-06-01,Settlement Payable,2400,,2949.17,Trading Securities to Settlement Payable,SecuritiesTrading
+585,2025-06-08,Customer Account,2100,6402.45,,Customer Account to Advisory Fee Income,FeeIncome
+586,2025-06-08,Advisory Fee Income,4200,,6402.45,Customer Account to Advisory Fee Income,FeeIncome
+587,2025-06-01,Trading Securities,1400,7473.41,,Trading Securities to Settlement Payable,SecuritiesTrading
+588,2025-06-01,Settlement Payable,2400,,7473.41,Trading Securities to Settlement Payable,SecuritiesTrading
+589,2025-06-08,Credit Card Receivable,1320,18880.21,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+590,2025-06-08,Customer Loan Account,2200,,18880.21,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+591,2025-06-07,Cash on Hand,1010,16620.2,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+592,2025-06-07,Customer Deposit Account,2100,,16620.2,Cash on Hand to Customer Deposit Account,CustomerTransaction
+593,2025-06-11,Trading Securities,1400,2407.56,,Trading Securities to Settlement Payable,SecuritiesTrading
+594,2025-06-11,Settlement Payable,2400,,2407.56,Trading Securities to Settlement Payable,SecuritiesTrading
+595,2025-06-03,Loan Loss Expense,5100,2018.57,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+596,2025-06-03,Provision for Loan Losses,2600,,2018.57,Loan Loss Expense to Provision for Loan Losses,Provisioning
+597,2025-06-02,Customer Account,2100,19033.39,,Customer Account to Advisory Fee Income,FeeIncome
+598,2025-06-02,Advisory Fee Income,4200,,19033.39,Customer Account to Advisory Fee Income,FeeIncome
+599,2025-06-13,Interest Receivable,1310,3250.58,,Interest Receivable to Interest Income,InterestAccrual
+600,2025-06-13,Interest Income,4100,,3250.58,Interest Receivable to Interest Income,InterestAccrual
+601,2025-06-13,Trading Securities,1400,12520.04,,Trading Securities to Settlement Payable,SecuritiesTrading
+602,2025-06-13,Settlement Payable,2400,,12520.04,Trading Securities to Settlement Payable,SecuritiesTrading
+603,2025-06-09,Customer Account,2100,5288.06,,Customer Account to Advisory Fee Income,FeeIncome
+604,2025-06-09,Advisory Fee Income,4200,,5288.06,Customer Account to Advisory Fee Income,FeeIncome
+605,2025-06-08,Trading Securities,1400,9559.77,,Trading Securities to Settlement Payable,SecuritiesTrading
+606,2025-06-08,Settlement Payable,2400,,9559.77,Trading Securities to Settlement Payable,SecuritiesTrading
+607,2025-06-07,Credit Card Receivable,1320,17343.17,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+608,2025-06-07,Customer Loan Account,2200,,17343.17,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+609,2025-06-01,Credit Card Receivable,1320,11803.96,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+610,2025-06-01,Customer Loan Account,2200,,11803.96,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+611,2025-06-02,Customer Account,2100,19242.07,,Customer Account to Advisory Fee Income,FeeIncome
+612,2025-06-02,Advisory Fee Income,4200,,19242.07,Customer Account to Advisory Fee Income,FeeIncome
+613,2025-06-05,Interest Receivable,1310,12884.79,,Interest Receivable to Interest Income,InterestAccrual
+614,2025-06-05,Interest Income,4100,,12884.79,Interest Receivable to Interest Income,InterestAccrual
+615,2025-06-04,Loan Loss Expense,5100,2542.56,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+616,2025-06-04,Provision for Loan Losses,2600,,2542.56,Loan Loss Expense to Provision for Loan Losses,Provisioning
+617,2025-06-03,Interest Receivable,1310,11487.85,,Interest Receivable to Interest Income,InterestAccrual
+618,2025-06-03,Interest Income,4100,,11487.85,Interest Receivable to Interest Income,InterestAccrual
+619,2025-06-12,Cash on Hand,1010,8761.83,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+620,2025-06-12,Customer Deposit Account,2100,,8761.83,Cash on Hand to Customer Deposit Account,CustomerTransaction
+621,2025-06-01,Customer Account,2100,9928.34,,Customer Account to Advisory Fee Income,FeeIncome
+622,2025-06-01,Advisory Fee Income,4200,,9928.34,Customer Account to Advisory Fee Income,FeeIncome
+623,2025-06-05,Interest Receivable,1310,6473.99,,Interest Receivable to Interest Income,InterestAccrual
+624,2025-06-05,Interest Income,4100,,6473.99,Interest Receivable to Interest Income,InterestAccrual
+625,2025-06-02,Loan Loss Expense,5100,17332.53,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+626,2025-06-02,Provision for Loan Losses,2600,,17332.53,Loan Loss Expense to Provision for Loan Losses,Provisioning
+627,2025-06-05,Loan Loss Expense,5100,5435.05,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+628,2025-06-05,Provision for Loan Losses,2600,,5435.05,Loan Loss Expense to Provision for Loan Losses,Provisioning
+629,2025-06-13,Loan Loss Expense,5100,12206.0,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+630,2025-06-13,Provision for Loan Losses,2600,,12206.0,Loan Loss Expense to Provision for Loan Losses,Provisioning
+631,2025-06-09,Interest Receivable,1310,9077.64,,Interest Receivable to Interest Income,InterestAccrual
+632,2025-06-09,Interest Income,4100,,9077.64,Interest Receivable to Interest Income,InterestAccrual
+633,2025-06-15,Interest Receivable,1310,13305.06,,Interest Receivable to Interest Income,InterestAccrual
+634,2025-06-15,Interest Income,4100,,13305.06,Interest Receivable to Interest Income,InterestAccrual
+635,2025-06-02,Credit Card Receivable,1320,16705.99,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+636,2025-06-02,Customer Loan Account,2200,,16705.99,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+637,2025-06-05,Cash on Hand,1010,4152.53,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+638,2025-06-05,Customer Deposit Account,2100,,4152.53,Cash on Hand to Customer Deposit Account,CustomerTransaction
+639,2025-06-10,Customer Account,2100,15230.2,,Customer Account to Advisory Fee Income,FeeIncome
+640,2025-06-10,Advisory Fee Income,4200,,15230.2,Customer Account to Advisory Fee Income,FeeIncome
+641,2025-06-08,Credit Card Receivable,1320,9343.92,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+642,2025-06-08,Customer Loan Account,2200,,9343.92,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+643,2025-06-07,Loan Loss Expense,5100,6777.73,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+644,2025-06-07,Provision for Loan Losses,2600,,6777.73,Loan Loss Expense to Provision for Loan Losses,Provisioning
+645,2025-06-08,Credit Card Receivable,1320,10508.97,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+646,2025-06-08,Customer Loan Account,2200,,10508.97,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+647,2025-06-01,Trading Securities,1400,2528.4,,Trading Securities to Settlement Payable,SecuritiesTrading
+648,2025-06-01,Settlement Payable,2400,,2528.4,Trading Securities to Settlement Payable,SecuritiesTrading
+649,2025-06-10,Trading Securities,1400,14956.14,,Trading Securities to Settlement Payable,SecuritiesTrading
+650,2025-06-10,Settlement Payable,2400,,14956.14,Trading Securities to Settlement Payable,SecuritiesTrading
+651,2025-06-04,Credit Card Receivable,1320,1491.43,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+652,2025-06-04,Customer Loan Account,2200,,1491.43,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+653,2025-06-10,Loan Loss Expense,5100,16883.21,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+654,2025-06-10,Provision for Loan Losses,2600,,16883.21,Loan Loss Expense to Provision for Loan Losses,Provisioning
+655,2025-06-13,Customer Account,2100,19064.94,,Customer Account to Advisory Fee Income,FeeIncome
+656,2025-06-13,Advisory Fee Income,4200,,19064.94,Customer Account to Advisory Fee Income,FeeIncome
+657,2025-06-10,Loan Loss Expense,5100,16607.0,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+658,2025-06-10,Provision for Loan Losses,2600,,16607.0,Loan Loss Expense to Provision for Loan Losses,Provisioning
+659,2025-06-03,Cash on Hand,1010,15499.07,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+660,2025-06-03,Customer Deposit Account,2100,,15499.07,Cash on Hand to Customer Deposit Account,CustomerTransaction
+661,2025-06-08,Trading Securities,1400,10860.31,,Trading Securities to Settlement Payable,SecuritiesTrading
+662,2025-06-08,Settlement Payable,2400,,10860.31,Trading Securities to Settlement Payable,SecuritiesTrading
+663,2025-06-10,Credit Card Receivable,1320,4448.29,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+664,2025-06-10,Customer Loan Account,2200,,4448.29,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+665,2025-06-08,Trading Securities,1400,13060.91,,Trading Securities to Settlement Payable,SecuritiesTrading
+666,2025-06-08,Settlement Payable,2400,,13060.91,Trading Securities to Settlement Payable,SecuritiesTrading
+667,2025-06-07,Cash on Hand,1010,9930.2,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+668,2025-06-07,Customer Deposit Account,2100,,9930.2,Cash on Hand to Customer Deposit Account,CustomerTransaction
+669,2025-06-02,Credit Card Receivable,1320,7100.11,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+670,2025-06-02,Customer Loan Account,2200,,7100.11,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+671,2025-06-12,Interest Receivable,1310,7266.27,,Interest Receivable to Interest Income,InterestAccrual
+672,2025-06-12,Interest Income,4100,,7266.27,Interest Receivable to Interest Income,InterestAccrual
+673,2025-06-07,Trading Securities,1400,6476.14,,Trading Securities to Settlement Payable,SecuritiesTrading
+674,2025-06-07,Settlement Payable,2400,,6476.14,Trading Securities to Settlement Payable,SecuritiesTrading
+675,2025-06-02,Customer Account,2100,1697.25,,Customer Account to Advisory Fee Income,FeeIncome
+676,2025-06-02,Advisory Fee Income,4200,,1697.25,Customer Account to Advisory Fee Income,FeeIncome
+677,2025-06-02,Credit Card Receivable,1320,5795.58,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+678,2025-06-02,Customer Loan Account,2200,,5795.58,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+679,2025-06-14,Trading Securities,1400,17433.3,,Trading Securities to Settlement Payable,SecuritiesTrading
+680,2025-06-14,Settlement Payable,2400,,17433.3,Trading Securities to Settlement Payable,SecuritiesTrading
+681,2025-06-09,Cash on Hand,1010,13495.55,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+682,2025-06-09,Customer Deposit Account,2100,,13495.55,Cash on Hand to Customer Deposit Account,CustomerTransaction
+683,2025-06-04,Trading Securities,1400,8851.7,,Trading Securities to Settlement Payable,SecuritiesTrading
+684,2025-06-04,Settlement Payable,2400,,8851.7,Trading Securities to Settlement Payable,SecuritiesTrading
+685,2025-06-13,Customer Account,2100,7873.81,,Customer Account to Advisory Fee Income,FeeIncome
+686,2025-06-13,Advisory Fee Income,4200,,7873.81,Customer Account to Advisory Fee Income,FeeIncome
+687,2025-06-13,Trading Securities,1400,12882.77,,Trading Securities to Settlement Payable,SecuritiesTrading
+688,2025-06-13,Settlement Payable,2400,,12882.77,Trading Securities to Settlement Payable,SecuritiesTrading
+689,2025-06-09,Cash on Hand,1010,4867.61,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+690,2025-06-09,Customer Deposit Account,2100,,4867.61,Cash on Hand to Customer Deposit Account,CustomerTransaction
+691,2025-06-08,Interest Receivable,1310,18625.78,,Interest Receivable to Interest Income,InterestAccrual
+692,2025-06-08,Interest Income,4100,,18625.78,Interest Receivable to Interest Income,InterestAccrual
+693,2025-06-01,Loan Loss Expense,5100,10209.52,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+694,2025-06-01,Provision for Loan Losses,2600,,10209.52,Loan Loss Expense to Provision for Loan Losses,Provisioning
+695,2025-06-04,Loan Loss Expense,5100,12568.56,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+696,2025-06-04,Provision for Loan Losses,2600,,12568.56,Loan Loss Expense to Provision for Loan Losses,Provisioning
+697,2025-06-09,Loan Loss Expense,5100,4009.19,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+698,2025-06-09,Provision for Loan Losses,2600,,4009.19,Loan Loss Expense to Provision for Loan Losses,Provisioning
+699,2025-06-02,Cash on Hand,1010,11492.78,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+700,2025-06-02,Customer Deposit Account,2100,,11492.78,Cash on Hand to Customer Deposit Account,CustomerTransaction
+701,2025-06-15,Interest Receivable,1310,19852.89,,Interest Receivable to Interest Income,InterestAccrual
+702,2025-06-15,Interest Income,4100,,19852.89,Interest Receivable to Interest Income,InterestAccrual
+703,2025-06-02,Cash on Hand,1010,9767.51,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+704,2025-06-02,Customer Deposit Account,2100,,9767.51,Cash on Hand to Customer Deposit Account,CustomerTransaction
+705,2025-06-08,Loan Loss Expense,5100,16810.72,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+706,2025-06-08,Provision for Loan Losses,2600,,16810.72,Loan Loss Expense to Provision for Loan Losses,Provisioning
+707,2025-06-12,Loan Loss Expense,5100,6545.37,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+708,2025-06-12,Provision for Loan Losses,2600,,6545.37,Loan Loss Expense to Provision for Loan Losses,Provisioning
+709,2025-06-08,Credit Card Receivable,1320,8894.32,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+710,2025-06-08,Customer Loan Account,2200,,8894.32,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+711,2025-06-09,Trading Securities,1400,5630.89,,Trading Securities to Settlement Payable,SecuritiesTrading
+712,2025-06-09,Settlement Payable,2400,,5630.89,Trading Securities to Settlement Payable,SecuritiesTrading
+713,2025-06-15,Interest Receivable,1310,8288.13,,Interest Receivable to Interest Income,InterestAccrual
+714,2025-06-15,Interest Income,4100,,8288.13,Interest Receivable to Interest Income,InterestAccrual
+715,2025-06-15,Customer Account,2100,10656.58,,Customer Account to Advisory Fee Income,FeeIncome
+716,2025-06-15,Advisory Fee Income,4200,,10656.58,Customer Account to Advisory Fee Income,FeeIncome
+717,2025-06-05,Interest Receivable,1310,17416.51,,Interest Receivable to Interest Income,InterestAccrual
+718,2025-06-05,Interest Income,4100,,17416.51,Interest Receivable to Interest Income,InterestAccrual
+719,2025-06-13,Trading Securities,1400,7457.63,,Trading Securities to Settlement Payable,SecuritiesTrading
+720,2025-06-13,Settlement Payable,2400,,7457.63,Trading Securities to Settlement Payable,SecuritiesTrading
+721,2025-06-01,Customer Account,2100,6076.28,,Customer Account to Advisory Fee Income,FeeIncome
+722,2025-06-01,Advisory Fee Income,4200,,6076.28,Customer Account to Advisory Fee Income,FeeIncome
+723,2025-06-14,Credit Card Receivable,1320,14794.97,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+724,2025-06-14,Customer Loan Account,2200,,14794.97,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+725,2025-06-11,Customer Account,2100,12018.54,,Customer Account to Advisory Fee Income,FeeIncome
+726,2025-06-11,Advisory Fee Income,4200,,12018.54,Customer Account to Advisory Fee Income,FeeIncome
+727,2025-06-08,Trading Securities,1400,17439.95,,Trading Securities to Settlement Payable,SecuritiesTrading
+728,2025-06-08,Settlement Payable,2400,,17439.95,Trading Securities to Settlement Payable,SecuritiesTrading
+729,2025-06-06,Customer Account,2100,10202.49,,Customer Account to Advisory Fee Income,FeeIncome
+730,2025-06-06,Advisory Fee Income,4200,,10202.49,Customer Account to Advisory Fee Income,FeeIncome
+731,2025-06-07,Customer Account,2100,15494.58,,Customer Account to Advisory Fee Income,FeeIncome
+732,2025-06-07,Advisory Fee Income,4200,,15494.58,Customer Account to Advisory Fee Income,FeeIncome
+733,2025-06-14,Trading Securities,1400,18724.19,,Trading Securities to Settlement Payable,SecuritiesTrading
+734,2025-06-14,Settlement Payable,2400,,18724.19,Trading Securities to Settlement Payable,SecuritiesTrading
+735,2025-06-04,Interest Receivable,1310,19634.72,,Interest Receivable to Interest Income,InterestAccrual
+736,2025-06-04,Interest Income,4100,,19634.72,Interest Receivable to Interest Income,InterestAccrual
+737,2025-06-14,Customer Account,2100,8276.45,,Customer Account to Advisory Fee Income,FeeIncome
+738,2025-06-14,Advisory Fee Income,4200,,8276.45,Customer Account to Advisory Fee Income,FeeIncome
+739,2025-06-12,Trading Securities,1400,1829.3,,Trading Securities to Settlement Payable,SecuritiesTrading
+740,2025-06-12,Settlement Payable,2400,,1829.3,Trading Securities to Settlement Payable,SecuritiesTrading
+741,2025-06-13,Trading Securities,1400,14399.33,,Trading Securities to Settlement Payable,SecuritiesTrading
+742,2025-06-13,Settlement Payable,2400,,14399.33,Trading Securities to Settlement Payable,SecuritiesTrading
+743,2025-06-11,Trading Securities,1400,8335.5,,Trading Securities to Settlement Payable,SecuritiesTrading
+744,2025-06-11,Settlement Payable,2400,,8335.5,Trading Securities to Settlement Payable,SecuritiesTrading
+745,2025-06-08,Loan Loss Expense,5100,19635.54,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+746,2025-06-08,Provision for Loan Losses,2600,,19635.54,Loan Loss Expense to Provision for Loan Losses,Provisioning
+747,2025-06-10,Cash on Hand,1010,3398.68,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+748,2025-06-10,Customer Deposit Account,2100,,3398.68,Cash on Hand to Customer Deposit Account,CustomerTransaction
+749,2025-06-14,Credit Card Receivable,1320,17524.31,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+750,2025-06-14,Customer Loan Account,2200,,17524.31,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+751,2025-06-15,Trading Securities,1400,2894.52,,Trading Securities to Settlement Payable,SecuritiesTrading
+752,2025-06-15,Settlement Payable,2400,,2894.52,Trading Securities to Settlement Payable,SecuritiesTrading
+753,2025-06-03,Trading Securities,1400,1291.6,,Trading Securities to Settlement Payable,SecuritiesTrading
+754,2025-06-03,Settlement Payable,2400,,1291.6,Trading Securities to Settlement Payable,SecuritiesTrading
+755,2025-06-03,Trading Securities,1400,17547.73,,Trading Securities to Settlement Payable,SecuritiesTrading
+756,2025-06-03,Settlement Payable,2400,,17547.73,Trading Securities to Settlement Payable,SecuritiesTrading
+757,2025-06-05,Cash on Hand,1010,9920.32,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+758,2025-06-05,Customer Deposit Account,2100,,9920.32,Cash on Hand to Customer Deposit Account,CustomerTransaction
+759,2025-06-07,Credit Card Receivable,1320,12841.93,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+760,2025-06-07,Customer Loan Account,2200,,12841.93,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+761,2025-06-06,Loan Loss Expense,5100,2525.99,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+762,2025-06-06,Provision for Loan Losses,2600,,2525.99,Loan Loss Expense to Provision for Loan Losses,Provisioning
+763,2025-06-07,Loan Loss Expense,5100,17327.5,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+764,2025-06-07,Provision for Loan Losses,2600,,17327.5,Loan Loss Expense to Provision for Loan Losses,Provisioning
+765,2025-06-15,Credit Card Receivable,1320,12909.18,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+766,2025-06-15,Customer Loan Account,2200,,12909.18,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+767,2025-06-01,Trading Securities,1400,17575.28,,Trading Securities to Settlement Payable,SecuritiesTrading
+768,2025-06-01,Settlement Payable,2400,,17575.28,Trading Securities to Settlement Payable,SecuritiesTrading
+769,2025-06-11,Customer Account,2100,2299.99,,Customer Account to Advisory Fee Income,FeeIncome
+770,2025-06-11,Advisory Fee Income,4200,,2299.99,Customer Account to Advisory Fee Income,FeeIncome
+771,2025-06-04,Loan Loss Expense,5100,18497.65,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+772,2025-06-04,Provision for Loan Losses,2600,,18497.65,Loan Loss Expense to Provision for Loan Losses,Provisioning
+773,2025-06-02,Loan Loss Expense,5100,2717.21,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+774,2025-06-02,Provision for Loan Losses,2600,,2717.21,Loan Loss Expense to Provision for Loan Losses,Provisioning
+775,2025-06-02,Loan Loss Expense,5100,14373.93,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+776,2025-06-02,Provision for Loan Losses,2600,,14373.93,Loan Loss Expense to Provision for Loan Losses,Provisioning
+777,2025-06-05,Trading Securities,1400,4160.93,,Trading Securities to Settlement Payable,SecuritiesTrading
+778,2025-06-05,Settlement Payable,2400,,4160.93,Trading Securities to Settlement Payable,SecuritiesTrading
+779,2025-06-13,Cash on Hand,1010,1873.83,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+780,2025-06-13,Customer Deposit Account,2100,,1873.83,Cash on Hand to Customer Deposit Account,CustomerTransaction
+781,2025-06-06,Cash on Hand,1010,6573.99,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+782,2025-06-06,Customer Deposit Account,2100,,6573.99,Cash on Hand to Customer Deposit Account,CustomerTransaction
+783,2025-06-09,Trading Securities,1400,3765.83,,Trading Securities to Settlement Payable,SecuritiesTrading
+784,2025-06-09,Settlement Payable,2400,,3765.83,Trading Securities to Settlement Payable,SecuritiesTrading
+785,2025-06-13,Trading Securities,1400,11752.63,,Trading Securities to Settlement Payable,SecuritiesTrading
+786,2025-06-13,Settlement Payable,2400,,11752.63,Trading Securities to Settlement Payable,SecuritiesTrading
+787,2025-06-02,Interest Receivable,1310,4229.69,,Interest Receivable to Interest Income,InterestAccrual
+788,2025-06-02,Interest Income,4100,,4229.69,Interest Receivable to Interest Income,InterestAccrual
+789,2025-06-10,Customer Account,2100,17545.95,,Customer Account to Advisory Fee Income,FeeIncome
+790,2025-06-10,Advisory Fee Income,4200,,17545.95,Customer Account to Advisory Fee Income,FeeIncome
+791,2025-06-15,Loan Loss Expense,5100,5575.77,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+792,2025-06-15,Provision for Loan Losses,2600,,5575.77,Loan Loss Expense to Provision for Loan Losses,Provisioning
+793,2025-06-08,Customer Account,2100,3719.24,,Customer Account to Advisory Fee Income,FeeIncome
+794,2025-06-08,Advisory Fee Income,4200,,3719.24,Customer Account to Advisory Fee Income,FeeIncome
+795,2025-06-05,Loan Loss Expense,5100,5825.57,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+796,2025-06-05,Provision for Loan Losses,2600,,5825.57,Loan Loss Expense to Provision for Loan Losses,Provisioning
+797,2025-06-13,Loan Loss Expense,5100,1178.55,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+798,2025-06-13,Provision for Loan Losses,2600,,1178.55,Loan Loss Expense to Provision for Loan Losses,Provisioning
+799,2025-06-11,Trading Securities,1400,18122.98,,Trading Securities to Settlement Payable,SecuritiesTrading
+800,2025-06-11,Settlement Payable,2400,,18122.98,Trading Securities to Settlement Payable,SecuritiesTrading
+801,2025-06-08,Customer Account,2100,4001.54,,Customer Account to Advisory Fee Income,FeeIncome
+802,2025-06-08,Advisory Fee Income,4200,,4001.54,Customer Account to Advisory Fee Income,FeeIncome
+803,2025-06-05,Credit Card Receivable,1320,19765.38,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+804,2025-06-05,Customer Loan Account,2200,,19765.38,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+805,2025-06-12,Loan Loss Expense,5100,19278.55,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+806,2025-06-12,Provision for Loan Losses,2600,,19278.55,Loan Loss Expense to Provision for Loan Losses,Provisioning
+807,2025-06-05,Credit Card Receivable,1320,9679.88,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+808,2025-06-05,Customer Loan Account,2200,,9679.88,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+809,2025-06-14,Interest Receivable,1310,19988.1,,Interest Receivable to Interest Income,InterestAccrual
+810,2025-06-14,Interest Income,4100,,19988.1,Interest Receivable to Interest Income,InterestAccrual
+811,2025-06-07,Trading Securities,1400,3026.41,,Trading Securities to Settlement Payable,SecuritiesTrading
+812,2025-06-07,Settlement Payable,2400,,3026.41,Trading Securities to Settlement Payable,SecuritiesTrading
+813,2025-06-05,Customer Account,2100,7820.22,,Customer Account to Advisory Fee Income,FeeIncome
+814,2025-06-05,Advisory Fee Income,4200,,7820.22,Customer Account to Advisory Fee Income,FeeIncome
+815,2025-06-14,Loan Loss Expense,5100,6609.38,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+816,2025-06-14,Provision for Loan Losses,2600,,6609.38,Loan Loss Expense to Provision for Loan Losses,Provisioning
+817,2025-06-01,Loan Loss Expense,5100,8520.31,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+818,2025-06-01,Provision for Loan Losses,2600,,8520.31,Loan Loss Expense to Provision for Loan Losses,Provisioning
+819,2025-06-13,Customer Account,2100,17436.28,,Customer Account to Advisory Fee Income,FeeIncome
+820,2025-06-13,Advisory Fee Income,4200,,17436.28,Customer Account to Advisory Fee Income,FeeIncome
+821,2025-06-15,Loan Loss Expense,5100,19498.45,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+822,2025-06-15,Provision for Loan Losses,2600,,19498.45,Loan Loss Expense to Provision for Loan Losses,Provisioning
+823,2025-06-14,Customer Account,2100,15158.27,,Customer Account to Advisory Fee Income,FeeIncome
+824,2025-06-14,Advisory Fee Income,4200,,15158.27,Customer Account to Advisory Fee Income,FeeIncome
+825,2025-06-04,Credit Card Receivable,1320,15739.08,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+826,2025-06-04,Customer Loan Account,2200,,15739.08,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+827,2025-06-04,Customer Account,2100,16236.71,,Customer Account to Advisory Fee Income,FeeIncome
+828,2025-06-04,Advisory Fee Income,4200,,16236.71,Customer Account to Advisory Fee Income,FeeIncome
+829,2025-06-05,Loan Loss Expense,5100,4612.51,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+830,2025-06-05,Provision for Loan Losses,2600,,4612.51,Loan Loss Expense to Provision for Loan Losses,Provisioning
+831,2025-06-13,Loan Loss Expense,5100,15355.97,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+832,2025-06-13,Provision for Loan Losses,2600,,15355.97,Loan Loss Expense to Provision for Loan Losses,Provisioning
+833,2025-06-03,Loan Loss Expense,5100,13936.25,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+834,2025-06-03,Provision for Loan Losses,2600,,13936.25,Loan Loss Expense to Provision for Loan Losses,Provisioning
+835,2025-06-11,Loan Loss Expense,5100,2846.11,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+836,2025-06-11,Provision for Loan Losses,2600,,2846.11,Loan Loss Expense to Provision for Loan Losses,Provisioning
+837,2025-06-13,Loan Loss Expense,5100,1749.03,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+838,2025-06-13,Provision for Loan Losses,2600,,1749.03,Loan Loss Expense to Provision for Loan Losses,Provisioning
+839,2025-06-06,Trading Securities,1400,1633.93,,Trading Securities to Settlement Payable,SecuritiesTrading
+840,2025-06-06,Settlement Payable,2400,,1633.93,Trading Securities to Settlement Payable,SecuritiesTrading
+841,2025-06-15,Loan Loss Expense,5100,3496.82,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+842,2025-06-15,Provision for Loan Losses,2600,,3496.82,Loan Loss Expense to Provision for Loan Losses,Provisioning
+843,2025-06-07,Credit Card Receivable,1320,7207.66,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+844,2025-06-07,Customer Loan Account,2200,,7207.66,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+845,2025-06-13,Interest Receivable,1310,4815.1,,Interest Receivable to Interest Income,InterestAccrual
+846,2025-06-13,Interest Income,4100,,4815.1,Interest Receivable to Interest Income,InterestAccrual
+847,2025-06-06,Customer Account,2100,17652.75,,Customer Account to Advisory Fee Income,FeeIncome
+848,2025-06-06,Advisory Fee Income,4200,,17652.75,Customer Account to Advisory Fee Income,FeeIncome
+849,2025-06-05,Customer Account,2100,10534.1,,Customer Account to Advisory Fee Income,FeeIncome
+850,2025-06-05,Advisory Fee Income,4200,,10534.1,Customer Account to Advisory Fee Income,FeeIncome
+851,2025-06-14,Interest Receivable,1310,5882.43,,Interest Receivable to Interest Income,InterestAccrual
+852,2025-06-14,Interest Income,4100,,5882.43,Interest Receivable to Interest Income,InterestAccrual
+853,2025-06-05,Trading Securities,1400,19380.3,,Trading Securities to Settlement Payable,SecuritiesTrading
+854,2025-06-05,Settlement Payable,2400,,19380.3,Trading Securities to Settlement Payable,SecuritiesTrading
+855,2025-06-13,Loan Loss Expense,5100,17537.54,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+856,2025-06-13,Provision for Loan Losses,2600,,17537.54,Loan Loss Expense to Provision for Loan Losses,Provisioning
+857,2025-06-02,Cash on Hand,1010,9898.3,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+858,2025-06-02,Customer Deposit Account,2100,,9898.3,Cash on Hand to Customer Deposit Account,CustomerTransaction
+859,2025-06-04,Interest Receivable,1310,15328.88,,Interest Receivable to Interest Income,InterestAccrual
+860,2025-06-04,Interest Income,4100,,15328.88,Interest Receivable to Interest Income,InterestAccrual
+861,2025-06-07,Loan Loss Expense,5100,14760.12,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+862,2025-06-07,Provision for Loan Losses,2600,,14760.12,Loan Loss Expense to Provision for Loan Losses,Provisioning
+863,2025-06-13,Customer Account,2100,7949.73,,Customer Account to Advisory Fee Income,FeeIncome
+864,2025-06-13,Advisory Fee Income,4200,,7949.73,Customer Account to Advisory Fee Income,FeeIncome
+865,2025-06-09,Trading Securities,1400,1264.45,,Trading Securities to Settlement Payable,SecuritiesTrading
+866,2025-06-09,Settlement Payable,2400,,1264.45,Trading Securities to Settlement Payable,SecuritiesTrading
+867,2025-06-11,Cash on Hand,1010,9640.93,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+868,2025-06-11,Customer Deposit Account,2100,,9640.93,Cash on Hand to Customer Deposit Account,CustomerTransaction
+869,2025-06-10,Loan Loss Expense,5100,13774.48,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+870,2025-06-10,Provision for Loan Losses,2600,,13774.48,Loan Loss Expense to Provision for Loan Losses,Provisioning
+871,2025-06-06,Trading Securities,1400,16625.93,,Trading Securities to Settlement Payable,SecuritiesTrading
+872,2025-06-06,Settlement Payable,2400,,16625.93,Trading Securities to Settlement Payable,SecuritiesTrading
+873,2025-06-08,Cash on Hand,1010,13821.89,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+874,2025-06-08,Customer Deposit Account,2100,,13821.89,Cash on Hand to Customer Deposit Account,CustomerTransaction
+875,2025-06-09,Cash on Hand,1010,12771.39,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+876,2025-06-09,Customer Deposit Account,2100,,12771.39,Cash on Hand to Customer Deposit Account,CustomerTransaction
+877,2025-06-04,Credit Card Receivable,1320,18389.86,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+878,2025-06-04,Customer Loan Account,2200,,18389.86,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+879,2025-06-14,Loan Loss Expense,5100,2201.12,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+880,2025-06-14,Provision for Loan Losses,2600,,2201.12,Loan Loss Expense to Provision for Loan Losses,Provisioning
+881,2025-06-05,Trading Securities,1400,18278.37,,Trading Securities to Settlement Payable,SecuritiesTrading
+882,2025-06-05,Settlement Payable,2400,,18278.37,Trading Securities to Settlement Payable,SecuritiesTrading
+883,2025-06-03,Loan Loss Expense,5100,8757.62,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+884,2025-06-03,Provision for Loan Losses,2600,,8757.62,Loan Loss Expense to Provision for Loan Losses,Provisioning
+885,2025-06-05,Cash on Hand,1010,18978.97,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+886,2025-06-05,Customer Deposit Account,2100,,18978.97,Cash on Hand to Customer Deposit Account,CustomerTransaction
+887,2025-06-04,Trading Securities,1400,3206.29,,Trading Securities to Settlement Payable,SecuritiesTrading
+888,2025-06-04,Settlement Payable,2400,,3206.29,Trading Securities to Settlement Payable,SecuritiesTrading
+889,2025-06-08,Customer Account,2100,3577.62,,Customer Account to Advisory Fee Income,FeeIncome
+890,2025-06-08,Advisory Fee Income,4200,,3577.62,Customer Account to Advisory Fee Income,FeeIncome
+891,2025-06-12,Credit Card Receivable,1320,13739.24,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+892,2025-06-12,Customer Loan Account,2200,,13739.24,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+893,2025-06-07,Loan Loss Expense,5100,18973.51,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+894,2025-06-07,Provision for Loan Losses,2600,,18973.51,Loan Loss Expense to Provision for Loan Losses,Provisioning
+895,2025-06-03,Customer Account,2100,15103.11,,Customer Account to Advisory Fee Income,FeeIncome
+896,2025-06-03,Advisory Fee Income,4200,,15103.11,Customer Account to Advisory Fee Income,FeeIncome
+897,2025-06-14,Trading Securities,1400,13443.52,,Trading Securities to Settlement Payable,SecuritiesTrading
+898,2025-06-14,Settlement Payable,2400,,13443.52,Trading Securities to Settlement Payable,SecuritiesTrading
+899,2025-06-05,Trading Securities,1400,12697.39,,Trading Securities to Settlement Payable,SecuritiesTrading
+900,2025-06-05,Settlement Payable,2400,,12697.39,Trading Securities to Settlement Payable,SecuritiesTrading
+901,2025-06-04,Cash on Hand,1010,14115.33,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+902,2025-06-04,Customer Deposit Account,2100,,14115.33,Cash on Hand to Customer Deposit Account,CustomerTransaction
+903,2025-06-04,Trading Securities,1400,9449.22,,Trading Securities to Settlement Payable,SecuritiesTrading
+904,2025-06-04,Settlement Payable,2400,,9449.22,Trading Securities to Settlement Payable,SecuritiesTrading
+905,2025-06-11,Credit Card Receivable,1320,2887.74,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+906,2025-06-11,Customer Loan Account,2200,,2887.74,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+907,2025-06-11,Credit Card Receivable,1320,11344.85,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+908,2025-06-11,Customer Loan Account,2200,,11344.85,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+909,2025-06-05,Credit Card Receivable,1320,2150.45,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+910,2025-06-05,Customer Loan Account,2200,,2150.45,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+911,2025-06-14,Interest Receivable,1310,19395.93,,Interest Receivable to Interest Income,InterestAccrual
+912,2025-06-14,Interest Income,4100,,19395.93,Interest Receivable to Interest Income,InterestAccrual
+913,2025-06-04,Trading Securities,1400,2741.8,,Trading Securities to Settlement Payable,SecuritiesTrading
+914,2025-06-04,Settlement Payable,2400,,2741.8,Trading Securities to Settlement Payable,SecuritiesTrading
+915,2025-06-01,Loan Loss Expense,5100,13150.37,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+916,2025-06-01,Provision for Loan Losses,2600,,13150.37,Loan Loss Expense to Provision for Loan Losses,Provisioning
+917,2025-06-04,Cash on Hand,1010,15949.1,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+918,2025-06-04,Customer Deposit Account,2100,,15949.1,Cash on Hand to Customer Deposit Account,CustomerTransaction
+919,2025-06-04,Interest Receivable,1310,15952.58,,Interest Receivable to Interest Income,InterestAccrual
+920,2025-06-04,Interest Income,4100,,15952.58,Interest Receivable to Interest Income,InterestAccrual
+921,2025-06-09,Cash on Hand,1010,16766.54,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+922,2025-06-09,Customer Deposit Account,2100,,16766.54,Cash on Hand to Customer Deposit Account,CustomerTransaction
+923,2025-06-14,Interest Receivable,1310,12141.28,,Interest Receivable to Interest Income,InterestAccrual
+924,2025-06-14,Interest Income,4100,,12141.28,Interest Receivable to Interest Income,InterestAccrual
+925,2025-06-03,Interest Receivable,1310,7242.63,,Interest Receivable to Interest Income,InterestAccrual
+926,2025-06-03,Interest Income,4100,,7242.63,Interest Receivable to Interest Income,InterestAccrual
+927,2025-06-14,Customer Account,2100,1053.88,,Customer Account to Advisory Fee Income,FeeIncome
+928,2025-06-14,Advisory Fee Income,4200,,1053.88,Customer Account to Advisory Fee Income,FeeIncome
+929,2025-06-09,Interest Receivable,1310,19763.02,,Interest Receivable to Interest Income,InterestAccrual
+930,2025-06-09,Interest Income,4100,,19763.02,Interest Receivable to Interest Income,InterestAccrual
+931,2025-06-02,Credit Card Receivable,1320,16171.76,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+932,2025-06-02,Customer Loan Account,2200,,16171.76,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+933,2025-06-03,Loan Loss Expense,5100,17462.51,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+934,2025-06-03,Provision for Loan Losses,2600,,17462.51,Loan Loss Expense to Provision for Loan Losses,Provisioning
+935,2025-06-13,Cash on Hand,1010,7806.6,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+936,2025-06-13,Customer Deposit Account,2100,,7806.6,Cash on Hand to Customer Deposit Account,CustomerTransaction
+937,2025-06-01,Interest Receivable,1310,12188.21,,Interest Receivable to Interest Income,InterestAccrual
+938,2025-06-01,Interest Income,4100,,12188.21,Interest Receivable to Interest Income,InterestAccrual
+939,2025-06-03,Interest Receivable,1310,6041.98,,Interest Receivable to Interest Income,InterestAccrual
+940,2025-06-03,Interest Income,4100,,6041.98,Interest Receivable to Interest Income,InterestAccrual
+941,2025-06-02,Loan Loss Expense,5100,8998.25,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+942,2025-06-02,Provision for Loan Losses,2600,,8998.25,Loan Loss Expense to Provision for Loan Losses,Provisioning
+943,2025-06-08,Loan Loss Expense,5100,2207.6,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+944,2025-06-08,Provision for Loan Losses,2600,,2207.6,Loan Loss Expense to Provision for Loan Losses,Provisioning
+945,2025-06-02,Credit Card Receivable,1320,10751.52,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+946,2025-06-02,Customer Loan Account,2200,,10751.52,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+947,2025-06-10,Trading Securities,1400,10572.94,,Trading Securities to Settlement Payable,SecuritiesTrading
+948,2025-06-10,Settlement Payable,2400,,10572.94,Trading Securities to Settlement Payable,SecuritiesTrading
+949,2025-06-15,Cash on Hand,1010,14817.62,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+950,2025-06-15,Customer Deposit Account,2100,,14817.62,Cash on Hand to Customer Deposit Account,CustomerTransaction
+951,2025-06-08,Loan Loss Expense,5100,10907.57,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+952,2025-06-08,Provision for Loan Losses,2600,,10907.57,Loan Loss Expense to Provision for Loan Losses,Provisioning
+953,2025-06-01,Loan Loss Expense,5100,19316.5,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+954,2025-06-01,Provision for Loan Losses,2600,,19316.5,Loan Loss Expense to Provision for Loan Losses,Provisioning
+955,2025-06-07,Trading Securities,1400,17098.67,,Trading Securities to Settlement Payable,SecuritiesTrading
+956,2025-06-07,Settlement Payable,2400,,17098.67,Trading Securities to Settlement Payable,SecuritiesTrading
+957,2025-06-12,Loan Loss Expense,5100,3051.27,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+958,2025-06-12,Provision for Loan Losses,2600,,3051.27,Loan Loss Expense to Provision for Loan Losses,Provisioning
+959,2025-06-02,Trading Securities,1400,2396.32,,Trading Securities to Settlement Payable,SecuritiesTrading
+960,2025-06-02,Settlement Payable,2400,,2396.32,Trading Securities to Settlement Payable,SecuritiesTrading
+961,2025-06-02,Credit Card Receivable,1320,12557.65,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+962,2025-06-02,Customer Loan Account,2200,,12557.65,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+963,2025-06-11,Interest Receivable,1310,6225.3,,Interest Receivable to Interest Income,InterestAccrual
+964,2025-06-11,Interest Income,4100,,6225.3,Interest Receivable to Interest Income,InterestAccrual
+965,2025-06-06,Customer Account,2100,11418.77,,Customer Account to Advisory Fee Income,FeeIncome
+966,2025-06-06,Advisory Fee Income,4200,,11418.77,Customer Account to Advisory Fee Income,FeeIncome
+967,2025-06-09,Trading Securities,1400,19897.93,,Trading Securities to Settlement Payable,SecuritiesTrading
+968,2025-06-09,Settlement Payable,2400,,19897.93,Trading Securities to Settlement Payable,SecuritiesTrading
+969,2025-06-10,Credit Card Receivable,1320,9620.59,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+970,2025-06-10,Customer Loan Account,2200,,9620.59,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+971,2025-06-12,Trading Securities,1400,2884.39,,Trading Securities to Settlement Payable,SecuritiesTrading
+972,2025-06-12,Settlement Payable,2400,,2884.39,Trading Securities to Settlement Payable,SecuritiesTrading
+973,2025-06-11,Cash on Hand,1010,17203.06,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+974,2025-06-11,Customer Deposit Account,2100,,17203.06,Cash on Hand to Customer Deposit Account,CustomerTransaction
+975,2025-06-04,Customer Account,2100,14695.96,,Customer Account to Advisory Fee Income,FeeIncome
+976,2025-06-04,Advisory Fee Income,4200,,14695.96,Customer Account to Advisory Fee Income,FeeIncome
+977,2025-06-04,Trading Securities,1400,9579.54,,Trading Securities to Settlement Payable,SecuritiesTrading
+978,2025-06-04,Settlement Payable,2400,,9579.54,Trading Securities to Settlement Payable,SecuritiesTrading
+979,2025-06-08,Trading Securities,1400,7439.7,,Trading Securities to Settlement Payable,SecuritiesTrading
+980,2025-06-08,Settlement Payable,2400,,7439.7,Trading Securities to Settlement Payable,SecuritiesTrading
+981,2025-06-02,Trading Securities,1400,8903.8,,Trading Securities to Settlement Payable,SecuritiesTrading
+982,2025-06-02,Settlement Payable,2400,,8903.8,Trading Securities to Settlement Payable,SecuritiesTrading
+983,2025-06-11,Credit Card Receivable,1320,9108.52,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+984,2025-06-11,Customer Loan Account,2200,,9108.52,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+985,2025-06-03,Credit Card Receivable,1320,8111.72,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+986,2025-06-03,Customer Loan Account,2200,,8111.72,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+987,2025-06-02,Loan Loss Expense,5100,18536.72,,Loan Loss Expense to Provision for Loan Losses,Provisioning
+988,2025-06-02,Provision for Loan Losses,2600,,18536.72,Loan Loss Expense to Provision for Loan Losses,Provisioning
+989,2025-06-02,Cash on Hand,1010,16803.67,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+990,2025-06-02,Customer Deposit Account,2100,,16803.67,Cash on Hand to Customer Deposit Account,CustomerTransaction
+991,2025-06-12,Trading Securities,1400,2834.72,,Trading Securities to Settlement Payable,SecuritiesTrading
+992,2025-06-12,Settlement Payable,2400,,2834.72,Trading Securities to Settlement Payable,SecuritiesTrading
+993,2025-06-09,Credit Card Receivable,1320,16423.62,,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+994,2025-06-09,Customer Loan Account,2200,,16423.62,Credit Card Receivable to Customer Loan Account,PaymentProcessing
+995,2025-06-09,Cash on Hand,1010,12142.84,,Cash on Hand to Customer Deposit Account,CustomerTransaction
+996,2025-06-09,Customer Deposit Account,2100,,12142.84,Cash on Hand to Customer Deposit Account,CustomerTransaction
+997,2025-06-02,Customer Account,2100,7263.27,,Customer Account to Advisory Fee Income,FeeIncome
+998,2025-06-02,Advisory Fee Income,4200,,7263.27,Customer Account to Advisory Fee Income,FeeIncome
+999,2025-06-11,Trading Securities,1400,7718.36,,Trading Securities to Settlement Payable,SecuritiesTrading
+1000,2025-06-11,Settlement Payable,2400,,7718.36,Trading Securities to Settlement Payable,SecuritiesTrading
