@@ -28,3 +28,49 @@ def get_journal_entries():
     cur.close()
     conn.close()
     return entries
+
+
+@router.get("/us_gaap_summary")
+def get_us_gaap_balance_summary():
+    conn = get_connection()
+    cur = conn.cursor()
+
+    account_mapping = {
+        '1010': 'Asset', '1310': 'Asset', '1320': 'Asset', '1400': 'Asset',
+        '2100': 'Liability', '2200': 'Liability', '2400': 'Liability', '2600': 'Liability',
+        '4100': 'Revenue', '4200': 'Revenue', '5100': 'Expense'
+    }
+
+    cur.execute("""
+        SELECT account_code, account_name,
+               SUM(NVL(debit, 0)) AS total_debit,
+               SUM(NVL(credit, 0)) AS total_credit
+        FROM journal_entries
+        GROUP BY account_code, account_name
+        ORDER BY account_code
+    """)
+    
+    raw = cur.fetchall()
+    cur.close()
+    conn.close()
+
+    grouped = {}
+
+    for row in raw:
+        code, name, debit, credit = row
+        balance = (debit or 0) - (credit or 0)
+        acc_type = account_mapping.get(code)
+
+        if acc_type is None:
+            # Assign to fallback error bucket
+            acc_type = "Unclassified"
+            code = '9999'
+            name = 'Unknown Account'
+
+        grouped.setdefault(acc_type, []).append({
+            "account_code": code,
+            "account_name": name,
+            "balance": balance
+        })
+
+    return grouped
