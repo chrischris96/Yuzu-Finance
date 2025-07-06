@@ -1,3 +1,4 @@
+from collections import defaultdict
 from fastapi import APIRouter
 from app.db import get_connection
 from app.models import JournalEntry
@@ -30,10 +31,47 @@ def get_journal_entries():
     return entries
 
 
+
 @router.get("/us_gaap_summary")
-def get_us_gaap_balance_summary():
+def get_us_gaap_summary():
     conn = get_connection()
     cur = conn.cursor()
+    
+    cur.execute("""
+        SELECT
+          entry_id,
+          TO_CHAR(entry_date, 'YYYY-MM-DD'),
+          account_name,
+          account_code,
+          debit,
+          credit,
+          description,
+          entry_type
+        FROM journal_entries
+    """)
+    
+    rows = cur.fetchall()
+    
+    cur.close()
+    conn.close()
+
+    entries_by_account = defaultdict(list)
+
+    for r in rows:
+        account_code = r[3]
+        entry = {
+            "entry_id": r[0],
+            "entry_date": r[1],
+            "account_name": r[2],
+            "account_code": r[3],
+            "debit": float(r[4]) if r[4] is not None else None,
+            "credit": float(r[5]) if r[5] is not None else None,
+            "description": r[6],
+            "entry_type": r[7],
+        }
+        entries_by_account[account_code].append(entry)
+
+    summary_by_type = defaultdict(list)
 
     account_mapping = {
         '1010': 'Asset', '1310': 'Asset', '1320': 'Asset', '1400': 'Asset',
@@ -41,36 +79,19 @@ def get_us_gaap_balance_summary():
         '4100': 'Revenue', '4200': 'Revenue', '5100': 'Expense'
     }
 
-    cur.execute("""
-        SELECT account_code, account_name,
-               SUM(NVL(debit, 0)) AS total_debit,
-               SUM(NVL(credit, 0)) AS total_credit
-        FROM journal_entries
-        GROUP BY account_code, account_name
-        ORDER BY account_code
-    """)
-    
-    raw = cur.fetchall()
-    cur.close()
-    conn.close()
+    for account_code, entries in entries_by_account.items():
+        total_debit = sum(e["debit"] or 0 for e in entries)
+        total_credit = sum(e["credit"] or 0 for e in entries)
+        balance = total_debit - total_credit
 
-    grouped = {}
+        account_name = entries[0]["account_name"]
+        account_type = account_mapping.get(account_code, "Unclassified")
 
-    for row in raw:
-        code, name, debit, credit = row
-        balance = (debit or 0) - (credit or 0)
-        acc_type = account_mapping.get(code)
-
-        if acc_type is None:
-            # Assign to fallback error bucket
-            acc_type = "Unclassified"
-            code = '9999'
-            name = 'Unknown Account'
-
-        grouped.setdefault(acc_type, []).append({
-            "account_code": code,
-            "account_name": name,
-            "balance": balance
+        summary_by_type[account_type].append({
+            "account_code": account_code,
+            "account_name": account_name,
+            "balance": balance,
+            "entries": entries
         })
 
-    return grouped
+    return summary_by_type
