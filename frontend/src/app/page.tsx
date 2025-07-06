@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import {
   Card,
@@ -23,11 +25,22 @@ import {
   SelectContent,
   SelectItem
 } from "@/components/ui/select";
+import BalanceSheet from "./BalanceSheet";
+
+interface JournalEntry {
+  entry_id: number;
+  entry_date: string;
+  account_name: string;
+  debit?: number;
+  credit?: number;
+  description: string;
+  entry_type: string;
+}
 
 export default function JournalEntriesUI() {
-  const [entries, setEntries] = useState([]);
+  const [entries, setEntries] = useState<JournalEntry[]>([]);
   const [entryType, setEntryType] = useState("All");
-  const [filteredEntries, setFilteredEntries] = useState([]);
+  const [filteredEntries, setFilteredEntries] = useState<JournalEntry[]>([]);
   const [summary, setSummary] = useState({});
 
   // Fetch journal entries from backend
@@ -107,34 +120,9 @@ export default function JournalEntriesUI() {
 
         {/* Balance Sheet Summary */}
         <TabsContent value="summary">
-          <div className="space-y-8 mt-4">
-            {Object.entries(summary).map(([type, accounts]) => (
-              <Card key={type}>
-                <CardContent className="p-4">
-                  <h2 className="text-xl font-semibold mb-2">{type}</h2>
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableCell>Account</TableCell>
-                        <TableCell>Code</TableCell>
-                        <TableCell>Balance</TableCell>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {accounts.map(acc => (
-                        <TableRow key={acc.account_code}>
-                          <TableCell>{acc.account_name}</TableCell>
-                          <TableCell>{acc.account_code}</TableCell>
-                          <TableCell>{acc.balance.toFixed(2)}</TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <BalanceSheet />
         </TabsContent>
+
       </Tabs>
     </div>
   );
