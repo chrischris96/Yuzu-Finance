@@ -23,7 +23,7 @@ import {
   SelectContent,
   SelectItem
 } from "@/components/ui/select";
-import BalanceSheet from "./src/app/BalanceSheet";
+import BalanceSheet from "./src/components/ui/BalanceSheet";
 
 interface JournalEntry {
   entry_id: number;

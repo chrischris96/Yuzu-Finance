@@ -1,31 +1,37 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import UploadJournal from "../components/ui/UploadJournal";
+import JournalTable from "../components/ui/JournalTable";
+import BalanceSheet from "../components/ui/BalanceSheet";
+
 import {
   Card,
-  CardContent
+  CardContent,
 } from "@/components/ui/card";
+
 import {
   Table,
   TableHeader,
   TableBody,
   TableRow,
-  TableCell
+  TableCell,
 } from "@/components/ui/table";
+
 import {
   Tabs,
   TabsList,
   TabsTrigger,
-  TabsContent
+  TabsContent,
 } from "@/components/ui/tabs";
+
 import {
   Select,
   SelectTrigger,
   SelectValue,
   SelectContent,
-  SelectItem
+  SelectItem,
 } from "@/components/ui/select";
-import BalanceSheet from "./BalanceSheet";
 
 interface JournalEntry {
   entry_id: number;
@@ -37,93 +43,109 @@ interface JournalEntry {
   entry_type: string;
 }
 
-export default function JournalEntriesUI() {
+export default function Home() {
   const [entries, setEntries] = useState<JournalEntry[]>([]);
   const [entryType, setEntryType] = useState("All");
   const [filteredEntries, setFilteredEntries] = useState<JournalEntry[]>([]);
-  const [summary, setSummary] = useState({});
+  const [summary, setSummary] = useState<any[]>([]);
 
-  // Fetch journal entries from backend
   useEffect(() => {
     fetch("http://localhost:8000/journal_entries")
-      .then(res => res.json())
-      .then(data => setEntries(data));
+      .then((res) => res.json())
+      .then((data) => setEntries(data))
+      .catch((err) => console.error(err));
   }, []);
 
-  // Fetch balance sheet summary from backend
   useEffect(() => {
     fetch("http://localhost:8000/us_gaap_summary")
-      .then(res => res.json())
-      .then(data => setSummary(data));
+      .then((res) => res.json())
+      .then((data) => setSummary(data))
+      .catch((err) => console.error(err));
   }, []);
 
-  // Filter entries by type
   useEffect(() => {
     if (entryType === "All") {
       setFilteredEntries(entries);
     } else {
-      setFilteredEntries(entries.filter(e => e.entry_type === entryType));
+      setFilteredEntries(entries.filter((e) => e.entry_type === entryType));
     }
   }, [entryType, entries]);
 
-  const entryTypes = [...new Set(entries.map(e => e.entry_type))];
+  const entryTypes = [...new Set(entries.map((e) => e.entry_type))];
 
   return (
-    <div className="p-4 space-y-4">
-      <h1 className="text-2xl font-bold">Journal Entries Viewer (US GAAP)</h1>
+    <main className="min-h-screen bg-gray-50 p-8 space-y-12">
+      <h1 className="text-3xl font-bold text-gray-800">
+        Journal Entry Management
+      </h1>
 
-      <Tabs defaultValue="journal" className="space-y-4">
-        <TabsList>
-          <TabsTrigger value="journal">Journal Entries</TabsTrigger>
-          <TabsTrigger value="summary">Balance Sheet</TabsTrigger>
-        </TabsList>
+      <section className="bg-white p-6 rounded shadow space-y-8">
+        {/* Upload and Manual Entry */}
+        <UploadJournal />
+        <JournalTable />
+      </section>
 
-        {/* Journal Entries Table */}
-        <TabsContent value="journal">
-          <Select onValueChange={(val) => setEntryType(val)}>
-            <SelectTrigger className="w-[200px]">
-              <SelectValue placeholder="Filter by Type" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="All">All</SelectItem>
-              {entryTypes.map((type) => (
-                <SelectItem key={type} value={type}>{type}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+      <section className="bg-white p-6 rounded shadow">
+        <Tabs defaultValue="journal" className="space-y-4">
+          <TabsList>
+            <TabsTrigger value="journal">Journal Entries</TabsTrigger>
+            <TabsTrigger value="summary">Balance Sheet</TabsTrigger>
+          </TabsList>
 
-          <Table className="mt-4">
-            <TableHeader>
-              <TableRow>
-                <TableCell>ID</TableCell>
-                <TableCell>Date</TableCell>
-                <TableCell>Account</TableCell>
-                <TableCell>Debit</TableCell>
-                <TableCell>Credit</TableCell>
-                <TableCell>Description</TableCell>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {filteredEntries.map(entry => (
-                <TableRow key={entry.entry_id}>
-                  <TableCell>{entry.entry_id}</TableCell>
-                  <TableCell>{entry.entry_date}</TableCell>
-                  <TableCell>{entry.account_name}</TableCell>
-                  <TableCell>{entry.debit?.toFixed(2) ?? ""}</TableCell>
-                  <TableCell>{entry.credit?.toFixed(2) ?? ""}</TableCell>
-                  <TableCell>{entry.description}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TabsContent>
+          {/* Journal Entries Table */}
+          <TabsContent value="journal">
+            <div className="mt-4 space-y-4">
+              <Select onValueChange={(val) => setEntryType(val)}>
+                <SelectTrigger className="w-[200px]">
+                  <SelectValue placeholder="Filter by Type" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="All">All</SelectItem>
+                  {entryTypes.map((type) => (
+                    <SelectItem key={type} value={type}>
+                      {type}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
 
-        {/* Balance Sheet Summary */}
-        <TabsContent value="summary">
-          <BalanceSheet />
-        </TabsContent>
+              <Table className="mt-4">
+                <TableHeader>
+                  <TableRow>
+                    <TableCell>ID</TableCell>
+                    <TableCell>Date</TableCell>
+                    <TableCell>Account</TableCell>
+                    <TableCell>Debit</TableCell>
+                    <TableCell>Credit</TableCell>
+                    <TableCell>Description</TableCell>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {filteredEntries.map((entry) => (
+                    <TableRow key={entry.entry_id}>
+                      <TableCell>{entry.entry_id}</TableCell>
+                      <TableCell>{entry.entry_date}</TableCell>
+                      <TableCell>{entry.account_name}</TableCell>
+                      <TableCell>
+                        {entry.debit != null ? entry.debit.toFixed(2) : ""}
+                      </TableCell>
+                      <TableCell>
+                        {entry.credit != null ? entry.credit.toFixed(2) : ""}
+                      </TableCell>
+                      <TableCell>{entry.description}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          </TabsContent>
 
-      </Tabs>
-    </div>
+          {/* Balance Sheet Summary */}
+          <TabsContent value="summary">
+            <BalanceSheet/>
+          </TabsContent>
+        </Tabs>
+      </section>
+    </main>
   );
 }
