@@ -2,3 +2,8 @@ fastapi
 uvicorn
 oracledb
 python-dotenv
+pydantic
+python-multipart
+pandas
+sqlalchemy
+cryptography

@@ -1,14 +1,19 @@
-import os
-import oracledb
-from dotenv import load_dotenv
+from sqlalchemy.orm import declarative_base, sessionmaker
+from sqlalchemy import create_engine
 
-load_dotenv()
+Base = declarative_base()
 
-oracledb.init_oracle_client(lib_dir=r"C:\Program Files\instantclient_23_8")
+# Example Oracle connection string
+engine = create_engine(
+    "oracle+oracledb://YOUR_USER:YOUR_PASSWORD@localhost:1521/?service_name=XE",
+    echo=True,
+)
 
-def get_connection():
-    return oracledb.connect(
-        user=os.getenv("ORACLE_USER"),
-        password=os.getenv("ORACLE_PASSWORD"),
-        dsn=os.getenv("ORACLE_DSN"),
-    )
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
