@@ -1,0 +1,16 @@
+# Ignore environment variable files
+.env
+.env.local
+.env.*
+# Node/React/Next typical build files
+node_modules/
+dist/
+.next/
+build/
+# Python typical files
+*.pyc
+__pycache__/
+.venv/
+# SQLite or other local DBs
+*.db
+*.sqlite3
