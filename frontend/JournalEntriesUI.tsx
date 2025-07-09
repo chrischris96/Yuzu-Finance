@@ -2,28 +2,28 @@ import { useEffect, useState } from "react";
 import {
   Card,
   CardContent
-} from "@/components/ui/card";
+} from "@/app/components/ui/card";
 import {
   Table,
   TableHeader,
   TableBody,
   TableRow,
   TableCell
-} from "@/components/ui/table";
+} from "@/app/components/ui/table";
 import {
   Tabs,
   TabsList,
   TabsTrigger,
   TabsContent
-} from "@/components/ui/tabs";
+} from "@/app/components/ui/tabs";
 import {
   Select,
   SelectTrigger,
   SelectValue,
   SelectContent,
   SelectItem
-} from "@/components/ui/select";
-import BalanceSheet from "./src/components/ui/BalanceSheet";
+} from "@/app/components/ui/select";
+import BalanceSheet from "./src/app/components/ui/BalanceSheet";
 
 interface JournalEntry {
   entry_id: number;

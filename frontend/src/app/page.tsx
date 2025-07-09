@@ -6,15 +6,14 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/app/components/ui/card";
 import {
   Tabs,
   TabsList,
   TabsTrigger,
   TabsContent,
-} from "@/components/ui/tabs";
-import UploadJournal from "@/components/ui/UploadJournal";
-import BalanceSheet from "@/components/ui/BalanceSheet";
+} from "@/app/components/ui/tabs";
+import UploadJournal from "@/app/components/ui/UploadJournal";
 
 interface JournalEntry {
   entry_id?: number;
@@ -194,7 +193,7 @@ const handleSubmit = async () => {
               <CardTitle>Upload Journal Entries</CardTitle>
             </CardHeader>
             <CardContent>
-              <UploadJournal />
+              <UploadJournal onUpload={(file) => { /* handle upload */ }} />
             </CardContent>
           </Card>
         </TabsContent>
