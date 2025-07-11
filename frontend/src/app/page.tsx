@@ -13,7 +13,7 @@ import {
   TabsTrigger,
   TabsContent,
 } from "@/app/components/ui/tabs";
-import UploadJournal from "@/app/components/ui/UploadJournal";
+import UploadJournal from "@/app/components/ui/CsvUpload";
 
 interface JournalEntry {
   entry_id?: number;
@@ -193,7 +193,7 @@ const handleSubmit = async () => {
               <CardTitle>Upload Journal Entries</CardTitle>
             </CardHeader>
             <CardContent>
-              <UploadJournal onUpload={(file) => { /* handle upload */ }} />
+              <UploadJournal onUploadSuccess={(msg: string) => { /* handle upload success */ }} />
             </CardContent>
           </Card>
         </TabsContent>

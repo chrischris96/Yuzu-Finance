@@ -21,3 +21,14 @@ class JournalEntry(BaseModel):
 
     class Config:
         orm_mode = True
+
+from typing import List
+
+class JournalBatchWithEntries(BaseModel):
+    batch_id: int
+    created_at: str
+    uploaded_by: str
+    entries: List[JournalEntry]
+
+    class Config:
+        from_attributes = True

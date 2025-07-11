@@ -4,16 +4,26 @@ from typing import Optional
 
 from datetime import datetime
 from app.db import Base
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Numeric, Date, Identity
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Numeric, Sequence, Identity
 from sqlalchemy.orm import relationship     
 
-# Models for the Journal Classification API
 class JournalBatch(Base):
     __tablename__ = "journal_batches"
-    batch_id = Column(Integer, primary_key=True, autoincrement=True)
-    created_at = Column(Date)
+
+    batch_id = Column(
+        Integer,
+        Sequence("journal_batches_seq", start=1, increment=1),  # Oracle-style autoincrement
+        primary_key=True
+    )
+    created_at = Column(DateTime)
     uploaded_by = Column(String(100))
-    entries = relationship("JournalEntry", back_populates="batch")
+
+    # Relationship to journal entries (if you want to access entries per batch)
+    entries = relationship("JournalEntry", back_populates="batch", cascade="all, delete-orphan")
+
+    def __repr__(self):
+        return f"<JournalBatch(batch_id={self.batch_id}, created_at={self.created_at}, uploaded_by='{self.uploaded_by}')>"
+
 
 class JournalEntry(Base):
     __tablename__ = "journal_entries"

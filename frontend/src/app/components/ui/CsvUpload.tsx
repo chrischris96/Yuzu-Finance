@@ -1,21 +1,51 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { CloudUpload } from "lucide-react"; // If you have lucide-react. Else swap for SVG below
+import { CloudUpload } from "lucide-react";
 
-export default function UploadJournal({ onUpload }: { onUpload?: (file: File) => void }) {
+export default function CsvUpload({
+  onUploadSuccess,
+}: {
+  onUploadSuccess?: (msg: string) => void;
+}) {
   const [dragActive, setDragActive] = useState(false);
   const [fileName, setFileName] = useState<string | null>(null);
+  const [uploading, setUploading] = useState(false);
+  const [message, setMessage] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
+
+  async function uploadFile(file: File) {
+    setUploading(true);
+    setMessage(null);
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const response = await fetch("http://localhost:8000/upload_journal_entries", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setMessage(result.message || "Upload successful!");
+        onUploadSuccess?.(result.message || "Upload successful!");
+      } else {
+        setMessage(result.detail || "Upload failed.");
+      }
+    } catch (e) {
+      setMessage("Network error: could not upload.");
+    }
+    setUploading(false);
+  }
 
   function handleDrag(e: React.DragEvent<HTMLDivElement>) {
     e.preventDefault();
     e.stopPropagation();
-    if (e.type === "dragenter" || e.type === "dragover") {
-      setDragActive(true);
-    } else if (e.type === "dragleave") {
-      setDragActive(false);
-    }
+    if (e.type === "dragenter" || e.type === "dragover") setDragActive(true);
+    else if (e.type === "dragleave") setDragActive(false);
   }
 
   function handleDrop(e: React.DragEvent<HTMLDivElement>) {
@@ -24,14 +54,14 @@ export default function UploadJournal({ onUpload }: { onUpload?: (file: File) =>
     setDragActive(false);
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       setFileName(e.dataTransfer.files[0].name);
-      onUpload?.(e.dataTransfer.files[0]);
+      uploadFile(e.dataTransfer.files[0]);
     }
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     if (e.target.files && e.target.files[0]) {
       setFileName(e.target.files[0].name);
-      onUpload?.(e.target.files[0]);
+      uploadFile(e.target.files[0]);
     }
   }
 
@@ -63,16 +93,8 @@ export default function UploadJournal({ onUpload }: { onUpload?: (file: File) =>
           onChange={handleChange}
         />
         <div className="flex flex-col items-center">
-          {/* Animated icon */}
           <div className={`mb-2 ${dragActive ? "animate-bounce" : ""}`}>
-            {/* Lucide icon (preferred, if you use lucide-react) */}
             <CloudUpload className={`${dragActive ? "text-pink-600" : "text-blue-500"} w-12 h-12 transition-colors`} />
-            {/* If you don't have lucide-react, use this SVG instead:
-            <svg className={`${dragActive ? "text-pink-600" : "text-blue-500"} w-12 h-12 transition-colors`} fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 16V7m0 0l-3.5 3.5M12 7l3.5 3.5" />
-              <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 16.875A4.125 4.125 0 0116.125 21H7.875A4.125 4.125 0 013.75 16.875a4.07 4.07 0 01.697-2.29M16.5 16.5a2.25 2.25 0 10-4.5 0" />
-            </svg>
-            */}
           </div>
           <div className="text-lg font-semibold text-blue-600">
             {fileName ? (
@@ -91,7 +113,6 @@ export default function UploadJournal({ onUpload }: { onUpload?: (file: File) =>
           </div>
         </div>
       </div>
-      {/* Animated colorful upload button */}
       <button
         onClick={openFileDialog}
         className={`
@@ -102,9 +123,16 @@ export default function UploadJournal({ onUpload }: { onUpload?: (file: File) =>
           animate-pulse
         `}
         type="button"
+        disabled={uploading}
       >
-        {fileName ? "Change CSV" : "Upload CSV"}
+        {uploading ? "Uploading..." : fileName ? "Change CSV" : "Upload CSV"}
       </button>
+      {/* Message display */}
+      {message && (
+        <div className={`mt-4 text-center text-base ${message.includes("success") ? "text-green-600" : "text-red-500"}`}>
+          {message}
+        </div>
+      )}
     </div>
   );
 }
