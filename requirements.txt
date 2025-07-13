@@ -7,3 +7,7 @@ python-multipart
 pandas
 sqlalchemy
 cryptography
+python-jwt
+passlib
+bcrypt<4
+

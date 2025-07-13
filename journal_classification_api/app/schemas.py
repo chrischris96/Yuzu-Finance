@@ -2,6 +2,12 @@ from pydantic import BaseModel, model_validator
 from typing import Optional
 from datetime import datetime
 
+class UserCreate(BaseModel):
+    username: str
+    password: str
+    email: str | None = None
+
+
 class JournalEntry(BaseModel):
     entry_id: Optional[int] = None
     entry_date: Optional[str] = None

@@ -15,6 +15,11 @@ import {
 } from "@/app/components/ui/tabs";
 import UploadJournal from "@/app/components/ui/CsvUpload";
 
+import { useRouter } from "next/navigation";
+
+// Removed duplicate default export SomeProtectedPage to fix redeclaration error.
+
+
 interface JournalEntry {
   entry_id?: number;
   entry_date: string;
