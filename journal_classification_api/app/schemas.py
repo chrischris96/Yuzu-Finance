@@ -1,5 +1,6 @@
 from pydantic import BaseModel, model_validator
 from typing import Optional
+from datetime import datetime
 
 class JournalEntry(BaseModel):
     entry_id: Optional[int] = None
@@ -26,7 +27,7 @@ from typing import List
 
 class JournalBatchWithEntries(BaseModel):
     batch_id: int
-    created_at: str
+    created_at: datetime
     uploaded_by: str
     entries: List[JournalEntry]
 
