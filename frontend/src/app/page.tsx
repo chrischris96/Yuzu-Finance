@@ -16,9 +16,56 @@ import {
 import UploadJournal from "@/app/components/ui/CsvUpload";
 
 import { useRouter } from "next/navigation";
+// app/journal/page.tsx  (example snippet)
+import RuleTooltip from "@/app/components/rules/RuleTooltip";
+
+export function JournalPage() {
+  // Example data
+  const rows = [
+    { id: 1, account: "4000 – Product revenue", amount: 125000, rule: "REVENUE_GOODS" as const },
+    { id: 2, account: "2100 – Contract liability", amount: 48000, rule: "DEFERRED_REVENUE" as const },
+    { id: 3, account: "6110 – Depreciation expense", amount: 7200, rule: "PPE_DEP" as const },
+  ];
+
+  return (
+    <main className="mx-auto max-w-6xl p-6">
+      <h1 className="text-2xl font-semibold">Journal Entries</h1>
+
+      <div className="mt-6 overflow-hidden rounded-xl border">
+        <table className="w-full border-separate border-spacing-0">
+          <thead className="bg-neutral-50 text-left text-sm">
+            <tr>
+              <th className="px-4 py-3 font-medium">Account</th>
+              <th className="px-4 py-3 font-medium">Amount</th>
+              <th className="px-4 py-3 font-medium">Rule</th>
+            </tr>
+          </thead>
+          <tbody className="text-sm">
+            {rows.map((r) => (
+              <tr key={r.id} className="border-t">
+                <td className="px-4 py-3">{r.account}</td>
+                <td className="px-4 py-3 tabular-nums">{r.amount.toLocaleString()}</td>
+                <td className="px-4 py-3">
+                  <RuleTooltip ruleId={r.rule} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </main>
+  );
+}
 
 // Removed duplicate default export SomeProtectedPage to fix redeclaration error.
+import MetricsWidget from "@/app/components/ui/MetricsWidget";
+import HowItWorks from "@/app/components/ui/HowItWorks";
 
+// Removed HomePage default export to avoid duplicate default export error.
+// The content from HomePage can be merged into the main Home component if needed.
+
+
+import { deriveRuleIdFromRow, type RuleId } from "@/app/components/rules/deriveRules";
 
 interface JournalEntry {
   entry_id?: number;
@@ -31,7 +78,9 @@ interface JournalEntry {
   currency?: string;
   cost_center?: string;
   entry_type?: string;
+  rule_id?: RuleId | null; // <— NEW
 }
+
 
 interface JournalBatch {
   batch_id: number;
@@ -152,10 +201,15 @@ const handleSubmit = async () => {
   }
 
   try {
+const payload = rows.map(r => ({
+  ...r,
+  rule_id: r.rule_id ?? deriveRuleIdFromRow(r)
+}));
+
     const response = await fetch("http://localhost:8000/journal_entries", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(rows),
+      body: JSON.stringify(payload),
     });
 
     if (response.ok) {
@@ -219,6 +273,7 @@ const handleSubmit = async () => {
                     <th className="p-2 border">Debit</th>
                     <th className="p-2 border">Credit</th>
                     <th className="p-2 border">Description</th>
+                    <th className="p-2 border">IFRS Rule</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -281,6 +336,13 @@ const handleSubmit = async () => {
                           className="p-1 w-full"
                         />
                       </td>
+<td className="p-2 border">
+  {(() => {
+    const ruleId = row.rule_id ?? deriveRuleIdFromRow(row);
+    return ruleId ? <RuleTooltip ruleId={ruleId} /> : <span className="text-neutral-400">—</span>;
+  })()}
+</td>
+
                     </tr>
                   ))}
                 </tbody>
