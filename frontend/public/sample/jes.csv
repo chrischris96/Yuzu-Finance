@@ -1,0 +1,6 @@
+entry_date,account_code,account_name,debit,credit,description,currency,cost_center,entry_type
+2025-06-30,4000,Product revenue,,125000,June shipments invoiced,USD,EU-01,Revenue
+2025-06-30,1200,Trade receivables,125000,,AR from June shipments,USD,EU-01,AR
+2025-06-30,2100,Contract liability,,48000,Deferred revenue for annual plans,USD,EU-01,Deferred
+2025-06-30,6110,Depreciation expense,7200,,Monthly depreciation for PPE,USD,CORP,Expense
+2025-06-30,1600,Accumulated depreciation,,7200,Contra for monthly depreciation,USD,CORP,Contra

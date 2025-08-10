@@ -15,6 +15,10 @@ import {
 } from "@/app/components/ui/tabs";
 import UploadJournal from "@/app/components/ui/CsvUpload";
 
+import EngineBadge from "@/app/components/ui/EngineBadge";
+import Link from "next/link";
+
+
 import { useRouter } from "next/navigation";
 // app/journal/page.tsx  (example snippet)
 import RuleTooltip from "@/app/components/rules/RuleTooltip";
@@ -174,68 +178,132 @@ export default function Home() {
     ]);
   };
 
-const handleSubmit = async () => {
-  // Check rows
-  for (let i = 0; i < rows.length; i++) {
-    const row = rows[i];
-    if (!row.entry_date) {
-      alert(`Row ${i + 1}: Entry Date is required.`);
-      return;
+  const handleSubmit = async () => {
+    // Check rows
+    for (let i = 0; i < rows.length; i++) {
+      const row = rows[i];
+      if (!row.entry_date) {
+        alert(`Row ${i + 1}: Entry Date is required.`);
+        return;
+      }
+      if (!row.account_code) {
+        alert(`Row ${i + 1}: Account Code is required.`);
+        return;
+      }
+      if (!row.account_name) {
+        alert(`Row ${i + 1}: Account Name is required.`);
+        return;
+      }
+      if (!row.debit && !row.credit) {
+        alert(`Row ${i + 1}: Either Debit or Credit must be filled.`);
+        return;
+      }
+      if (!row.description) {
+        alert(`Row ${i + 1}: Description is required.`);
+        return;
+      }
     }
-    if (!row.account_code) {
-      alert(`Row ${i + 1}: Account Code is required.`);
-      return;
-    }
-    if (!row.account_name) {
-      alert(`Row ${i + 1}: Account Name is required.`);
-      return;
-    }
-    if (!row.debit && !row.credit) {
-      alert(`Row ${i + 1}: Either Debit or Credit must be filled.`);
-      return;
-    }
-    if (!row.description) {
-      alert(`Row ${i + 1}: Description is required.`);
-      return;
-    }
-  }
 
-  try {
-const payload = rows.map(r => ({
-  ...r,
-  rule_id: r.rule_id ?? deriveRuleIdFromRow(r)
-}));
+    try {
+      const payload = rows.map(r => ({
+        ...r,
+        rule_id: r.rule_id ?? deriveRuleIdFromRow(r)
+      }));
 
-    const response = await fetch("http://localhost:8000/journal_entries", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+      const response = await fetch("http://localhost:8000/journal_entries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-    if (response.ok) {
-      alert("Entries saved successfully!");
-      setRows([]);
-    } else {
-      const error = await response.json();
-      console.error(error);
-      alert(
-        error.detail?.[0]?.msg ||
-        JSON.stringify(error, null, 2) ||
-        "Unknown error."
-      );
+      if (response.ok) {
+        alert("Entries saved successfully!");
+        setRows([]);
+      } else {
+        const error = await response.json();
+        console.error(error);
+        alert(
+          error.detail?.[0]?.msg ||
+          JSON.stringify(error, null, 2) ||
+          "Unknown error."
+        );
+      }
+    } catch (e) {
+      alert("Failed to save entries: " + e);
     }
-  } catch (e) {
-    alert("Failed to save entries: " + e);
-  }
-};
+  };
 
+  const parseCsv = (text: string): JournalEntry[] => {
+    const [headerLine, ...lines] = text.trim().split(/\r?\n/);
+    const headers = headerLine.split(",").map(h => h.trim());
+    const idx = (name: string) => headers.indexOf(name);
+
+    return lines
+      .filter(l => l.trim().length > 0)
+      .map(line => {
+        // naive CSV split (OK for demo data without quoted commas)
+        const cols = line.split(",").map(c => c.trim());
+        const get = (name: string) => cols[idx(name)] ?? "";
+
+        const debitRaw = get("debit");
+        const creditRaw = get("credit");
+
+        return {
+          entry_date: get("entry_date"),
+          account_code: get("account_code"),
+          account_name: get("account_name"),
+          debit: debitRaw ? parseFloat(debitRaw) : null,
+          credit: creditRaw ? parseFloat(creditRaw) : null,
+          description: get("description"),
+          currency: get("currency"),
+          cost_center: get("cost_center"),
+          entry_type: get("entry_type"),
+        } as JournalEntry;
+      });
+  };
+
+  const trySampleFile = async () => {
+    try {
+      const res = await fetch("/sample/jes.csv");
+      if (!res.ok) throw new Error("Could not load sample CSV");
+      const text = await res.text();
+      const entries = parseCsv(text);
+
+      const post = await fetch("http://localhost:8000/journal_entries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(entries),
+      });
+
+      if (!post.ok) {
+        const err = await post.json().catch(() => ({}));
+        throw new Error(err.detail?.[0]?.msg || JSON.stringify(err) || "Unknown error");
+      }
+
+      alert("Sample posted successfully. Check the Journal Batches tab.");
+      // optionally refresh batches
+      const batchesRes = await fetch("http://localhost:8000/journal_batches");
+      const batchesJson = await batchesRes.json().catch(() => []);
+      setBatches(Array.isArray(batchesJson) ? batchesJson : []);
+    } catch (e: any) {
+      alert("Failed to try sample: " + (e?.message || e));
+    }
+  };
 
 
   return (
     <main className="min-h-screen bg-gray-50 p-8 space-y-12">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">
+      <h1 className="text-3xl font-bold text-gray-800 mb-2">
         Journal Entry Management
       </h1>
+      <div className="mb-6 flex flex-wrap items-center gap-3">
+        <Link href="/model-card" className="text-sm text-blue-600 hover:underline">
+          View Model Card — “Rules v0”
+        </Link>
+        <EngineBadge />
+      </div>
+
+
 
       <Tabs defaultValue="upload" className="space-y-4">
         <TabsList>
@@ -253,6 +321,22 @@ const payload = rows.map(r => ({
             </CardHeader>
             <CardContent>
               <UploadJournal onUploadSuccess={(msg: string) => { /* handle upload success */ }} />
+              <div className="flex flex-wrap items-center gap-3 mb-4">
+                <a
+                  href="/sample/jes.csv"
+                  download
+                  className="px-3 py-2 rounded border hover:bg-gray-50"
+                >
+                  Download sample CSV
+                </a>
+                <button
+                  onClick={trySampleFile}
+                  className="px-3 py-2 rounded bg-blue-600 text-white hover:bg-blue-700"
+                >
+                  Try sample file
+                </button>
+              </div>
+
             </CardContent>
           </Card>
         </TabsContent>
@@ -336,12 +420,12 @@ const payload = rows.map(r => ({
                           className="p-1 w-full"
                         />
                       </td>
-<td className="p-2 border">
-  {(() => {
-    const ruleId = row.rule_id ?? deriveRuleIdFromRow(row);
-    return ruleId ? <RuleTooltip ruleId={ruleId} /> : <span className="text-neutral-400">—</span>;
-  })()}
-</td>
+                      <td className="p-2 border">
+                        {(() => {
+                          const ruleId = row.rule_id ?? deriveRuleIdFromRow(row);
+                          return ruleId ? <RuleTooltip ruleId={ruleId} /> : <span className="text-neutral-400">—</span>;
+                        })()}
+                      </td>
 
                     </tr>
                   ))}
