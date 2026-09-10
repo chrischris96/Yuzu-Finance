@@ -92,7 +92,7 @@ export default function InstrumentForm({
           <div>
             <p className="eyebrow">BANK BOOK · EUR</p>
             <h2 id="instrument-title">
-              {initial ? "Edit instrument" : "Add an instrument"}
+              {initial?.id ? "Edit instrument" : "Add an instrument"}
             </h2>
           </div>
           <button
@@ -228,15 +228,35 @@ export default function InstrumentForm({
               "maturity",
               derivative
                 ? "Beyond 12 months. Interim derivative payments and settlement are not modelled."
-                : "Coupons paid monthly; principal redeemed at maturity. Deposits assume no withdrawals before the chosen scenario end.",
+                : "Principal redeemed at maturity. Choose the interest payment schedule below. Deposits assume no withdrawals before the chosen scenario end.",
             )}
           {!derivative &&
             !cash &&
             numberField(
               "Annual contractual coupon / deposit rate (%)",
               "coupon",
-              "Monthly cash payments. Effective yield is derived from consideration, coupons and redemption.",
+              "Interest accrues monthly; cash follows the payment schedule. Effective yield is derived from consideration, coupons and redemption.",
             )}
+          {!derivative && !cash && (
+            <label>
+              Interest payment schedule
+              <select
+                value={value.paymentFrequency ?? 1}
+                onChange={(e) =>
+                  update("paymentFrequency", Number(e.target.value))
+                }
+              >
+                <option value={1}>Monthly</option>
+                <option value={3}>Quarterly</option>
+                <option value={6}>Semiannual</option>
+                <option value={12}>Annual</option>
+              </select>
+              <small className="muted">
+                Unpaid contractual interest appears separately as accrued
+                interest. A final short period is paid at maturity.
+              </small>
+            </label>
+          )}
         </div>
         {debtAsset && (
           <section className="panel">

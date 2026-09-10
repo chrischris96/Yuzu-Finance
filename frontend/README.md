@@ -1,36 +1,19 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Yuzu Finance — bank accounting lab
 
-## Getting Started
+Public educational EUR bank portfolio at /yuzu/. No login or backend is needed. Existing saved books remain in browser local storage; the separate example library never replaces them.
 
-First, run the development server:
+## Run and validate
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Use Node 22, then npm ci, npm test, npm run build and npm start. Open http://127.0.0.1:3000/yuzu/. Static output is in out/ and is composed with the Flutter portfolio by chrischris96/website-flutter. That repository pins a reviewed Yuzu commit and tests Firebase routing before packaging. Building does not publish to Firebase.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Version 0.3
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Original Yuzu PNG artwork (also retained at its legacy favicon path).
+- Sixteen examples covering bonds, IRS, CCS, CDS, CFD, options, cash, cash at sight and cash at call, including bank funding and asset positions.
+- Monthly double-entry events; a consistent account vocabulary; separate interest receivables/payables, income/expense and amortised-cost loss allowances.
+- Effective interest with monthly, quarterly, semiannual or annual coupon payments and final stub payments. Legacy saved instruments default to monthly payments.
+- Side-by-side FVTPL/FVOCI paths, amortised-cost reference, valuation and cash-flow charts, monthly values, comparison CSV and current-month journal trail.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All positions begin on 1 January 2026 and run through 1 January 2027. Fair values follow supplied clean-price endpoints with accrued interest added; they are fictional paths, not market pricing. Derivatives remain valuation-only: swap legs, CDS premiums, settlement, exercise, collateral, FX and hedge accounting are not simulated. FVOCI for derivatives/cash/funding is an explicitly optional non-IFRS routing experiment, never a designation in the bank ledger. Debt alternatives require the appropriate SPPI assessment and inception business model. No early sale, Stage 3, provider feed, equity-share instrument or US GAAP engine is implemented. See /model-card/ for methodology and primary sources.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Tests verify classifications, effective yield, accrual/payment timing, maturity and stub settlement, double-entry event balancing, monthly history reconciliation, FVOCI/FVTPL total comprehensive income, sample coverage, saved-book compatibility and journal/CSV validation.

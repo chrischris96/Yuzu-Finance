@@ -307,9 +307,10 @@ export default function JournalWorkspace({
       {mode === "generated" && (
         <>
           <p className="compact">
-            Cumulative snapshot postings through the reporting date. Interest
-            and coupon lines aggregate monthly amounts; they are not a
-            transaction-by-transaction history.
+            Monthly double-entry postings from inception through the reporting
+            date. Every generated event has an equal debit and credit. Interest
+            accrual, payment, valuation and ECL movements are recorded
+            separately.
           </p>
           <div className="table-wrap">
             <table>
