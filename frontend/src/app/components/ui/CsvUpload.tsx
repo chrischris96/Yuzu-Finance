@@ -35,7 +35,7 @@ export default function CsvUpload({
       } else {
         setMessage(result.detail || "Upload failed.");
       }
-    } catch (e) {
+    } catch {
       setMessage("Network error: could not upload.");
     }
     setUploading(false);

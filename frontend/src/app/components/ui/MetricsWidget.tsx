@@ -77,8 +77,8 @@ export default function MetricsWidget() {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json = (await res.json()) as MetricsResponse;
         setData(json);
-      } catch (e: any) {
-        setError(e?.message ?? 'Failed to fetch metrics');
+      } catch (e: unknown) {
+        setError(e instanceof Error ? e.message : 'Failed to fetch metrics');
         setUsingDemo(true);
         setData(demoData);
       }
