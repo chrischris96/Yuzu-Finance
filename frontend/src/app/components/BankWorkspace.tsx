@@ -1,6 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import ComparisonWorkspace from "./ComparisonWorkspace";
+import TimeChart from "./TimeChart";
 import InstrumentForm from "./InstrumentForm";
 import JournalWorkspace, { download } from "./JournalWorkspace";
 import {
@@ -16,8 +19,7 @@ import {
   rationale,
   validateInstrument,
   validateJournal,
-  evaluate,
-  Category,
+  PRODUCTS,
 } from "@/lib/accounting";
 const KEY = "yuzu-bank-demo-v1";
 export default function BankWorkspace({
@@ -35,7 +37,7 @@ export default function BankWorkspace({
   const [editing, setEditing] = useState<Instrument | null | undefined>(
     undefined,
   );
-  const [selected, setSelected] = useState("sample-bond-ac");
+  const [exampleProduct, setExampleProduct] = useState("All");
   useEffect(() => {
     try {
       const raw = localStorage.getItem(KEY);
@@ -180,13 +182,19 @@ export default function BankWorkspace({
           </span>
         </div>
       ));
-  const selectedInstrument =
-    instruments.find((i) => i.id === selected) || instruments[0];
+
   return (
     <main className="workspace">
       <header>
         <Link className="brand" href="/">
-          yuzu<span>FINANCE LAB</span>
+          <Image
+            src="/yuzu/yuzu-logo.png"
+            width={76}
+            height={76}
+            alt="Yuzu"
+            unoptimized
+          />
+          <span>FINANCE LAB</span>
         </Link>
         <div className="split">
           <span className="badge">BANK PORTFOLIO · DEMO</span>
@@ -200,7 +208,7 @@ export default function BankWorkspace({
           <p className="eyebrow">YOUR BANK, UNDER THE MICROSCOPE</p>
           <h1>
             {comparison ? (
-              "One instrument. Three perspectives."
+              "The same book. A different earnings story."
             ) : (
               <>
                 One portfolio.
@@ -231,7 +239,8 @@ export default function BankWorkspace({
               ["balance", "Balance Sheet"],
               ["portfolio", "Portfolio"],
               ["journal", "Journal Entries"],
-              ["accounts", "Account Balances"],
+              ["accounts", "Trial Balance"],
+              ["examples", "Example Library"],
             ].map(([key, label]) => (
               <button
                 key={key}
@@ -299,97 +308,7 @@ export default function BankWorkspace({
         </div>
       )}
       {comparison ? (
-        <section className="panel" style={{ marginTop: 24 }}>
-          <label>
-            Instrument
-            <select
-              value={selectedInstrument?.id || ""}
-              onChange={(e) => setSelected(e.target.value)}
-            >
-              {instruments.map((i) => (
-                <option value={i.id} key={i.id}>
-                  {i.name}
-                </option>
-              ))}
-            </select>
-          </label>
-          {selectedInstrument ? (
-            <>
-              <p>{rationale(selectedInstrument)}</p>
-              {selectedInstrument.product === "Bond" &&
-              selectedInstrument.side === "asset" ? (
-                <>
-                  <p className="notice">
-                    Hypothetical IFRS 9 measurement comparison for the same debt
-                    asset. Amortised cost and FVOCI assume an SPPI pass and an
-                    eligible business model. These are scenarios, not freely
-                    interchangeable accounting elections.
-                  </p>
-                  <div className="table-wrap">
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>Measurement scenario</th>
-                          <th>Carrying amount</th>
-                          <th>Cumulative P&L</th>
-                          <th>OCI</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {(
-                          ["Amortised cost", "FVOCI", "FVTPL"] as Category[]
-                        ).map((c) => {
-                          const hypothetical = {
-                            ...selectedInstrument,
-                            sppi: "pass" as const,
-                            assessment: "direct" as const,
-                            businessModel:
-                              c === "Amortised cost"
-                                ? ("collect" as const)
-                                : c === "FVOCI"
-                                  ? ("collect-sell" as const)
-                                  : ("trading" as const),
-                          };
-                          const p = evaluate(hypothetical, month);
-                          return (
-                            <tr key={c}>
-                              <td>{c}</td>
-                              <td>{money(p.carrying)}</td>
-                              <td>
-                                {money(
-                                  p.interest -
-                                    p.allowance +
-                                    (c === "FVTPL" ? p.fvChange : 0),
-                                )}
-                              </td>
-                              <td>
-                                {money(
-                                  c === "FVOCI" ? p.fvChange + p.allowance : 0,
-                                )}
-                              </td>
-                            </tr>
-                          );
-                        })}
-                      </tbody>
-                    </table>
-                  </div>
-                </>
-              ) : (
-                <p className="notice">
-                  This product uses {classify(selectedInstrument)} in the
-                  supported scenario. Choose an asset bond to compare the three
-                  debt-asset measurement categories.
-                </p>
-              )}
-              <p className="compact">
-                Cross-standard comparisons, including US GAAP, will be added
-                separately. No US GAAP results are generated in this version.
-              </p>
-            </>
-          ) : (
-            <div className="empty">Add an instrument to start comparing.</div>
-          )}
-        </section>
+        <ComparisonWorkspace instruments={instruments} month={month} />
       ) : (
         <>
           {tab === "balance" && (
@@ -408,7 +327,7 @@ export default function BankWorkspace({
                   <small>Total equity</small>
                   <strong>{money(result.equity)}</strong>
                   <small>
-                    Includes cumulative result {money(result.profit)}
+                    Includes profit / loss for the period {money(result.profit)}
                   </small>
                 </article>
               </div>
@@ -432,7 +351,7 @@ export default function BankWorkspace({
                   </div>
                   {tableRows("Equity")}
                   <div className="row">
-                    <span>Current period result</span>
+                    <span>Profit / loss for the period</span>
                     <span className="money">{money(result.profit)}</span>
                   </div>
                   <div className="row total">
@@ -456,6 +375,32 @@ export default function BankWorkspace({
                   ? "Incomplete book: unresolved instruments are excluded."
                   : "All classified positions and dated adjustments are included."}
               </div>
+              <section className="panel">
+                <TimeChart
+                  title="Your bank over time"
+                  description="Assets versus liabilities plus equity, including dated adjustments. The two lines overlap when the book balances."
+                  month={month}
+                  lines={[
+                    {
+                      label: "Assets",
+                      color: "#216c55",
+                      values: Array.from(
+                        { length: 13 },
+                        (_, m) => portfolio(instruments, batches, m).assets,
+                      ),
+                    },
+                    {
+                      label: "Liabilities + equity",
+                      color: "#9b4fbb",
+                      dashed: true,
+                      values: Array.from({ length: 13 }, (_, m) => {
+                        const p = portfolio(instruments, batches, m);
+                        return p.liabilities + p.equity;
+                      }),
+                    },
+                  ]}
+                />
+              </section>
               <p className="compact muted">
                 Illustrative bank balance sheet for the selected instruments.
                 Not a complete IFRS financial statement: taxes, non-financial
@@ -463,6 +408,64 @@ export default function BankWorkspace({
                 added as adjustments.
               </p>
             </>
+          )}
+          {tab === "examples" && (
+            <section className="panel">
+              <p className="eyebrow">START WITH A WORKED EXAMPLE</p>
+              <h2>Explore the bank’s building blocks</h2>
+              <p>
+                Sixteen fictional positions cover every product family listed
+                below, including funding, falling valuations and maturity.
+                Inspecting an example opens a copy you can add to your own bank.
+              </p>
+              <label>
+                Product family
+                <select
+                  value={exampleProduct}
+                  onChange={(e) => setExampleProduct(e.target.value)}
+                >
+                  <option>All</option>
+                  {PRODUCTS.map((p) => (
+                    <option key={p}>{p}</option>
+                  ))}
+                </select>
+              </label>
+              <div className="example-grid">
+                {samplePortfolio()
+                  .filter(
+                    (i) =>
+                      exampleProduct === "All" || i.product === exampleProduct,
+                  )
+                  .map((i) => (
+                    <article className="example-card" key={i.id}>
+                      <span className="tag">
+                        {i.product} · {classify(i)}
+                      </span>
+                      <h3>{i.name}</h3>
+                      <p>{rationale(i)}</p>
+                      <small>
+                        Reference principal / notional: {money(i.notional)}
+                      </small>
+                      <div className="actions">
+                        <button
+                          className="secondary"
+                          disabled={!ready}
+                          onClick={() =>
+                            setEditing({
+                              ...i,
+                              id: "",
+                              name: i.name + " · copy",
+                            })
+                          }
+                        >
+                          Inspect / add example
+                        </button>
+                      </div>
+                    </article>
+                  ))}
+              </div>
+              <Link href="/comparison">Compare all examples over time →</Link>
+            </section>
           )}
           {tab === "portfolio" && (
             <section className="panel" style={{ marginTop: 24 }}>
@@ -566,7 +569,7 @@ export default function BankWorkspace({
           )}
           {tab === "accounts" && (
             <section className="panel" style={{ marginTop: 24 }}>
-              <h2>Account Balances</h2>
+              <h2>Trial Balance</h2>
               <p>
                 Combined trial balance for the bank scenario and your adjustment
                 batches.
@@ -591,6 +594,27 @@ export default function BankWorkspace({
                       </tr>
                     ))}
                   </tbody>
+                  <tfoot>
+                    <tr>
+                      <th colSpan={2}>Total debits / credits</th>
+                      <th className="money">
+                        {money(
+                          result.rows.reduce(
+                            (sum, r) => sum + Math.max(r.balance, 0),
+                            0,
+                          ),
+                        )}
+                      </th>
+                      <th className="money">
+                        {money(
+                          result.rows.reduce(
+                            (sum, r) => sum + Math.max(-r.balance, 0),
+                            0,
+                          ),
+                        )}
+                      </th>
+                    </tr>
+                  </tfoot>
                 </table>
               </div>
             </section>

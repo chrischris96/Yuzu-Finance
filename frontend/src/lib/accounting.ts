@@ -26,6 +26,8 @@ export interface Instrument {
   terminal: number;
   coupon: number;
   maturity: number;
+  /** Months between payments; old saved books retain monthly payments. */
+  paymentFrequency?: number;
   businessModel: BusinessModel;
   sppi: SPPI;
   assessment: "direct" | "guided";
@@ -64,7 +66,7 @@ export const END = "2027-01-01";
 export const isDerivative = (p: Product) =>
   ["IRS", "CCS", "CDS", "CFD", "Option"].includes(p);
 export const round = (n: number) =>
-  Math.round((n + Number.EPSILON) * 100) / 100;
+  Math.round((n + Number.EPSILON) * 100) / 100 || 0;
 export const money = (n: number) =>
   new Intl.NumberFormat("en-IE", {
     style: "currency",
@@ -135,46 +137,135 @@ export function template(product: Product = "Bond"): Instrument {
   };
 }
 export function samplePortfolio(): Instrument[] {
+  const example = (
+    product: Product,
+    id: string,
+    name: string,
+    overrides: Partial<Instrument> = {},
+  ): Instrument => ({ ...template(product), id, name, ...overrides });
   return [
-    {
-      ...template(),
-      id: "sample-bond-ac",
-      name: "Treasury bond · hold to collect",
+    example("Bond", "sample-bond-ac", "Treasury bond · hold to collect", {
       notional: 1000000,
-      initial: 1000000,
+      initial: 980000,
       terminal: 1020000,
       ecl: 1200,
-    },
-    {
-      ...template(),
-      id: "sample-bond-oci",
-      name: "Liquidity reserve bond",
+      paymentFrequency: 6,
+    }),
+    example("Bond", "sample-bond-oci", "Liquidity reserve bond", {
       notional: 500000,
       initial: 500000,
       terminal: 515000,
       businessModel: "collect-sell",
       ecl: 800,
-    },
-    {
-      ...template("IRS"),
-      id: "sample-irs",
-      name: "Interest rate swap · trading",
+      paymentFrequency: 3,
+    }),
+    example("Bond", "sample-bond-trading", "Trading bond · falling market", {
+      notional: 200000,
+      initial: 202000,
+      terminal: 190000,
+      businessModel: "trading",
+      paymentFrequency: 6,
+    }),
+    example(
+      "Bond",
+      "sample-bond-maturity",
+      "Short bond · redemption at month 9",
+      {
+        notional: 100000,
+        initial: 97000,
+        terminal: 100000,
+        maturity: 9,
+        paymentFrequency: 3,
+        businessModel: "collect-sell",
+      },
+    ),
+    example("Bond", "sample-issued-bond", "Bank-issued senior bond", {
+      side: "liability",
+      notional: 750000,
+      initial: 750000,
+      terminal: 740000,
+      coupon: 3,
+      ecl: 0,
+      paymentFrequency: 6,
+    }),
+    example("IRS", "sample-irs", "Interest rate swap · trading", {
       notional: 2000000,
       terminal: 35000,
-    },
-    {
-      ...template("Cash at sight"),
-      id: "sample-deposit",
-      name: "Customer sight deposits",
+    }),
+    example("CCS", "sample-ccs", "Cross-currency swap · value turns negative", {
+      notional: 1000000,
+      initial: 12000,
+      terminal: -18000,
+    }),
+    example("CDS", "sample-cds", "Credit default swap · protection bought", {
+      notional: 1000000,
+      terminal: 22000,
+    }),
+    example("CFD", "sample-cfd", "Contract for difference · market loss", {
+      notional: 250000,
+      terminal: -12000,
+    }),
+    example("Option", "sample-option", "Purchased option · premium paid", {
+      notional: 500000,
+      initial: 15000,
+      terminal: 28000,
+    }),
+    example(
+      "Option",
+      "sample-written-option",
+      "Written option · premium received",
+      { notional: 500000, initial: -10000, terminal: -24000 },
+    ),
+    example("Cash", "sample-cash", "Vault cash", {
+      notional: 50000,
+      initial: 50000,
+      terminal: 50000,
+    }),
+    example(
+      "Cash at sight",
+      "sample-sight-asset",
+      "Sight deposit placed with a bank",
+      {
+        notional: 250000,
+        initial: 250000,
+        terminal: 250000,
+        coupon: 2,
+        ecl: 100,
+      },
+    ),
+    example("Cash at sight", "sample-deposit", "Customer sight deposits", {
       side: "liability",
       notional: 1200000,
       initial: 1200000,
       terminal: 1200000,
       coupon: 1.5,
       ecl: 0,
-    },
+    }),
+    example(
+      "Cash at call",
+      "sample-call-asset",
+      "Call deposit placed with a bank",
+      {
+        notional: 300000,
+        initial: 300000,
+        terminal: 300000,
+        coupon: 3,
+        ecl: 150,
+        paymentFrequency: 3,
+      },
+    ),
+    example("Cash at call", "sample-call-funding", "Customer call deposits", {
+      side: "liability",
+      notional: 400000,
+      initial: 400000,
+      terminal: 400000,
+      coupon: 2,
+      ecl: 0,
+      paymentFrequency: 3,
+    }),
   ];
 }
+
 export function validateInstrument(i: Instrument): string[] {
   const errors: string[] = [];
   if (!i.name.trim() || i.name.length > 100)
@@ -205,6 +296,11 @@ export function validateInstrument(i: Instrument): string[] {
   ] as const)
     if (!Number.isFinite(i[k]) || Math.abs(i[k]) > 1e12)
       errors.push(`${k}: enter a finite amount within the demo limit.`);
+  if (
+    i.paymentFrequency !== undefined &&
+    ![1, 3, 6, 12].includes(i.paymentFrequency)
+  )
+    errors.push("Choose monthly, quarterly, semiannual or annual payments.");
   if (i.notional <= 0) errors.push("Notional / principal must be positive.");
   if (i.coupon < 0 || i.coupon > 100)
     errors.push("Coupon must be between 0% and 100% in this demo.");
@@ -232,18 +328,28 @@ export function validateInstrument(i: Instrument): string[] {
     );
   return errors;
 }
-// Monthly effective yield solves the contractual monthly coupon and final redemption PV.
+// Effective yield solves scheduled coupons (including a final stub) and redemption.
+const yieldCache = new Map<string, number>();
 export function monthlyYield(
   initial: number,
   face: number,
   coupon: number,
   months: number,
+  frequency = 1,
 ): number {
+  const key = [initial, face, coupon, months, frequency].join("|");
+  const cached = yieldCache.get(key);
+  if (cached !== undefined) return cached;
   const payment = (face * coupon) / 100 / 12;
   const pv = (r: number) => {
     let sum = 0;
     for (let m = 1; m <= months; m++)
-      sum += (payment + (m === months ? face : 0)) / Math.pow(1 + r, m);
+      sum +=
+        ((m % frequency === 0 || m === months
+          ? payment * (m % frequency || frequency)
+          : 0) +
+          (m === months ? face : 0)) /
+        Math.pow(1 + r, m);
     return sum;
   };
   let low = -0.99,
@@ -254,7 +360,10 @@ export function monthlyYield(
     if (pv(mid) > initial) low = mid;
     else high = mid;
   }
-  return (low + high) / 2;
+  const result = (low + high) / 2;
+  if (yieldCache.size > 2000) yieldCache.clear();
+  yieldCache.set(key, result);
+  return result;
 }
 export function evaluate(i: Instrument, month: number) {
   const category = classify(i),
@@ -270,6 +379,8 @@ export function evaluate(i: Instrument, month: number) {
       allowance: 0,
       redemption: 0,
       initial: 0,
+      accrued: 0,
+      market: 0,
     };
   if (derivative) {
     const carrying = round(i.initial + ((i.terminal - i.initial) * month) / 12);
@@ -282,20 +393,29 @@ export function evaluate(i: Instrument, month: number) {
       allowance: 0,
       redemption: 0,
       initial: i.initial,
+      accrued: 0,
+      market: carrying,
     };
   }
   const months = Math.min(month, i.maturity),
     cash = i.product === "Cash";
+  const frequency = i.paymentFrequency ?? 1;
   const payment = cash ? 0 : (i.notional * i.coupon) / 100 / 12;
   const rate = cash
     ? 0
-    : monthlyYield(i.initial, i.notional, i.coupon, i.maturity);
+    : monthlyYield(i.initial, i.notional, i.coupon, i.maturity, frequency);
   let gross = i.initial,
-    interest = 0;
+    interest = 0,
+    paid = 0;
   for (let m = 1; m <= months && !cash; m++) {
     const accrued = gross * rate;
     interest += accrued;
-    gross += accrued - payment;
+    const cashPaid =
+      m % frequency === 0 || m === i.maturity
+        ? payment * (m % frequency || frequency)
+        : 0;
+    paid += cashPaid;
+    gross += accrued - cashPaid;
   }
   const matured = !cash && month >= i.maturity;
   // Adjust the final effective-interest amount for rounding so redemption clears exactly.
@@ -304,14 +424,15 @@ export function evaluate(i: Instrument, month: number) {
     gross = 0;
   }
   interest = round(interest);
-  const coupons = round(payment * months),
+  const coupons = round(paid),
     redemption = matured ? i.notional : 0;
   gross = round(i.initial + interest - coupons - redemption);
+  const accrued = matured || cash ? 0 : round(payment * months - paid);
   const fairValue = cash
     ? i.initial
     : matured
       ? 0
-      : round(i.initial + ((i.terminal - i.initial) * month) / 12);
+      : round(i.initial + ((i.terminal - i.initial) * month) / 12 + accrued);
   const allowance =
     i.side === "asset" && !cash && !matured && category !== "FVTPL" ? i.ecl : 0;
   const fvChange = category === "Amortised cost" ? 0 : round(fairValue - gross);
@@ -326,7 +447,32 @@ export function evaluate(i: Instrument, month: number) {
     allowance,
     redemption: round(sign * redemption),
     initial: round(sign * i.initial),
+    accrued: round(sign * accrued),
+    market: round(sign * fairValue),
   };
+}
+export const ACCOUNTS = {
+  cash: "1000 · Cash at bank — settlement",
+  capital: "3000 · Paid-in capital",
+  interestIncome: "4000 · Interest income",
+  interestExpense: "5000 · Interest expense",
+  fairValue: "4100 · Net gains / losses at FVTPL",
+  oci: "3100 · FVOCI debt reserve",
+  ecl: "5100 · Expected credit loss expense",
+} as const;
+export function instrumentAccount(i: Instrument): string {
+  const label = isDerivative(i.product)
+    ? "Derivative financial instruments"
+    : i.product === "Bond"
+      ? i.side === "asset"
+        ? "Debt securities held"
+        : "Debt securities issued"
+      : i.product === "Cash"
+        ? "Cash on hand"
+        : i.side === "asset"
+          ? "Deposits with banks"
+          : "Customer deposits";
+  return label + " · " + i.name + " [" + i.id + "]";
 }
 export function portfolio(
   instruments: Instrument[],
@@ -367,9 +513,9 @@ export function portfolio(
   pair(
     "Bank",
     "Opening capital",
-    "Settlement cash",
+    ACCOUNTS.cash,
     "Asset",
-    "Paid-in capital",
+    ACCOUNTS.capital,
     "Equity",
     OPENING_CAPITAL,
     0,
@@ -381,80 +527,121 @@ export function portfolio(
   for (const p of positions) {
     const i = p.instrument;
     if (p.category === "Review required") continue;
-    const account = `${i.name} [${i.id}]`,
-      type: AccountType = isDerivative(i.product)
-        ? p.carrying < 0
-          ? "Liability"
-          : "Asset"
-        : i.side === "liability"
-          ? "Liability"
-          : "Asset";
+    const account = instrumentAccount(i);
+    const type: AccountType = isDerivative(i.product)
+      ? p.carrying < 0
+        ? "Liability"
+        : "Asset"
+      : i.side === "liability"
+        ? "Liability"
+        : "Asset";
+    const funding = !isDerivative(i.product) && i.side === "liability";
+    const interestAccount = funding
+      ? ACCOUNTS.interestExpense
+      : ACCOUNTS.interestIncome;
+    const accruedAccount =
+      (funding ? "Accrued interest payable" : "Accrued interest receivable") +
+      " · " +
+      i.name +
+      " [" +
+      i.id +
+      "]";
+    const lossAccount = "Loss allowance · " + i.name + " [" + i.id + "]";
     pair(
       i.name,
       "Initial recognition",
       account,
       type,
-      "Settlement cash",
+      ACCOUNTS.cash,
       "Asset",
       p.initial,
       0,
     );
-    pair(
-      i.name,
-      "Effective interest accrued",
-      account,
-      type,
-      "Net interest income",
-      "Income",
-      p.interest,
-    );
-    pair(
-      i.name,
-      "Monthly coupons paid / received",
-      "Settlement cash",
-      "Asset",
-      account,
-      type,
-      p.coupons,
-    );
-    pair(
-      i.name,
-      "Principal redeemed",
-      "Settlement cash",
-      "Asset",
-      account,
-      type,
-      p.redemption,
-    );
-    pair(
-      i.name,
-      "Fair value remeasurement",
-      account,
-      type,
-      p.category === "FVOCI" ? "FVOCI reserve" : "Fair value result",
-      p.category === "FVOCI" ? "Equity" : "Income",
-      p.fvChange,
-    );
-    if (p.category === "Amortised cost")
+    for (let m = 0; m <= month; m++) {
+      const now = evaluate(i, m);
+      const prev = m ? evaluate(i, m - 1) : null;
+      const delta = (
+        key:
+          | "interest"
+          | "coupons"
+          | "redemption"
+          | "fvChange"
+          | "allowance"
+          | "accrued",
+      ) => round(now[key] - (prev?.[key] ?? 0));
       pair(
         i.name,
-        "User-supplied expected credit loss",
-        "Credit loss expense",
-        "Expense",
+        "Effective interest accrued",
         account,
         type,
-        p.allowance,
+        interestAccount,
+        funding ? "Expense" : "Income",
+        delta("interest"),
+        m,
       );
-    if (p.category === "FVOCI")
       pair(
         i.name,
-        "ECL in profit or loss; FVOCI asset remains at fair value",
-        "Credit loss expense",
-        "Expense",
-        "FVOCI reserve",
-        "Equity",
-        p.allowance,
+        "Contractual interest paid / received",
+        ACCOUNTS.cash,
+        "Asset",
+        account,
+        type,
+        delta("coupons"),
+        m,
       );
+      pair(
+        i.name,
+        "Accrued interest presentation",
+        accruedAccount,
+        funding ? "Liability" : "Asset",
+        account,
+        type,
+        delta("accrued"),
+        m,
+      );
+      pair(
+        i.name,
+        "Principal redeemed",
+        ACCOUNTS.cash,
+        "Asset",
+        account,
+        type,
+        delta("redemption"),
+        m,
+      );
+      pair(
+        i.name,
+        "Fair value remeasurement / reserve release",
+        account,
+        type,
+        p.category === "FVOCI" ? ACCOUNTS.oci : ACCOUNTS.fairValue,
+        p.category === "FVOCI" ? "Equity" : "Income",
+        delta("fvChange"),
+        m,
+      );
+      if (p.category === "Amortised cost")
+        pair(
+          i.name,
+          "Expected credit loss / reversal",
+          ACCOUNTS.ecl,
+          "Expense",
+          lossAccount,
+          "Asset",
+          delta("allowance"),
+          m,
+        );
+      if (p.category === "FVOCI")
+        pair(
+          i.name,
+          "ECL in profit or loss with OCI offset",
+          ACCOUNTS.ecl,
+          "Expense",
+          ACCOUNTS.oci,
+          "Equity",
+          delta("allowance"),
+          m,
+        );
+    }
   }
   const instrumentPostings = [...postings];
   for (const b of batches)
@@ -484,7 +671,7 @@ export function portfolio(
   }
   const rows = [...ledger.values()].filter((r) => Math.abs(r.balance) > 0.005);
   // Settlement overdrafts are liabilities, not negative cash assets.
-  const settlement = rows.find((r) => r.account === "Settlement cash");
+  const settlement = rows.find((r) => r.account === ACCOUNTS.cash);
   if (settlement && settlement.balance < 0) settlement.type = "Liability";
   const sum = (t: AccountType) =>
     round(rows.filter((r) => r.type === t).reduce((s, r) => s + r.balance, 0));

@@ -117,7 +117,7 @@ test("Maturity clears FVOCI asset and reserve", () => {
   );
   assert.equal(r.positions[0].carrying, 0);
   assert.equal(
-    r.rows.some((x) => x.account === "FVOCI reserve"),
+    r.rows.some((x) => x.account === a.ACCOUNTS.oci),
     false,
   );
   assert.equal(r.difference, 0);
@@ -187,5 +187,156 @@ test("Instrument validation prevents invalid and unsupported scenarios", () => {
     a.validateInstrument({ ...a.template("IRS"), maturity: 12 }).length,
   );
   assert.ok(a.validateInstrument({ ...bond, ecl: -1 }).length);
+});
+writeFileSync(
+  ".test-build/comparison.cjs",
+  ts
+    .transpileModule(readFileSync("src/lib/comparison.ts", "utf8"), {
+      compilerOptions: {
+        module: ts.ModuleKind.CommonJS,
+        target: ts.ScriptTarget.ES2020,
+      },
+    })
+    .outputText.replace(
+      'require("./accounting")',
+      'require("./accounting.cjs")',
+    ),
+);
+const comparison = createRequire(import.meta.url)(
+  "../.test-build/comparison.cjs",
+);
+test("Example library covers every requested product with valid unique inputs", () => {
+  const examples = a.samplePortfolio();
+  assert.equal(examples.length, 16);
+  assert.equal(new Set(examples.map((i) => i.id)).size, examples.length);
+  assert.deepEqual(
+    [...new Set(examples.map((i) => i.product))].sort(),
+    [...a.PRODUCTS].sort(),
+  );
+  examples.forEach((i) => assert.deepEqual(a.validateInstrument(i), []));
+});
+test("Quarterly coupon accrues before payment and clears at payment date", () => {
+  const i = { ...bond, coupon: 12, paymentFrequency: 3, ecl: 0 };
+  const first = a.evaluate(i, 1),
+    third = a.evaluate(i, 3);
+  assert.equal(first.coupons, 0);
+  assert.equal(first.accrued, 1000);
+  assert.equal(first.interest, a.round(100000 * (Math.pow(1.03, 1 / 3) - 1)));
+  assert.equal(third.coupons, 3000);
+  assert.equal(third.accrued, 0);
+  assert.equal(third.carrying, 100000);
+});
+test("Final stub pays coupons and clears principal, accrued interest, ECL and OCI", () => {
+  const i = {
+    ...bond,
+    paymentFrequency: 6,
+    maturity: 9,
+    coupon: 12,
+    initial: 97000,
+    businessModel: "collect-sell",
+  };
+  const p = a.evaluate(i, 9),
+    r = a.portfolio([i], [], 9);
+  assert.equal(p.coupons, 9000);
+  assert.equal(p.interest, 12000);
+  assert.equal(p.redemption, 100000);
+  assert.equal(p.accrued, 0);
+  assert.equal(p.carrying, 0);
+  assert.equal(p.allowance, 0);
+  assert.equal(p.fvChange, 0);
+  assert.equal(r.difference, 0);
+  assert.ok(!r.rows.some((row) => row.account === a.ACCOUNTS.oci));
+});
+test("Every generated monthly event contains equal debit and credit legs", () => {
+  const r = a.portfolio(a.samplePortfolio(), [], 12);
+  for (let n = 0; n < r.postings.length; n += 2) {
+    const left = r.postings[n],
+      right = r.postings[n + 1];
+    assert.equal(left.month, right.month);
+    assert.equal(left.description, right.description);
+    assert.equal(left.instrument, right.instrument);
+    assert.equal(a.round(left.amount + right.amount), 0);
+  }
+  for (let m = 0; m <= 12; m++)
+    assert.equal(
+      a.round(
+        r.postings
+          .filter((p) => p.month === m)
+          .reduce((s, p) => s + p.amount, 0),
+      ),
+      0,
+    );
+});
+test("Monthly history reconciles to each prior reporting snapshot", () => {
+  const examples = a.samplePortfolio();
+  const history = a.portfolio(examples, [], 12).postings;
+  const balances = (rows) => {
+    const map = new Map();
+    for (const r of rows)
+      map.set(r.account, a.round((map.get(r.account) || 0) + r.amount));
+    return [...map]
+      .filter(([, v]) => v !== 0)
+      .sort((a, b) => a[0].localeCompare(b[0]));
+  };
+  for (let m = 0; m <= 12; m++)
+    assert.deepEqual(
+      balances(history.filter((p) => p.month <= m)),
+      balances(a.portfolio(examples, [], m).postings),
+    );
+});
+test("FVOCI and FVTPL have identical book and total comprehensive result on debt paths", () => {
+  for (const i of a.samplePortfolio().filter(comparison.debtComparison))
+    for (let m = 0; m <= 12; m++) {
+      const pl = comparison.comparisonPoint(i, "FVTPL", m),
+        oci = comparison.comparisonPoint(i, "FVOCI", m);
+      assert.equal(pl.carrying, oci.carrying);
+      assert.equal(pl.comprehensive, oci.comprehensive);
+      assert.equal(oci.comprehensive, a.round(oci.pnl + oci.oci));
+      assert.equal(pl.oci, 0);
+      assert.equal(pl.allowance, 0);
+    }
+});
+test("Accrued interest and loss allowance have separate consistent ledger accounts", () => {
+  const i = { ...bond, paymentFrequency: 6 };
+  const r = a.portfolio([i], [], 1);
+  assert.ok(
+    r.rows.some(
+      (x) =>
+        x.account.startsWith("Accrued interest receivable") && x.balance > 0,
+    ),
+  );
+  assert.ok(
+    r.rows.some(
+      (x) => x.account.startsWith("Loss allowance") && x.balance === -i.ecl,
+    ),
+  );
+  assert.ok(r.rows.some((x) => x.account === a.ACCOUNTS.interestIncome));
+  const funding = a.portfolio([{ ...i, side: "liability" }], [], 1);
+  assert.ok(
+    funding.rows.some(
+      (x) => x.account.startsWith("Accrued interest payable") && x.balance < 0,
+    ),
+  );
+  assert.ok(
+    funding.rows.some(
+      (x) => x.account === a.ACCOUNTS.interestExpense && x.balance > 0,
+    ),
+  );
+});
+test("Unsupported FVOCI scenarios remain experiments and do not change classification", () => {
+  for (const product of ["IRS", "CCS", "CDS", "CFD", "Option", "Cash"]) {
+    const i = a.template(product),
+      category = a.classify(i);
+    assert.equal(comparison.available(i, "FVOCI"), false);
+    comparison.series(i, "FVOCI");
+    assert.equal(a.classify(i), category);
+  }
+});
+test("Old saved instruments retain monthly payments; invalid schedules are rejected", () => {
+  assert.deepEqual(
+    a.evaluate(bond, 5),
+    a.evaluate({ ...bond, paymentFrequency: 1 }, 5),
+  );
+  assert.ok(a.validateInstrument({ ...bond, paymentFrequency: 2 }).length);
 });
 console.log(`${count} accounting and import checks passed.`);

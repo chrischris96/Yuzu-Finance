@@ -398,3 +398,131 @@ summary {
     font-size: 11px;
   }
 }
+
+/* Comparison visuals and original Yuzu identity. */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: 0;
+}
+.brand img {
+  border-radius: 12px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.brand span {
+  margin-left: 0;
+}
+.comparison-workspace {
+  margin-top: 24px;
+}
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.scenario-card {
+  border-top: 4px solid #216c55;
+}
+.oci-card {
+  border-top-color: #9b4fbb;
+}
+.scenario-note {
+  min-height: 66px;
+  font-size: 13px;
+}
+.scenario-card .row {
+  flex-wrap: wrap;
+  font-size: 13px;
+  gap: 4px 12px;
+}
+.headline-number {
+  font-size: 28px;
+  letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
+  margin-top: 12px;
+  overflow-wrap: anywhere;
+}
+.time-chart {
+  margin: 0;
+  min-width: 0;
+}
+.time-chart h3 {
+  font-size: 19px;
+  margin: 0;
+}
+.time-chart p {
+  font-size: 13px;
+  min-height: 40px;
+}
+.time-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 12px;
+}
+.chart-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.chart-legend i {
+  display: inline-block;
+  width: 12px;
+  height: 4px;
+  border-radius: 2px;
+}
+.selected-month td,
+.selected-month th {
+  background: #edf3df;
+  font-weight: 600;
+}
+.example-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.example-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9faf6;
+}
+.example-card p {
+  font-size: 13px;
+}
+.columns > * {
+  min-width: 0;
+}
+@media (max-width: 1000px) {
+  .scenario-grid,
+  .example-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .scenario-card:last-child {
+    grid-column: 1/-1;
+  }
+}
+@media (max-width: 760px) {
+  .scenario-grid,
+  .example-grid {
+    grid-template-columns: 1fr;
+  }
+  .scenario-card:last-child {
+    grid-column: auto;
+  }
+  .scenario-note {
+    min-height: 0;
+  }
+  .brand img {
+    width: 58px;
+    height: 58px;
+  }
+}
