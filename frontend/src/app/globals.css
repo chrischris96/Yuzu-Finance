@@ -1,4 +1,246 @@
 @import "tailwindcss";
+.portfolio-bar {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 32px;
+  background: #eaf0df;
+  border-bottom: 1px solid #d9e1d8;
+  font-size: 13px;
+  color: #183f37;
+  flex-wrap: wrap;
+}
+.portfolio-bar a {
+  font-weight: 700;
+  text-decoration: none;
+}
+.portfolio-bar .text-button {
+  padding: 5px 10px;
+  background: transparent;
+  color: #183f37;
+  border: 1px solid #b9c8b5;
+}
+.welcome-help {
+  max-width: 1250px;
+  margin: 20px auto;
+  padding: 24px;
+  background: white;
+  border: 1px solid #d9e1d8;
+  border-radius: 18px;
+}
+.welcome-help textarea {
+  width: 100%;
+}
+.welcome-help details {
+  margin-top: 18px;
+}
+.field-hint {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  border-bottom: 1px dotted #769260;
+  cursor: help;
+}
+.hint-mark {
+  font-size: 12px;
+  color: #52775d;
+}
+.field-tooltip {
+  display: none;
+  position: absolute;
+  z-index: 80;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 280px;
+  max-width: 75vw;
+  padding: 13px 15px;
+  background: #183f37;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.5;
+  box-shadow: 0 6px 20px #183f3733;
+}
+.field-hint:hover .field-tooltip,
+.field-hint:focus .field-tooltip,
+.field-hint.is-open .field-tooltip {
+  display: block;
+}
+.scenario-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 24px 0;
+}
+.scenario-card {
+  background: white !important;
+  color: #183f37 !important;
+  text-align: left;
+  border: 1px solid #d9e1d8;
+  border-top: 5px solid;
+  padding: 24px;
+  border-radius: 18px;
+  font-weight: 400;
+  transition: box-shadow 0.2s;
+}
+.scenario-card.selected {
+  box-shadow: 0 0 0 2px #183f37;
+}
+.scenario-card p {
+  font-size: 14px;
+}
+.scenario-card h3 {
+  font-family: Georgia, serif;
+  font-size: 26px;
+  margin: 8px 0;
+}
+.scenario-card dl {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  font-size: 13px;
+  border-top: 1px solid #d9e1d8;
+  padding-top: 18px;
+}
+.scenario-card dd {
+  font-weight: 700;
+  margin: 0;
+}
+.gallery-intro {
+  max-width: 800px;
+}
+.gallery-intro h2,
+.story-panel h2 {
+  font-family: Georgia, serif;
+  font-size: 32px;
+}
+.scenario-gallery .panel {
+  margin-top: 24px;
+}
+.shock-chart {
+  width: 100%;
+  max-height: 350px;
+  overflow: visible;
+  fill: #183f37;
+}
+.curve-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+.curve-legend span {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.curve-legend i {
+  width: 22px;
+  height: 3px;
+}
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.citrus-boot {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #f5f6ef;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.citrus-loading {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  color: #183f37;
+}
+.citrus-boot .citrus-loading {
+  flex-direction: column;
+}
+.citrus-trio {
+  display: flex;
+  gap: 24px;
+  padding: 28px;
+  align-items: center;
+  justify-content: center;
+}
+.citrus-trio i {
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 46% 52% 45% 50%;
+  background: radial-gradient(circle at 32% 30%, #f9ed8e, #e2b637);
+  box-shadow: inset -4px -4px 0 #caa92b55;
+  animation: citrus-bob 1.1s ease-in-out infinite alternate;
+}
+.citrus-trio i:after {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 23px;
+  width: 22px;
+  height: 11px;
+  border-radius: 0 90% 0 90%;
+  background: #52775d;
+  transform: rotate(-25deg);
+}
+.citrus-trio i:nth-child(2) {
+  animation: citrus-roll 1.6s ease-in-out infinite alternate;
+}
+.citrus-trio i:nth-child(3) {
+  animation: citrus-sway 1.3s ease-in-out infinite alternate;
+}
+@keyframes citrus-bob {
+  to {
+    transform: translateY(-15px) rotate(12deg);
+  }
+}
+@keyframes citrus-roll {
+  to {
+    transform: rotate(35deg) translateX(7px);
+  }
+}
+@keyframes citrus-sway {
+  to {
+    transform: rotate(-22deg) scale(0.9);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .citrus-trio i {
+    animation: none !important;
+  }
+  .scenario-card {
+    transition: none;
+  }
+}
+@media (max-width: 850px) {
+  .scenario-cards,
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+  .portfolio-bar {
+    padding: 10px 18px;
+  }
+  .portfolio-bar > span {
+    display: none;
+  }
+  .welcome-help {
+    margin: 12px;
+  }
+  .scenario-card {
+    padding: 18px;
+  }
+}
 :root {
   --ink: #183f37;
   --muted: #5e7069;
@@ -525,4 +767,7 @@ summary {
     width: 58px;
     height: 58px;
   }
+}
+.field-hint.is-dismissed .field-tooltip {
+  display: none;
 }

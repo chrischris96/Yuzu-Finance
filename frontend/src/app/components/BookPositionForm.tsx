@@ -1,4 +1,5 @@
 "use client";
+import FieldHint from "./FieldHint";
 import { useEffect, useRef, useState } from "react";
 import { BookPosition } from "@/lib/bank-book";
 export default function BookPositionForm({
@@ -29,7 +30,7 @@ export default function BookPositionForm({
     choices: [string, string][],
   ) => (
     <label>
-      {label}
+      <FieldHint label={label} />
       <select
         value={String(p[key])}
         onChange={(e) =>
@@ -64,7 +65,7 @@ export default function BookPositionForm({
     percent = false,
   ) => (
     <label>
-      {label}
+      <FieldHint label={label} />
       <input
         required
         type="number"
@@ -102,7 +103,7 @@ export default function BookPositionForm({
         </div>
         <div className="form-grid">
           <label>
-            Name
+            <FieldHint label="Name" />
             <input
               required
               value={p.name}
@@ -139,7 +140,7 @@ export default function BookPositionForm({
             "openingValue",
           )}
           <label>
-            Contract maturity
+            <FieldHint label="Contract maturity" />
             <input
               required
               type="date"
@@ -173,7 +174,7 @@ export default function BookPositionForm({
             ])}
           {p.product === "IRS" && (
             <label>
-              Swap direction
+              <FieldHint label="Swap direction" />
               <select
                 value={String(p.payFixed)}
                 onChange={(e) => update("payFixed", e.target.value === "true")}
