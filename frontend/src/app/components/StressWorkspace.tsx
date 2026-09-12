@@ -514,8 +514,12 @@ export default function StressWorkspace() {
               <table>
                 <thead>
                   <tr>
-                    <th>Tenor (years)</th>
-                    <th>Zero rate (%)</th>
+                    <th>
+                      <FieldHint label="Tenor (years)" />
+                    </th>
+                    <th>
+                      <FieldHint label="Zero rate (%)" />
+                    </th>
                     <th />
                   </tr>
                 </thead>
@@ -798,13 +802,15 @@ export default function StressWorkspace() {
               {(["eveLoss", "niiLoss", "minimumCash"] as const).map(
                 (key, k) => (
                   <label key={key}>
-                    {
-                      [
-                        "EVE loss limit (€)",
-                        "Cumulative NII loss limit (€)",
-                        "Minimum projected settlement cash (€)",
-                      ][k]
-                    }
+                    <FieldHint
+                      label={
+                        [
+                          "EVE loss limit (€)",
+                          "Cumulative NII loss limit (€)",
+                          "Minimum projected settlement cash (€)",
+                        ][k]
+                      }
+                    />
                     <input
                       type="number"
                       value={model.limits[key]}

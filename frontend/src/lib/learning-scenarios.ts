@@ -23,7 +23,7 @@ export const learningSetups = [
   {
     name: "Funding squeeze",
     color: "#a44736",
-    title: "Value can improve while cash gets tighter",
+    title: "Funding pressure changes the picture",
     description:
       "Rates +200 bp; credit spreads +100 bp; deposit beta 1.5; life 12 months; 30% withdrawal after one month; PD proxy multiplier 2.",
     why: "Higher deposit pass-through raises funding costs; withdrawals consume cash. Shorter assumed deposit life also changes the baseline valuation. A positive EVE change cannot establish that the bank has adequate liquidity.",
