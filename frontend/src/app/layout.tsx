@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import PortfolioBar from "./components/PortfolioBar";
+import CitrusLoader from "./components/CitrusLoader";
 export const metadata: Metadata = {
   title: "Yuzu Finance · Bank Accounting Lab",
   description:
@@ -10,7 +12,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <PortfolioBar />
+        <CitrusLoader />
+        {children}
+      </body>
     </html>
   );
 }

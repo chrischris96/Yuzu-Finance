@@ -8,6 +8,8 @@ Use Node 22, then npm ci, npm test, npm run build and npm start. Open http://127
 
 ## Version 0.4
 
+The guided experience adds an example-first stress gallery, visible curve shocks, field explanations, an optional manual ChatGPT learning prompt, a shared citrus loader and a root portfolio link on every route. See [learning experience](../docs/LEARNING-EXPERIENCE.md). The calculation engine remains 0.4.1.
+
 The separate `/yuzu/stress/` bank book and stress lab adds dated curves, fixed/floating debt and IRS cash flows, deposit assumptions, reconciled monthly statements, parameterised scenarios, structured external cash-flow imports, replayable run exports and an optional local SQLite archive. Use Node 22.17 or later and `npm run book:server` for that archive. Read [the methodology and recovery guide](../docs/STRESS-TESTING.md) for import schemas, BIS principles mapping and limitations. The existing demo below remains available and uses its own stated valuation model.
 
 ## Version 0.3

@@ -1,4 +1,5 @@
 "use client";
+import FieldHint from "./FieldHint";
 import { useEffect, useRef, useState } from "react";
 import {
   Instrument,
@@ -47,7 +48,7 @@ export default function InstrumentForm({
     hint?: string,
   ) => (
     <label>
-      {label}
+      <FieldHint label={label} />
       <input
         type="number"
         required
@@ -106,7 +107,7 @@ export default function InstrumentForm({
         </div>
         <div className="form-grid">
           <label>
-            Financial product
+            <FieldHint label="Financial product" />
             <select
               value={value.product}
               onChange={(e) =>
@@ -126,7 +127,7 @@ export default function InstrumentForm({
             </small>
           </label>
           <label>
-            Instrument name
+            <FieldHint label="Instrument name" />
             <input
               required
               maxLength={100}
@@ -136,7 +137,7 @@ export default function InstrumentForm({
           </label>
           {!derivative && !cash && (
             <label>
-              Bank&apos;s position
+              <FieldHint label="Bank's position" />
               <select
                 value={value.side}
                 onChange={(e) =>
@@ -151,7 +152,7 @@ export default function InstrumentForm({
             </label>
           )}
           <label>
-            Valuation input
+            <FieldHint label="Valuation input" />
             <select
               value={value.marketMode}
               onChange={(e) => {
@@ -198,7 +199,7 @@ export default function InstrumentForm({
             )}
           {!cash && (
             <label>
-              Fair value at 1 January 2027 (€)
+              <FieldHint label="Fair value at 1 January 2027 (€)" />
               <input
                 type="number"
                 required
@@ -239,7 +240,7 @@ export default function InstrumentForm({
             )}
           {!derivative && !cash && (
             <label>
-              Interest payment schedule
+              <FieldHint label="Interest payment schedule" />
               <select
                 value={value.paymentFrequency ?? 1}
                 onChange={(e) =>
@@ -263,7 +264,7 @@ export default function InstrumentForm({
             <h3>IFRS 9 classification at inception</h3>
             <div className="form-grid">
               <label>
-                Business model
+                <FieldHint label="Business model" />
                 <select
                   value={value.businessModel}
                   onChange={(e) =>
@@ -283,7 +284,7 @@ export default function InstrumentForm({
                 </select>
               </label>
               <label>
-                SPPI assessment method
+                <FieldHint label="SPPI assessment method" />
                 <select
                   value={value.assessment}
                   onChange={(e) =>
@@ -301,7 +302,7 @@ export default function InstrumentForm({
               </label>
               {value.assessment === "direct" ? (
                 <label>
-                  SPPI result
+                  <FieldHint label="SPPI result" />
                   <select
                     value={value.sppi}
                     onChange={(e) =>
@@ -364,7 +365,7 @@ export default function InstrumentForm({
               {(category === "Amortised cost" || category === "FVOCI") && (
                 <>
                   <label>
-                    Credit-loss stage
+                    <FieldHint label="Credit-loss stage" />
                     <select
                       value={value.stage}
                       onChange={(e) =>

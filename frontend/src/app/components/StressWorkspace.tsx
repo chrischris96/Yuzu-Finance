@@ -1,4 +1,7 @@
 "use client";
+import FieldHint from "./FieldHint";
+import ScenarioGallery from "./ScenarioGallery";
+import { CitrusDance } from "./CitrusLoader";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -29,7 +32,7 @@ export default function StressWorkspace() {
     [curve, setCurve] = useState<Curve>(sampleCurve),
     [model, setModel] = useState<Model>(sampleModel),
     [horizon, setHorizon] = useState(12);
-  const [tab, setTab] = useState("book"),
+  const [tab, setTab] = useState("explore"),
     [run, setRun] = useState<RunRecord | null>(null),
     [saved, setSaved] = useState<RunRecord[]>([]),
     [month, setMonth] = useState(0),
@@ -189,7 +192,7 @@ export default function StressWorkspace() {
     step = 1,
   ) => (
     <label>
-      {label}
+      <FieldHint label={label} />
       <input
         type="number"
         step={step}
@@ -232,12 +235,20 @@ export default function StressWorkspace() {
             accounting views.
           </p>
         </div>
-        <button disabled={busy} onClick={execute}>
-          {busy ? "Working…" : "Validate & run stress test"}
+        <button
+          disabled={busy}
+          onClick={tab === "explore" ? () => setTab("book") : execute}
+        >
+          {busy
+            ? "Working…"
+            : tab === "explore"
+              ? "Edit a bank book"
+              : "Validate & run stress test"}
         </button>
       </section>
       <nav aria-label="Stress workspace">
         {[
+          ["explore", "Explore scenarios"],
           ["book", "Bank book"],
           ["scenario", "Models & scenarios"],
           ["results", "Results & reconciliation"],
@@ -268,6 +279,22 @@ export default function StressWorkspace() {
       {hidden(curveFile, "curve", ".json,.csv")}
       {hidden(modelFile, "model", ".json")}
       {hidden(runFile, "run", ".json")}
+      {busy && <CitrusDance text="Reconciling the bank book…" />}
+      {tab === "explore" && (
+        <ScenarioGallery
+          onLoad={(next) => {
+            setBook(sampleBook());
+            setCurve(sampleCurve());
+            setModel(next);
+            setHorizon(12);
+            setDirty(true);
+            setTab("scenario");
+            setMessage(
+              "Example and model setup loaded into your draft. Edit assumptions or validate and run.",
+            );
+          }}
+        />
+      )}
       {tab === "book" && (
         <>
           <section className="panel">
@@ -308,7 +335,7 @@ export default function StressWorkspace() {
             </div>
             <div className="form-grid">
               <label>
-                Book name
+                <FieldHint label="Book name" />
                 <input
                   value={book.name}
                   onChange={(e) =>
@@ -317,7 +344,7 @@ export default function StressWorkspace() {
                 />
               </label>
               <label>
-                Valuation date
+                <FieldHint label="Valuation date" />
                 <input
                   type="date"
                   value={book.asOf}
@@ -327,7 +354,7 @@ export default function StressWorkspace() {
                 />
               </label>
               <label>
-                Opening capital (€)
+                <FieldHint label="Opening capital (€)" />
                 <input
                   type="number"
                   value={book.capital}
@@ -337,7 +364,7 @@ export default function StressWorkspace() {
                 />
               </label>
               <label>
-                Data source / provenance
+                <FieldHint label="Data source / provenance" />
                 <input
                   value={book.source}
                   onChange={(e) =>
@@ -466,7 +493,7 @@ export default function StressWorkspace() {
             <h2>Market data</h2>
             <div className="form-grid">
               <label>
-                Curve valuation date
+                <FieldHint label="Curve valuation date" />
                 <input
                   type="date"
                   value={curve.asOf}
@@ -476,7 +503,7 @@ export default function StressWorkspace() {
                 />
               </label>
               <label>
-                Source / observation reference
+                <FieldHint label="Source / observation reference" />
                 <input
                   value={curve.source}
                   onChange={(e) =>
@@ -494,8 +521,12 @@ export default function StressWorkspace() {
               <table>
                 <thead>
                   <tr>
-                    <th>Tenor (years)</th>
-                    <th>Zero rate (%)</th>
+                    <th>
+                      <FieldHint label="Tenor (years)" />
+                    </th>
+                    <th>
+                      <FieldHint label="Zero rate (%)" />
+                    </th>
                     <th />
                   </tr>
                 </thead>
@@ -608,7 +639,7 @@ export default function StressWorkspace() {
               </div>
             </div>
             <label style={{ marginTop: 16 }}>
-              Start from an illustrative scenario
+              <FieldHint label="Start from an illustrative scenario" />
               <select
                 defaultValue=""
                 onChange={(e) => {
@@ -656,7 +687,7 @@ export default function StressWorkspace() {
             </label>
             <div className="form-grid">
               <label>
-                Model name
+                <FieldHint label="Model name" />
                 <input
                   value={model.name}
                   onChange={(e) =>
@@ -669,7 +700,7 @@ export default function StressWorkspace() {
                 />
               </label>
               <label>
-                Model version
+                <FieldHint label="Model version" />
                 <input
                   value={model.version}
                   onChange={(e) =>
@@ -682,7 +713,7 @@ export default function StressWorkspace() {
                 />
               </label>
               <label>
-                Owner
+                <FieldHint label="Owner" />
                 <input
                   value={model.owner}
                   onChange={(e) =>
@@ -695,7 +726,7 @@ export default function StressWorkspace() {
                 />
               </label>
               <label>
-                Purpose
+                <FieldHint label="Purpose" />
                 <input
                   value={model.purpose}
                   onChange={(e) =>
@@ -708,7 +739,7 @@ export default function StressWorkspace() {
                 />
               </label>
               <label>
-                Source / methodology
+                <FieldHint label="Source / methodology" />
                 <input
                   value={model.source}
                   onChange={(e) =>
@@ -721,7 +752,7 @@ export default function StressWorkspace() {
                 />
               </label>
               <label>
-                Limitations
+                <FieldHint label="Limitations" />
                 <input
                   value={model.limitations}
                   onChange={(e) =>
@@ -734,7 +765,7 @@ export default function StressWorkspace() {
                 />
               </label>
               <label>
-                Projection horizon
+                <FieldHint label="Projection horizon" />
                 <select
                   value={horizon}
                   onChange={(e) => draft(setHorizon, Number(e.target.value))}
@@ -745,7 +776,7 @@ export default function StressWorkspace() {
                 </select>
               </label>
               <label>
-                Discount convention
+                <FieldHint label="Discount convention" />
                 <select
                   value={model.compounding}
                   onChange={(e) =>
@@ -778,13 +809,15 @@ export default function StressWorkspace() {
               {(["eveLoss", "niiLoss", "minimumCash"] as const).map(
                 (key, k) => (
                   <label key={key}>
-                    {
-                      [
-                        "EVE loss limit (€)",
-                        "Cumulative NII loss limit (€)",
-                        "Minimum projected settlement cash (€)",
-                      ][k]
-                    }
+                    <FieldHint
+                      label={
+                        [
+                          "EVE loss limit (€)",
+                          "Cumulative NII loss limit (€)",
+                          "Minimum projected settlement cash (€)",
+                        ][k]
+                      }
+                    />
                     <input
                       type="number"
                       value={model.limits[key]}
@@ -815,7 +848,7 @@ export default function StressWorkspace() {
               <summary>Declared review & model governance</summary>
               <div className="form-grid">
                 <label>
-                  Review status
+                  <FieldHint label="Review status" />
                   <select
                     value={model.status}
                     onChange={(e) =>
@@ -830,7 +863,7 @@ export default function StressWorkspace() {
                   </select>
                 </label>
                 <label>
-                  Reviewer
+                  <FieldHint label="Reviewer" />
                   <input
                     value={model.reviewer}
                     onChange={(e) =>
@@ -839,7 +872,7 @@ export default function StressWorkspace() {
                   />
                 </label>
                 <label className="full">
-                  Review evidence / notes
+                  <FieldHint label="Review evidence / notes" />
                   <textarea
                     value={model.reviewNotes}
                     onChange={(e) =>
@@ -1101,7 +1134,7 @@ export default function StressWorkspace() {
               <div className="toolbar">
                 <h2>Balance sheet & trial balance</h2>
                 <label>
-                  Scenario
+                  <FieldHint label="Scenario" />
                   <select
                     value={view}
                     onChange={(e) =>
@@ -1494,10 +1527,7 @@ export default function StressWorkspace() {
         </section>
       )}
       <footer>
-        <p>
-          Draft edits do not overwrite saved runs. Fictional example data · no
-          paid services · no automatic live deployment.
-        </p>
+        <p>Fictional example data · draft edits never overwrite saved runs.</p>
       </footer>
       {editing && (
         <BookPositionForm
