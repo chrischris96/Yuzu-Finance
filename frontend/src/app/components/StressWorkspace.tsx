@@ -235,8 +235,15 @@ export default function StressWorkspace() {
             accounting views.
           </p>
         </div>
-        <button disabled={busy} onClick={execute}>
-          {busy ? "Working…" : "Validate & run stress test"}
+        <button
+          disabled={busy}
+          onClick={tab === "explore" ? () => setTab("book") : execute}
+        >
+          {busy
+            ? "Working…"
+            : tab === "explore"
+              ? "Edit a bank book"
+              : "Validate & run stress test"}
         </button>
       </section>
       <nav aria-label="Stress workspace">
@@ -1520,10 +1527,7 @@ export default function StressWorkspace() {
         </section>
       )}
       <footer>
-        <p>
-          Draft edits do not overwrite saved runs. Fictional example data · no
-          paid services · no automatic live deployment.
-        </p>
+        <p>Fictional example data · draft edits never overwrite saved runs.</p>
       </footer>
       {editing && (
         <BookPositionForm
