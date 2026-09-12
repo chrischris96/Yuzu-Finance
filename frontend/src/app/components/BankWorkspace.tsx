@@ -4,6 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import ComparisonWorkspace from "./ComparisonWorkspace";
 import TimeChart from "./TimeChart";
+import StatementTree from "./StatementTree";
+import LedgerTable from "./LedgerTable";
+import SavedBookWorkspace, { SavedBookAccess } from "./SavedBookWorkspace";
+import { RunRecord } from "@/lib/bank-book";
+import { legacyReport } from "@/lib/reporting";
 import InstrumentForm from "./InstrumentForm";
 import JournalWorkspace, { download } from "./JournalWorkspace";
 import {
@@ -27,6 +32,7 @@ export default function BankWorkspace({
 }: {
   comparison?: boolean;
 }) {
+  const [selectedRun, setSelectedRun] = useState<RunRecord | null>(null);
   const [instruments, setInstruments] = useState<Instrument[]>(samplePortfolio);
   const [batches, setBatches] = useState<Batch[]>([]);
   const [month, setMonth] = useState(6);
@@ -103,6 +109,7 @@ export default function BankWorkspace({
     }
   }, [ready, instruments, batches, month, storageError]);
   const result = portfolio(instruments, batches, month);
+  const report = legacyReport(instruments, batches, month);
   const review = result.positions.filter(
     (p) => p.category === "Review required",
   );
@@ -171,18 +178,13 @@ export default function BankWorkspace({
     );
     return true;
   };
-  const tableRows = (type: "Asset" | "Liability" | "Equity") =>
-    result.rows
-      .filter((r) => r.type === type)
-      .map((r) => (
-        <div className="row" key={r.account}>
-          <span>{r.account.replace(/ \[.*\]$/, "")}</span>
-          <span className="money">
-            {money(type === "Asset" ? r.balance : -r.balance)}
-          </span>
-        </div>
-      ));
-
+  if (selectedRun)
+    return (
+      <SavedBookWorkspace
+        run={selectedRun}
+        onClose={() => setSelectedRun(null)}
+      />
+    );
   return (
     <main className="workspace">
       <header>
@@ -203,6 +205,7 @@ export default function BankWorkspace({
           </Link>
         </div>
       </header>
+      {!comparison && <SavedBookAccess onOpen={setSelectedRun} />}
       <section className="intro">
         <div>
           <p className="eyebrow">YOUR BANK, UNDER THE MICROSCOPE</p>
@@ -334,37 +337,7 @@ export default function BankWorkspace({
                   </small>
                 </article>
               </div>
-              <div className="columns">
-                <section className="panel">
-                  <p className="eyebrow">RESOURCES</p>
-                  <h2>Assets</h2>
-                  {tableRows("Asset")}
-                  <div className="row total">
-                    <span>Total assets</span>
-                    <span className="money">{money(result.assets)}</span>
-                  </div>
-                </section>
-                <section className="panel">
-                  <p className="eyebrow">FUNDING</p>
-                  <h2>Liabilities & equity</h2>
-                  {tableRows("Liability")}
-                  <div className="row total">
-                    <span>Total liabilities</span>
-                    <span className="money">{money(result.liabilities)}</span>
-                  </div>
-                  {tableRows("Equity")}
-                  <div className="row">
-                    <span>Profit / loss for the period</span>
-                    <span className="money">{money(result.profit)}</span>
-                  </div>
-                  <div className="row total">
-                    <span>Total liabilities & equity</span>
-                    <span className="money">
-                      {money(result.liabilities + result.equity)}
-                    </span>
-                  </div>
-                </section>
-              </div>
+              <StatementTree report={report} />
               <div
                 className={`notice ${Math.abs(result.difference) > 0.005 ? "error" : ""}`}
               >
@@ -566,7 +539,11 @@ export default function BankWorkspace({
                   if (confirm("Remove this adjustment batch?"))
                     setBatches(batches.filter((b) => b.id !== id));
                 }}
-                postings={result.instrumentPostings}
+                postings={result.instrumentPostings.map((p, k) => ({
+                  ...p,
+                  account:
+                    report.entries[k].code + " · " + report.entries[k].label,
+                }))}
               />
             </div>
           )}
@@ -577,49 +554,7 @@ export default function BankWorkspace({
                 Combined trial balance for the bank scenario and your adjustment
                 batches.
               </p>
-              <div className="table-wrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Account</th>
-                      <th>Type</th>
-                      <th>Debit balance</th>
-                      <th>Credit balance</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {result.rows.map((r, n) => (
-                      <tr key={n}>
-                        <td>{r.account.replace(/ \[.*\]$/, "")}</td>
-                        <td>{r.type}</td>
-                        <td>{r.balance > 0 ? money(r.balance) : "—"}</td>
-                        <td>{r.balance < 0 ? money(-r.balance) : "—"}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                  <tfoot>
-                    <tr>
-                      <th colSpan={2}>Total debits / credits</th>
-                      <th className="money">
-                        {money(
-                          result.rows.reduce(
-                            (sum, r) => sum + Math.max(r.balance, 0),
-                            0,
-                          ),
-                        )}
-                      </th>
-                      <th className="money">
-                        {money(
-                          result.rows.reduce(
-                            (sum, r) => sum + Math.max(-r.balance, 0),
-                            0,
-                          ),
-                        )}
-                      </th>
-                    </tr>
-                  </tfoot>
-                </table>
-              </div>
+              <LedgerTable report={report} />
             </section>
           )}
         </>

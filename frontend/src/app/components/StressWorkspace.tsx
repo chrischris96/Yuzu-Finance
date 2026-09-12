@@ -1,6 +1,9 @@
 "use client";
 import FieldHint from "./FieldHint";
 import ScenarioGallery from "./ScenarioGallery";
+import StatementTree from "./StatementTree";
+import MitigationWorkspace from "./MitigationWorkspace";
+import { runReport } from "@/lib/reporting";
 import { CitrusDance } from "./CitrusLoader";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -42,6 +45,7 @@ export default function StressWorkspace() {
     [local, setLocal] = useState(false),
     [dirty, setDirty] = useState(false),
     [view, setView] = useState<"baseline" | "stress">("stress");
+  const [mitigationIds, setMitigationIds] = useState<string[] | null>(null);
   const bookFile = useRef<HTMLInputElement>(null),
     curveFile = useRef<HTMLInputElement>(null),
     modelFile = useRef<HTMLInputElement>(null),
@@ -1037,6 +1041,25 @@ export default function StressWorkspace() {
                 />
               </label>
             </section>
+            <StatementTree
+              report={runReport(run, month, view)}
+              onMitigate={(ids) => setMitigationIds(ids)}
+            />
+            <button
+              className="secondary"
+              onClick={() => setMitigationIds(mitigationIds ? null : [])}
+            >
+              {mitigationIds
+                ? "Close mitigation workspace"
+                : "Test a management action"}
+            </button>
+            {mitigationIds && (
+              <MitigationWorkspace
+                key={run.id + mitigationIds.join(",")}
+                run={run}
+                ids={mitigationIds}
+              />
+            )}
             <div className="columns">
               <section className="panel">
                 <StressPlot
