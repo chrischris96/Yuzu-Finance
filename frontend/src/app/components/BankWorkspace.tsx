@@ -255,6 +255,9 @@ export default function BankWorkspace({
             </Link>
           </>
         )}
+        <Link href="/stress" style={{ padding: "10px 17px" }}>
+          Bank Book & Stress Lab ↗
+        </Link>
       </nav>
       <div className="toolbar">
         <div className="split">
