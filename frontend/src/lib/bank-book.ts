@@ -1,5 +1,5 @@
 /** Deterministic educational cash-flow / booking / stress engine. No network, clocks or storage. */
-export const ENGINE_VERSION = "bank-book/0.4.0";
+export const ENGINE_VERSION = "bank-book/0.4.1";
 export type Treatment = "AC" | "FVOCI" | "FVTPL" | "Unresolved";
 export type Product =
   | "Bond"
@@ -531,6 +531,21 @@ export function cashflows(
   m: Model,
   stress: boolean,
 ): Flow[] {
+  // Monetary settlements are EUR cents. Do not persist platform-specific
+  // sub-cent transcendental noise in the calculation evidence.
+  return rawCashflows(p, b, c, m, stress).map((f) => ({
+    ...f,
+    interest: cents(f.interest),
+    principal: cents(f.principal),
+  }));
+}
+function rawCashflows(
+  p: BookPosition,
+  b: Book,
+  c: Curve,
+  m: Model,
+  stress: boolean,
+): Flow[] {
   const external =
     m.kind === "imported-cashflows"
       ? m.external?.positions.find((e) => e.id === p.id)
@@ -548,6 +563,7 @@ export function cashflows(
   const flows: Flow[] = [];
   let prev = b.asOf;
   const runoff = stress && nmd ? m.parameters.runoffPct : 0;
+  const withdrawnPrincipal = cents(p.notional * runoff);
   const runoffDate = addMonths(b.asOf, 1);
   const discountAt = (d: string) => discount(c, m, d, stress);
   for (const date of dates) {
@@ -587,7 +603,10 @@ export function cashflows(
       flows.push({
         date,
         interest: sign * p.notional * rate * exposureYears,
-        principal: date === maturity ? sign * p.notional * (1 - runoff) : 0,
+        principal:
+          date === maturity
+            ? sign * (cents(p.notional) - withdrawnPrincipal)
+            : 0,
         label: nmd
           ? "Behavioural deposit cash flow"
           : "Contractual debt cash flow",
@@ -599,7 +618,7 @@ export function cashflows(
     flows.push({
       date: runoffDate,
       interest: 0,
-      principal: sign * p.notional * runoff,
+      principal: sign * withdrawnPrincipal,
       label: "Assumed deposit withdrawal",
     });
   return flows.sort((a, b) => a.date.localeCompare(b.date));

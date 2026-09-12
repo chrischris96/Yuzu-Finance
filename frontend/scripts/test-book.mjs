@@ -1,6 +1,7 @@
 import "./compile-book.mjs";
 import { createRequire } from "node:module";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 const e = createRequire(import.meta.url)("../.book-build/bank-book.cjs");
 let count = 0;
 async function test(name, fn) {
@@ -448,5 +449,35 @@ await test("Extreme short-dated premium yield still reconciles", () => {
   i.book.positions[0].openingValue = 110;
   const r = e.runStress(i);
   near(r.positions[0].baseline.at(-1).gross, 0);
+});
+await test("Actual browser evidence replays exactly in Node", async () => {
+  const fixture = JSON.parse(
+    readFileSync(
+      new URL("./fixtures/browser-replay.json", import.meta.url),
+      "utf8",
+    ),
+  );
+  assert.equal(fixture.engineVersion, e.ENGINE_VERSION);
+  assert.equal(
+    await e.fingerprint(e.runStress(fixture.inputs)),
+    fixture.resultHash,
+  );
+});
+await test("Settlement cash flows use currency cents and preserve tiny deposit principal", () => {
+  const i = input();
+  i.book.positions = [
+    { ...i.book.positions[3], notional: 0.01, openingValue: 0.01 },
+  ];
+  i.model.parameters.runoffPct = 0.5;
+  const r = e.runStress(i);
+  near(
+    r.positions[0].stressFlows.reduce((s, f) => s + f.principal, 0),
+    -0.01,
+    0.000001,
+  );
+  for (const f of r.positions[0].stressFlows) {
+    near(f.interest * 100, Math.round(f.interest * 100), 0.000001);
+    near(f.principal * 100, Math.round(f.principal * 100), 0.000001);
+  }
 });
 console.log(`${count} bank-book / stress checks passed.`);

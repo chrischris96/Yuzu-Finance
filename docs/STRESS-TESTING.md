@@ -15,6 +15,7 @@ SHA-256 fingerprints detect accidental or partial modification; they are not dig
 ## Scope and calculations
 
 - EUR only; ACT/365 fixed; monthly, quarterly, semiannual or annual payments with a final stub. Calendar dates clamp to month end; holidays and business-day adjustments are not implemented.
+- Engine 0.4.1 fixes monetary cash-flow settlements to EUR cents before projection and hashing, avoiding browser/Node differences in sub-cent floating-point results. Deposit withdrawal and residual principal share the rounded total. Earlier development runs retain their original engine version and require that version to replay.
 - This is an inception-style snapshot: opening values are consideration amounts with zero opening accrued interest. Fair-value differences appear at the first reporting date. Importing an aged production ledger requires additional opening accrued interest, reserves, allowances and historical effective yields; do not reinterpret this adapter as that capability.
 - Built-in cash flows cover bullet fixed/floating bonds, term deposits, behavioural sight/call deposits, cash and net pay-fixed/receive-floating IRS (or reverse). The first floating period uses the supplied fixing; subsequent periods use forwards from discount factors. IRS does not exchange principal.
 - Fixed debt effective yield solves opening consideration against the complete baseline schedule and is preserved under stress. Floating debt is restricted to opening at par. Contractual unpaid interest is shown separately from effective-interest amortisation.
