@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "node scripts/serve-export.mjs",
     "lint": "eslint .",
-    "test": "node scripts/test-accounting.mjs"
+    "test": "node scripts/test-accounting.mjs && node scripts/test-book.mjs && node scripts/test-book-server.mjs",
+    "test:book": "node scripts/test-book.mjs",
+    "test:archive": "node scripts/test-book-server.mjs",
+    "book:server": "node scripts/book-server.mjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.11",

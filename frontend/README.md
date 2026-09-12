@@ -6,6 +6,10 @@ Public educational EUR bank portfolio at /yuzu/. No login or backend is needed. 
 
 Use Node 22, then npm ci, npm test, npm run build and npm start. Open http://127.0.0.1:3000/yuzu/. Static output is in out/ and is composed with the Flutter portfolio by chrischris96/website-flutter. That repository pins a reviewed Yuzu commit and tests Firebase routing before packaging. Building does not publish to Firebase.
 
+## Version 0.4
+
+The separate `/yuzu/stress/` bank book and stress lab adds dated curves, fixed/floating debt and IRS cash flows, deposit assumptions, reconciled monthly statements, parameterised scenarios, structured external cash-flow imports, replayable run exports and an optional local SQLite archive. Use Node 22.17 or later and `npm run book:server` for that archive. Read [the methodology and recovery guide](../docs/STRESS-TESTING.md) for import schemas, BIS principles mapping and limitations. The existing demo below remains available and uses its own stated valuation model.
+
 ## Version 0.3
 
 - Original Yuzu PNG artwork (also retained at its legacy favicon path).
