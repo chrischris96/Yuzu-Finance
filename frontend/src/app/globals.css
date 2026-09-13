@@ -774,3 +774,138 @@ summary {
 .field-hint.is-dismissed .field-tooltip {
   display: none;
 }
+/* Bank reporting tree: horizontal scrolling preserves legible figures on small screens. */
+.statement-tree {
+  margin: 24px 0;
+}
+.statement-grid {
+  min-width: 920px;
+}
+.statement-row {
+  display: grid;
+  grid-template-columns: minmax(300px, 2.6fr) repeat(4, minmax(125px, 1fr));
+  align-items: center;
+  border-bottom: 1px solid #dce3d9;
+  font-size: 0.86rem;
+}
+.statement-grid.with-risk {
+  min-width: 1100px;
+}
+.statement-grid.with-risk .statement-row {
+  grid-template-columns: minmax(300px, 2.6fr) repeat(
+      4,
+      minmax(125px, 1fr)
+    ) minmax(180px, 1.3fr);
+}
+.statement-row > * {
+  padding: 12px 8px;
+}
+.statement-row > :not(:first-child) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.statement-head {
+  background: #e9efdf;
+  color: #244d41;
+}
+.statement-node .statement-node {
+  background: rgba(238, 242, 231, 0.23);
+}
+.tree-toggle,
+.tree-label {
+  background: transparent;
+  color: #244d41;
+  border: 0;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: none;
+  font: inherit;
+  text-align: left;
+}
+.tree-toggle {
+  min-width: 26px;
+  font-weight: 700;
+}
+.tree-label {
+  text-decoration: underline dotted;
+  text-underline-offset: 4px;
+}
+.tree-label:hover,
+.tree-toggle:hover {
+  background: #e5eddc;
+}
+.tree-postings {
+  padding: 8px 24px 8px 70px;
+  display: grid;
+  gap: 4px;
+}
+.tree-postings button {
+  text-align: left;
+  background: #f3f5ef;
+  color: #344c42;
+  font-weight: normal;
+  padding: 8px;
+}
+.risk-adverse {
+  background: #f5eddf;
+  color: #7a4b1c;
+}
+.risk-favourable {
+  background: #e7f1eb;
+  color: #245641;
+}
+.risk-unavailable {
+  background: #f0f0ec;
+  color: #686d69;
+}
+.statement-row small {
+  display: block;
+  font-size: 0.7rem;
+}
+.ledger-detail,
+.layout-editor {
+  margin-top: 20px;
+  padding: 22px;
+  border: 1px solid #cbd6c4;
+  border-radius: 16px;
+  background: #f6f8ef;
+}
+.ledger-detail details {
+  padding: 12px 0;
+  border-bottom: 1px solid #dce3d9;
+}
+.movement-bars {
+  display: grid;
+  gap: 8px;
+  margin: 20px 0;
+}
+.movement-bars > div {
+  display: grid;
+  grid-template-columns: 110px 1fr 140px;
+  gap: 12px;
+  align-items: center;
+}
+.movement-bars meter {
+  width: 100%;
+}
+.trace-id {
+  overflow-wrap: anywhere;
+}
+.mitigation-workspace {
+  margin: 24px 0;
+}
+.mitigation-workspace .statement-tree {
+  padding: 12px;
+}
+@media (max-width: 600px) {
+  .ledger-detail,
+  .layout-editor {
+    padding: 12px;
+  }
+  .movement-bars > div {
+    grid-template-columns: 90px 1fr;
+  }
+  .movement-bars strong {
+    grid-column: 2;
+  }
+}
